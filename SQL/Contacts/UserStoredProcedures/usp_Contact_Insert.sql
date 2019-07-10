@@ -1,4 +1,4 @@
-﻿CREATE OR ALTER PROCEDURE [dbo].[usp_Insert_Contact]    
+﻿CREATE OR ALTER PROCEDURE [dbo].[usp_Contact_Insert]    
 (    
    @FirstName varchar(50), -- start with 50, then expand if needed
    @LastName varchar(50),  -- start with 50, then expand if needed  

@@ -14,51 +14,53 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleAppWithDapper.DataAccess", "SampleAppWithDapper.DataAccess\SampleAppWithDapper.DataAccess.csproj", "{C94CB4F0-A58D-4A57-AB5D-0147CFDC44A5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{0BCD77C8-B8C0-4F55-B44F-C3A197350656}"
-	ProjectSection(SolutionItems) = preProject
-		ExternalLogins.sql = ExternalLogins.sql
-		IdentityDb_CreateSchema.sql = IdentityDb_CreateSchema.sql
-		Users.sql = Users.sql
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aircraft", "Aircraft", "{FA6A18A7-5EEF-4C50-B662-FE6DB7A6A101}"
 	ProjectSection(SolutionItems) = preProject
-		01_Create_Aircraft_Table.sql = 01_Create_Aircraft_Table.sql
-		02_Create_Airport_Table.sql = 02_Create_Airport_Table.sql
-		03_Create_Scheduled_Flight_Table.sql = 03_Create_Scheduled_Flight_Table.sql
-		04_Create_Flight_Table.sql = 04_Create_Flight_Table.sql
-		Insert_Basic_Test_Data.sql = Insert_Basic_Test_Data.sql
+		SQL\Aircraft\01_Create_Aircraft_Table.sql = SQL\Aircraft\01_Create_Aircraft_Table.sql
+		SQL\Aircraft\02_Create_Airport_Table.sql = SQL\Aircraft\02_Create_Airport_Table.sql
+		SQL\Aircraft\03_Create_Scheduled_Flight_Table.sql = SQL\Aircraft\03_Create_Scheduled_Flight_Table.sql
+		SQL\Aircraft\04_Create_Flight_Table.sql = SQL\Aircraft\04_Create_Flight_Table.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestData", "TestData", "{7EBCA179-DD65-4C00-8E85-79AC855D7752}"
 	ProjectSection(SolutionItems) = preProject
-		Insert_Basic_Test_Data.sql = Insert_Basic_Test_Data.sql
-		Insert_Extended_Test_Data.sql = Insert_Extended_Test_Data.sql
+		SQL\Aircraft\TestData\Insert_Basic_Test_Data.sql = SQL\Aircraft\TestData\Insert_Basic_Test_Data.sql
+		SQL\Aircraft\TestData\Insert_Extended_Test_Data.sql = SQL\Aircraft\TestData\Insert_Extended_Test_Data.sql
+		SQL\Aircraft\TestData\Products.sql = SQL\Aircraft\TestData\Products.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contacts", "Contacts", "{6AA2AE39-A52D-405B-803C-E91F27B9F874}"
 	ProjectSection(SolutionItems) = preProject
-		Create_Contacts_Table.sql = Create_Contacts_Table.sql
+		SQL\Contacts\Create_Contacts_Table.sql = SQL\Contacts\Create_Contacts_Table.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uSERsTOREDpROCEDURES", "uSERsTOREDpROCEDURES", "{B72511B2-CFB9-4389-A7A0-5D4F22D0E128}"
 	ProjectSection(SolutionItems) = preProject
-		usp_Contact_GetById.sql = usp_Contact_GetById.sql
-		usp_Contact_Update.sql = usp_Contact_Update.sql
-		usp_Contacts_GetPaginated.sql = usp_Contacts_GetPaginated.sql
-		usp_Delete_Contact.sql = usp_Delete_Contact.sql
-		usp_Insert_Contact.sql = usp_Insert_Contact.sql
+		SQL\Contacts\UserStoredProcedures\usp_Contact_Delete.sql = SQL\Contacts\UserStoredProcedures\usp_Contact_Delete.sql
+		SQL\Contacts\UserStoredProcedures\usp_Contact_GetById.sql = SQL\Contacts\UserStoredProcedures\usp_Contact_GetById.sql
+		SQL\Contacts\UserStoredProcedures\usp_Contact_Insert.sql = SQL\Contacts\UserStoredProcedures\usp_Contact_Insert.sql
+		SQL\Contacts\UserStoredProcedures\usp_Contact_Update.sql = SQL\Contacts\UserStoredProcedures\usp_Contact_Update.sql
+		SQL\Contacts\UserStoredProcedures\usp_Contacts_GetPaginated.sql = SQL\Contacts\UserStoredProcedures\usp_Contacts_GetPaginated.sql
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleAppWithDapper.DataAccess.Test", "..\SampleAppWithDapper.DataAccess.Test\SampleAppWithDapper.DataAccess.Test.csproj", "{E8B1F5A0-9751-4B7B-B168-0526186888F0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestData", "TestData", "{CC09D837-8CF4-4D64-A4BC-88B6C6A87C15}"
 	ProjectSection(SolutionItems) = preProject
-		Insert_Contact_Test_Data.sql = Insert_Contact_Test_Data.sql
+		SQL\Contacts\TestData\Insert_Contact_Test_Data.sql = SQL\Contacts\TestData\Insert_Contact_Test_Data.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{5C70470F-B9F2-4CF7-8856-D9B3F110A5ED}"
 	ProjectSection(SolutionItems) = preProject
-		udf_IsValidEmail.sql = udf_IsValidEmail.sql
+		SQL\Contacts\UserDefinedFunctions\udf_IsValidEmail.sql = SQL\Contacts\UserDefinedFunctions\udf_IsValidEmail.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{050FD79F-67DC-4F9E-85F7-D7C2A6CA8E38}"
+	ProjectSection(SolutionItems) = preProject
+		SQL\Identity\Create_ExternalLogins_Table.sql = SQL\Identity\Create_ExternalLogins_Table.sql
+		SQL\Identity\Create_Users_Table.sql = SQL\Identity\Create_Users_Table.sql
+		SQL\Identity\IdentityDb_CreateSchema.sql = SQL\Identity\IdentityDb_CreateSchema.sql
 	EndProjectSection
 EndProject
 Global
@@ -102,6 +104,7 @@ Global
 		{B72511B2-CFB9-4389-A7A0-5D4F22D0E128} = {6AA2AE39-A52D-405B-803C-E91F27B9F874}
 		{CC09D837-8CF4-4D64-A4BC-88B6C6A87C15} = {6AA2AE39-A52D-405B-803C-E91F27B9F874}
 		{5C70470F-B9F2-4CF7-8856-D9B3F110A5ED} = {6AA2AE39-A52D-405B-803C-E91F27B9F874}
+		{050FD79F-67DC-4F9E-85F7-D7C2A6CA8E38} = {0BCD77C8-B8C0-4F55-B44F-C3A197350656}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A316706-F8B4-424C-BE8C-337CF59D93CF}
