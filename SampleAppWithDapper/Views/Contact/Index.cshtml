@@ -1,0 +1,104 @@
+﻿@model SampleAppWithDapper.Models.Contacts.ContactViewModel
+
+@{
+    ViewBag.Title = "Contacts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    .contactsDashboard_contactsDatatable_create {
+    }
+
+    .createNewDialog {
+    }
+</style>
+<script>
+    var datatablesConStringForContacts = "@Url.Action("CustomServerSideSearchActionAsync", "Contact")";
+    var deleteUrl = "/Contact/Delete/";
+    var toolTipUrl = '/Contact/Detail';
+    var detailUrl = "/Contact/Detail";
+    var editUrl = "/Contact/Edit";
+    var insertUrl = "/Contact/Insert";
+</script>
+<header class="bg-gradient" id="home">
+    <div class="container mt-3">
+        @*<p class="tagline">The one and only solution for any kind contact management. </p>*@
+    </div>
+</header>
+
+<div class="container" style="background-color: whitesmoke; padding: 6px">
+    <div class="row">
+        <!-- Contacts toolbar pickers -->
+        <div style="width: 90%; margin: 0 auto; padding-top:10px">
+            <table class="table table-condensed" data-classes="table" style="align-content: center; position: center; width: 100%; background-color: whitesmoke; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                <thead></thead>
+                <tbody>
+                    <tr style="padding-top: 1px">
+                        <td style="width: 45%;">
+                            <input type='button' class="btn btn-primary contactsDashboard_contactsDatatable_create createNewDialog" value='Create new record' onclick='window.location = "@Url.Action("Create", "Contact")";' />
+                        </td>
+
+                        <td style="width: 75%" ;>
+                            <!-- Search by text -->
+                            <div class="form-group" style="width: 65%; float:left">
+
+                                @Html.TextBox("searchStringContactsMainGrid", ViewBag.CurrentFilter as string, new { @class = "form-control", @placeholder = "Enter search criteria", @value = ViewBag.CurrentFilter, @data_toggle = "tooltip", @data_placement = "top", @title = "", @data_original_title = "Enter search criteria", @style = "float: left; padding-left: 0px; padding-right: 0px; padding-top:0px" })
+                                @Html.ValidationMessage("SearchStringContactsMainGrid")
+
+
+                            </div>
+                            <div class="form-group" style="width: 25%; float:right">
+                                <button class="btn btn-primary" id="submitSearchContactsMainGrid" style="float: right; margin: 1px; margin-bottom: 0px; margin-top: 0px" type="submit" name="submitSearchContactsMainGrid" data-toggle="tooltip" data-placement="right" title="" data-original-title="Begin search">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- #END# Contacts pickers -->
+    </div>
+
+    <div style="width: 90%; margin: 0 auto;">
+
+        <table id="ContactsDashboard_ContactsDatatable" style="width: 100%" class="display table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Telephone number</th>
+                    <th>E-Mail</th>
+                    <th>Created at</th>
+                    @*<th>CreatedBy</th>*@
+                    <th>Modified at</th>
+                    @*<th>ModifiedBy</th>*@
+                </tr>
+            </thead>
+
+            <tfoot>
+                @*<tr>
+                         <th>Id</th>
+                         <th>FirstName</th>
+                         <th>LastName</th>
+                         <th>TelephoneNumber_Entry</th>
+                         <th>EMail</th>
+                         <th>CreatedUtc</th>
+                         <th>CreatedBy</th>
+                         <th>ModifiedUtc</th>
+                         <th>ModifiedBy</th>
+                    </tr>*@
+            </tfoot>
+
+        </table>
+    </div>
+
+    <div>
+        <hr />
+    </div>
+
+    <!-- ============================== -->
+    <!-- #END# Contacts Datatable card -->
+    <!-- ============================== -->
+</div>
+<script src="~/Scripts/Contacts/ContactsDatatableWireup.js"></script>

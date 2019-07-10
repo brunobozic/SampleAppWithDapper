@@ -1,0 +1,83 @@
+﻿@using SampleAppWithDapper.ToastrAlertHelpers
+
+@helper ShowToastMessages(Toastr toastr)
+{
+    if (toastr != null)
+    {
+        <script>
+                $(document).ready(function() {
+
+                    toastr.options.closeButton = '@toastr.ShowCloseButton';
+                    toastr.options.newestOnTop = '@toastr.ShowNewestOnTop';
+                    toastr.options.progressBar = '@toastr.ShowProgressBar';
+                    toastr.options.positionClass = '@toastr.Position';
+
+                    @foreach (ToastMessage message in toastr.ToastMessages)
+                    {
+                        string toastTypeValue = message.ToastType.ToString("F").ToLower();
+                        @: var optionsOverride = { /* Add message specific options here */  };
+
+                        if (message.IsSticky)
+                        {
+                            @:optionsOverride.timeOut = 0;
+                            @:optionsOverride.extendedTimeout = 0;
+                        }
+
+                        if (message.Position == ToastrPositionEnum.TopRight)
+                        {
+                            // "positionClass": "toast-top-right",
+                            @:optionsOverride.positionClass = "toast-top-right";
+                        }
+
+                        if (message.Position == ToastrPositionEnum.BottomRight)
+                        {
+                            @:optionsOverride.positionClass = "toast-bottom-right";
+                        }
+
+                        if (message.CloseWindowButtonShown)
+                        {
+                            @:optionsOverride.closeButton = false;
+                            @:optionsOverride.progressBar = false;
+                            @:optionsOverride.timeOut = 0;
+                            @:optionsOverride.extendedTimeout = 0;
+                            @:var inner = "@message.Message.Replace("'", "\\'")";
+                            @:var message = "<div>" + inner + "<button type='button' id='okBtn' class='btn btn-primary'>Close me</button></div>";
+                            @:var $toast = toastr['@toastTypeValue'](message, '@message.Title', optionsOverride); // Wire up an event handler to a button in the toast, if it exists
+                            @:$toastlast = $toast;
+                        }
+                        else
+                        {
+                            @:var $toast = toastr['@toastTypeValue']('@message.Message', '@message.Title', optionsOverride);
+                            @:$toastlast = $toast;
+                        }
+                    }
+
+                    if ($toast.find('#okBtn').length) {
+                        $toast.delegate('#okBtn', 'click', function () {
+                            window.opener = self;
+                            $toast.remove();
+                            window.close();
+                        });
+                    }
+
+                    if ($toast.find('.clear').length) {
+                        $toast.delegate('.clear', 'click', function () {
+                            toastr.clear($toast, { force: true });
+                        });
+                    }
+
+                    function getLastToast(){
+                        return $toastlast;
+                    }
+
+                    $('#clearlasttoast').click(function () {
+                        toastr.clear(getLastToast());
+                    });
+
+                    $('#cleartoasts').click(function () {
+                        toastr.clear();
+                    });
+                });
+        </script>
+    }
+}
