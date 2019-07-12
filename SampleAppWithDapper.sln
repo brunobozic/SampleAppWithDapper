@@ -32,7 +32,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestData", "TestData", "{7E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contacts", "Contacts", "{6AA2AE39-A52D-405B-803C-E91F27B9F874}"
 	ProjectSection(SolutionItems) = preProject
-		SQL\Contacts\Create_Contacts_Table.sql = SQL\Contacts\Create_Contacts_Table.sql
+		SQL\Contacts\01_Create_Contacts_Table.sql = SQL\Contacts\01_Create_Contacts_Table.sql
+		02_Create_Address_Table.sql = 02_Create_Address_Table.sql
+		03_Create_AddressType_Table.sql = 03_Create_AddressType_Table.sql
+		04_Create_ContactType_Table.sql = 04_Create_ContactType_Table.sql
+		05_Create_Email_Table.sql = 05_Create_Email_Table.sql
+		06_Create_Phone_Table.sql = 06_Create_Phone_Table.sql
+		07_Create_PhoneType_Table.sql = 07_Create_PhoneType_Table.sql
+		SQL\Contacts\08_Create_CountryRegion_Table.sql = SQL\Contacts\08_Create_CountryRegion_Table.sql
+		SQL\Contacts\09_Create_StateProvince_Table.sql = SQL\Contacts\09_Create_StateProvince_Table.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uSERsTOREDpROCEDURES", "uSERsTOREDpROCEDURES", "{B72511B2-CFB9-4389-A7A0-5D4F22D0E128}"

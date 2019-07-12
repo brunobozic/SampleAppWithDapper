@@ -41,8 +41,8 @@ namespace SampleAppWithDapper.DataAccess.Repositories.Contact
 
             var contacts = await resultAsync.ReadAsync<Domain.DomainModels.Contact.Contact>();
             var filtertedCount = await resultAsync.ReadAsync<int>();
-
-            retVal.Contacts = contacts.ToList();
+            retVal.TotalCount = contacts.Count();
+            retVal.Contacts = contacts.ConvertToViewModel().ToList();
             retVal.FilteredCount = filtertedCount.FirstOrDefault();
 
             return retVal;

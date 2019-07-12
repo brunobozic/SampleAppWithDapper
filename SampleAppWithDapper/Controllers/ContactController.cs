@@ -11,6 +11,7 @@ using SampleAppWithDapper.Models.Contacts;
 using SampleAppWithDapper.Models.Contacts.Extensions;
 using SampleAppWithDapper.ToastrAlertHelpers;
 using SampleAppWithDapper.UserHelpers;
+using ContactViewModel = SampleAppWithDapper.DataAccess.Repositories.Contact.ContactViewModel;
 
 namespace SampleAppWithDapper.Controllers
 {
@@ -57,7 +58,7 @@ namespace SampleAppWithDapper.Controllers
 
                     var result = await _contactRepository.ContactCreateAsync(req);
 
-                    this.AddToastMessage("New contact created", "Success", ToastType.Success);
+                    this.AddToastMessage(@Resource.Resource.CreateContact_Toast_Success, "Success", ToastType.Success);
 
                     // return View("ContactCreationConfirmed", result);
                     var ecvm = new EditContactViewModel
@@ -74,9 +75,9 @@ namespace SampleAppWithDapper.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("", "Unable to perform action. Please contact us.");
+                ModelState.AddModelError("", @Resource.Resource.Model_Error_Unable_To_Perform_Action);
 
-                this.AddToastMessage("New contact not created", ex.Message, ToastType.Error);
+                this.AddToastMessage(@Resource.Resource.CreateContact_Toast_Failure, ex.Message, ToastType.Error);
 
                 var em = new ContactCreateExceptionMessage { Message = ex.Message };
 
@@ -107,10 +108,11 @@ namespace SampleAppWithDapper.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit(int id, [Bind(Include = "FirstName, LastName, EMail, TelephoneNumber_Entry")]EditContactViewModel editModel)
+        public async Task<ActionResult> Edit(int? id, [Bind(Include = "FirstName, LastName, EMail, TelephoneNumber_Entry")]EditContactViewModel editModel)
         {
             var req = new ContactUpdateRequest
             {
+                Id = id ?? editModel.Id,
                 FirstName = editModel.FirstName,
                 LastName = editModel.LastName,
                 EMail = editModel.EMail,
@@ -118,11 +120,11 @@ namespace SampleAppWithDapper.Controllers
                 Updater = "SystemFakeUser"
             };
 
-            var result = await _contactRepository.UpdateContactAsync(id, req);
+            var result = await _contactRepository.UpdateContactAsync(req.Id, req);
 
             if (result.Success)
             {
-                this.AddToastMessage("Contact update", "Success", ToastType.Success);
+                this.AddToastMessage(@Resource.Resource.UpdateContact_Toast_Success, "Success", ToastType.Success);
 
                 return View(editModel);
             }
@@ -130,7 +132,7 @@ namespace SampleAppWithDapper.Controllers
             {
                 var vm = new GenericErrorVM { ErrorMessage = result.Message };
 
-                this.AddToastMessage("Contact not updated", result.Message, ToastType.Error);
+                this.AddToastMessage(@Resource.Resource.UpdateContact_Toast_Failure, result.Message, ToastType.Error);
 
                 return View("../GenericError/GenericError", vm);
             }
@@ -201,6 +203,11 @@ namespace SampleAppWithDapper.Controllers
             };
 
             var paginatedResults = await _contactRepository.GetPaginatedResultsAsync(requestForPaginatedContacts);
+
+            foreach (var item in paginatedResults.Contacts)
+            {
+                item.Action = "<a type='button' class='btn btn-outline-dark btn-xs btnGridEdit' style='float:right; padding:6px' href='" + this.Url.Action("Edit", "Contact", new { Id = item.Id }) + "'><i class= 'fa fa-edit fa-lg'></i> EDIT</a>";
+            }
 
             return paginatedResults;
         }

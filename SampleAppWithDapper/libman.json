@@ -51,6 +51,10 @@
       "provider": "cdnjs",
       "library": "moment.js@2.24.0",
       "destination": "lib/moment.js/"
+    },
+    {
+      "library": "pdfmake@0.1.57",
+      "destination": "lib/pdfmake/"
     }
   ]
 }

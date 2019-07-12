@@ -7,5 +7,6 @@
         public string LastName { get; set; }
         public string EMail { get; set; }
         public string Updater { get; set; }
+        public int Id { get; set; }
     }
 }

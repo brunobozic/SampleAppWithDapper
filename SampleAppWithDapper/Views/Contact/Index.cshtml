@@ -1,7 +1,7 @@
-﻿@model SampleAppWithDapper.Models.Contacts.ContactViewModel
+﻿@model SampleAppWithDapper.DataAccess.Repositories.Contact.ContactViewModel
 
 @{
-    ViewBag.Title = "Contacts";
+    ViewBag.Title = Resource.Resource.APP_NAME;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style type="text/css">
@@ -21,7 +21,7 @@
 </script>
 <header class="bg-gradient" id="home">
     <div class="container mt-3">
-        @*<p class="tagline">The one and only solution for any kind contact management. </p>*@
+        <p class="tagline">@Resource.Resource.Contacts_Index_Tagline </p>
     </div>
 </header>
 
@@ -34,23 +34,22 @@
                 <tbody>
                     <tr style="padding-top: 1px">
                         <td style="width: 45%;">
-                            <input type='button' class="btn btn-primary contactsDashboard_contactsDatatable_create createNewDialog" value='Create new record' onclick='window.location = "@Url.Action("Create", "Contact")";' />
+                            <input type='button' class="btn btn-primary contactsDashboard_contactsDatatable_create createNewDialog" value='@Resource.Resource.Contacts_Index_CreateNewRecord' onclick='window.location = "@Url.Action("Create", "Contact")";' />
                         </td>
 
                         <td style="width: 75%" ;>
                             <!-- Search by text -->
-                            <div class="form-group" style="width: 65%; float:left">
+                            <div class="" style="width: 83%; float: left; padding-top:1px">
 
-                                @Html.TextBox("searchStringContactsMainGrid", ViewBag.CurrentFilter as string, new { @class = "form-control", @placeholder = "Enter search criteria", @value = ViewBag.CurrentFilter, @data_toggle = "tooltip", @data_placement = "top", @title = "", @data_original_title = "Enter search criteria", @style = "float: left; padding-left: 0px; padding-right: 0px; padding-top:0px" })
+                                @Html.TextBox("searchStringContactsMainGrid", ViewBag.CurrentFilter as string, new { @class = "form-control", @placeholder = Resource.Resource.Contacts_Index_EnterSearchCriteria_Placeholder, @value = ViewBag.CurrentFilter, @data_toggle = "tooltip", @data_placement = "top", @title = "", @data_original_title = Resource.Resource.Contacts_Index_EnterSearchCriteria_Placeholder, @style = "float: left; padding-left: 0px; padding-right: 0px; padding-top:0px" })
                                 @Html.ValidationMessage("SearchStringContactsMainGrid")
 
+                            </div>
 
-                            </div>
-                            <div class="form-group" style="width: 25%; float:right">
-                                <button class="btn btn-primary" id="submitSearchContactsMainGrid" style="float: right; margin: 1px; margin-bottom: 0px; margin-top: 0px" type="submit" name="submitSearchContactsMainGrid" data-toggle="tooltip" data-placement="right" title="" data-original-title="Begin search">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
+                            <button class="btn btn-outline-primary btn-sm" id="submitSearchContactsMainGrid" style="float: right; margin: 1px; margin-bottom: 0px; margin-top: 0px" type="submit" name="submitSearchContactsMainGrid" data-toggle="tooltip" data-placement="right" title="" data-original-title="Begin search">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+
                         </td>
                     </tr>
                 </tbody>
@@ -64,14 +63,14 @@
         <table id="ContactsDashboard_ContactsDatatable" style="width: 100%" class="display table table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Telephone number</th>
-                    <th>E-Mail</th>
-                    <th>Created at</th>
+                    <th>@Resource.Resource.Contacts_Grid_Id</th>
+                    <th>@Resource.Resource.Contacts_Grid_FirstName</th>
+                    <th>@Resource.Resource.Contacts_Grid_SecondName</th>
+                    <th>@Resource.Resource.Contacts_Grid_Telephone</th>
+                    <th>@Resource.Resource.Contacts_Grid_Email</th>
+                    <th>@Resource.Resource.Contacts_Grid_Created</th>
                     @*<th>CreatedBy</th>*@
-                    <th>Modified at</th>
+                    <th>@Resource.Resource.Contacts_Grid_Modified</th>
                     @*<th>ModifiedBy</th>*@
                 </tr>
             </thead>
@@ -102,3 +101,11 @@
     <!-- ============================== -->
 </div>
 <script src="~/Scripts/Contacts/ContactsDatatableWireup.js"></script>
+
+<script src="~/lib/pdfmake/pdfmake.min.js"></script>
+<script src="~/lib/pdfmake/vfs_fonts.js"></script>
+<script>
+    
+    // remove active class from all navlinks
+    // add active class to contacts navlink
+</script>

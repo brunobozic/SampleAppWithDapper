@@ -97,7 +97,7 @@ $(document).ready(function () {
             processing:
                 '<div style="width:100%; z-index: 11000 !important; text-align: center;"><img src="http://www.snacklocal.com/images/ajaxload.gif"></div>'
         },
-        lengthMenu: [5, 10, 20, 50, 100, 200, 500],
+        lengthMenu: [5, 10, 20, 50, 100, 200, 500, 1000],
         // Id
         // FirstName
         // LastName
@@ -125,11 +125,7 @@ $(document).ready(function () {
                     return moment(data).format(dateFormat);
                 }
             },
-            {
-                data: null,
-                className: "center",
-                defaultContent: '<a href="" class="OperationsDashboard_OperationsDatatable_edit">Edit</a> / <a href="" class="OperationsDashboard_OperationsDatatable_remove">Delete</a>'
-            }
+            { "data": "Action" }
         ],
         "drawCallback": function (settings) {
 
@@ -194,48 +190,29 @@ $(document).ready(function () {
     });
 
     // Edit record
-    $('#ContactsDashboardContactsDatatable').on('click', 'a.ContactsDashboard_ContactsDatatable_edit', function (e) {
-        e.preventDefault();
+    $('.btnGridEdit').on('click', function (e) {
+        //e.preventDefault();
 
         var id = $(this).closest('tr').children('td:first').text();
         var options = { /*'backdrop': 'static',*/ keyboard: true, focus: true };
+        var editUrl = '';
 
-        $.ajax({
-            type: "GET",
-            url: editUrl + '?id=' + id,
-            contentType: "application/json; charset=utf-8",
-            dataType: "html",
-            success: function (response) {
-                $('#mdModal').modal(options);
-                $('#mdModal').find('.modal-body').html("");
-                $('#mdModal').modal('show');
-                $('#mdModal').find('.modal-body').html(response);
-            },
-            failure: function (response) {
-                $('#mdModal').modal(options);
-                $('#mdModal').find('.modal-body').html("");
-                $('#mdModal').modal('show');
-                $('#mdModal').find('.modal-body').html("Problem loading your data...");
-            },
-            error: function (response) {
-                $('#mdModal').modal(options);
-                $('#mdModal').find('.modal-body').html("");
-                $('#mdModal').modal('show');
-                $('#mdModal').find('.modal-body').html("Problem loading your data...");
-            }
-        });
+        alert(id);
+
     });
 
     // Delete a record
-    $('#OperationsDashboard_OperationsDatatable').on('click', 'a.ContactsDashboard_ContactsDatatable_remove', function (e) {
-        e.preventDefault();
+    $('btnGridDelete').on('click', function (e) {
+        //e.preventDefault();
 
-        //editor.remove($(this).closest('tr'), {
-        //    title: 'Delete record',
-        //    message: 'Are you sure you wish to remove this record?',
-        //    buttons: 'Delete'
-        //});
+        var id = $(this).closest('tr').children('td:first').text();
+        var options = { /*'backdrop': 'static',*/ keyboard: true, focus: true };
+        var editUrl = '';
+
+        alert(id);
+
     });
+ 
 
     $('#submitSearchContactsMainGrid').on('click', function (e) {
 
