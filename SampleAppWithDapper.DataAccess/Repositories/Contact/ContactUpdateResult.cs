@@ -6,5 +6,6 @@
         public string Message { get; set; } = "";
         public int UpdatedId { get; set; }
         public Domain.DomainModels.Contact.Contact Contact { get; set; }
+        public bool ContactDeleted { get; set; }
     }
 }

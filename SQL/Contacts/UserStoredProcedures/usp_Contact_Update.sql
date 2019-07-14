@@ -62,7 +62,7 @@ BEGIN
         IF EXISTS(
                 SELECT TOP 1 Id
                 FROM [dbo].[Contacts]
-                Where Id = @Id
+                WHERE Id = @Id
             )
             BEGIN
                 UPDATE [dbo].[Contacts]
@@ -72,8 +72,10 @@ BEGIN
                     EMail                 = @EMail,
                     ModifiedBy            = @Updater,
                     ModifiedUtc           = SYSDATETIMEOFFSET()
-                Where Id = @Id
+                WHERE Id = @Id
                   AND IsDeleted = 0
+
+                SELECT TOP 1 * FROM [dbo].[Contacts] WHERE Id = @Id
             END
         ELSE
             BEGIN

@@ -1,4 +1,4 @@
-﻿@model SampleAppWithDapper.Models.Contacts.EditContactViewModel
+﻿@model SampleAppWithDapper.Models.Contacts.ContactViewModel
 
 @{
     ViewBag.Title = "Create a contact";
@@ -16,18 +16,19 @@
     .btnDelete {
     }
 
-    .btnBack { }
+    .btnBack {
+    }
 </style>
 <header class="bg-gradient" id="home">
     <div class="container mt-3">
-        <p class="tagline">@Resource.Resource.EditContact_Tagline </p>
+        <p class="tagline">@Resource.EditContact_Tagline </p>
     </div>
 </header>
 <div class="container">
     <div class="row">
         <div class="col align-self-center" style="width: 99%; margin: 0 auto;">
             <section id="createContactForm">
-                @using (Html.BeginForm("Edit", "Contact", new { ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                @using (Html.BeginForm("Edit", "Contact", new { ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal deleteForm", role = "form" }))
                 {
                     @Html.HiddenFor(m => m.Id)
 
@@ -64,18 +65,42 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        @Html.LabelFor(m => m.CreatedUtc, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.CreatedUtc, new { @class = "form-control", @readonly = "readonly", @Name = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CreatedBy, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.CreatedBy, new { @class = "form-control", @readonly = "readonly", @Name = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ModifiedUtc, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.ModifiedUtc, new { @class = "form-control", @readonly = "readonly", @Name = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ModifiedBy, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.ModifiedBy, new { @class = "form-control", @readonly = "readonly", @Name = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
 
                             <button type="submit" class="btn btn-outline-warning btn-sm btnEdit" aria-label="Left Align">
-                                <i class="fa fa-edit fa-lg"></i> @Resource.Resource.EditContact_Edit_Button
+                                <i class="fa fa-edit fa-lg"></i> @Resource.EditContact_Edit_Button
                             </button>
 
-                            <button type="button" class="btn btn-outline-danger btn-sm btnDelete" aria-label="Right Align" style="">
-                                <i class="fa fa-trash-o fa-lg"></i> @Resource.Resource.EditContact_Delete_Button
+                        <button type="button" class="btn btn-outline-danger btn-sm btnDelete" aria-label="Right Align" style="" data-value="@Model.Id" onclick='window.location = "@Url.Action("Delete", "Contact")" + "/@Model.Id";'>
+                                <i class="fa fa-trash-o fa-lg"></i> @Resource.EditContact_Delete_Button
                             </button>
 
-                            <button type="button" class="btn btn-outline-dark btn-sm btnBack" aria-label="Right Align" onclick='window.location = "@Url.Action("Index", "Contact")";' style="float:right">
-                                <i class="fa fa-arrow-left fa-lg"></i> @Resource.Resource.EditContact_Back_Button
+                            <button type="button" class="btn btn-outline-dark btn-sm btnBack" aria-label="Right Align" style="float:right">
+                                <i class="fa fa-arrow-left fa-lg"></i> @Resource.EditContact_Back_Button
                             </button>
 
                         </div>
@@ -83,6 +108,21 @@
                 }
             </section>
         </div>
+        <script>
+            @*$(document).ready(function () {
+                $('form.deleteForm').on('click', 'button.btnDelete', function(ev) {
 
+                    var $buttonClicked = $(this);
+                    var id = $buttonClicked.attr('data-value');
+
+                    // some debugging stuff, if necessary ...
+                    // console.log(id);
+                    // in the current context "this" points to the clicked button
+                    $(this).closest('form').attr('action', '@Url.Action("Delete", "Contact")/' + id).submit();
+                    // finds the form object, changes the "action" and submits it
+                });
+            });*@
+
+        </script>
     </div>
 </div>

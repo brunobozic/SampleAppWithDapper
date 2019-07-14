@@ -118,16 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="APP_Main_Title" xml:space="preserve">
-    <value>Ultimativni kontakti</value>
+    <value>Kontakti Deluxe</value>
   </data>
   <data name="APP_NAME" xml:space="preserve">
     <value>Kontakti</value>
+  </data>
+  <data name="ContactCreation_Created_Success" xml:space="preserve">
+    <value>Kontakt stvoren.</value>
+  </data>
+  <data name="ContactDeleted_Success" xml:space="preserve">
+    <value>Kontakt obrisan.</value>
   </data>
   <data name="Contacts_Grid_Created" xml:space="preserve">
     <value>Stvoreno</value>
   </data>
   <data name="Contacts_Grid_Email" xml:space="preserve">
-    <value>Email</value>
+    <value>e-mail</value>
   </data>
   <data name="Contacts_Grid_FirstName" xml:space="preserve">
     <value>Ime</value>
@@ -172,10 +178,64 @@
     <value />
   </data>
   <data name="CreateContact_Toast_Failure" xml:space="preserve">
-    <value>Kontakt nije stvoren</value>
+    <value>Novi kontakt nije stvoren.</value>
   </data>
   <data name="CreateContact_Toast_Success" xml:space="preserve">
-    <value>Kontakt stvoren</value>
+    <value>Stvoren je novi kontakt.</value>
+  </data>
+  <data name="DeleteContact_Are_You_Sure_Prompt" xml:space="preserve">
+    <value>Ukoliko želite obrisati ovaj kontakt, molimo odaberite "OBRIŠI"</value>
+  </data>
+  <data name="DeleteContact_Back_Button" xml:space="preserve">
+    <value>NAZAD</value>
+  </data>
+  <data name="DeleteContact_Cancel_Delete_Button" xml:space="preserve">
+    <value>ODUSTANI</value>
+  </data>
+  <data name="DeleteContact_Confirm_Delete_Button" xml:space="preserve">
+    <value>POTVRDI</value>
+  </data>
+  <data name="DeleteContact_Delete_Button" xml:space="preserve">
+    <value>OBRIŠI</value>
+  </data>
+  <data name="DeleteContact_Edit_Button" xml:space="preserve">
+    <value>IZMIJENI</value>
+  </data>
+  <data name="DeleteContact_Tagline" xml:space="preserve">
+    <value>Brisanje kontakta.</value>
+  </data>
+  <data name="DeleteContact_Toast_Failure" xml:space="preserve">
+    <value>Kontakt nije obrisan.</value>
+  </data>
+  <data name="DeleteContact_Toast_Success" xml:space="preserve">
+    <value>Kontakt obrisan.</value>
+  </data>
+  <data name="Display_Name_Action" xml:space="preserve">
+    <value>Akcije</value>
+  </data>
+  <data name="Display_Name_CreatedBy" xml:space="preserve">
+    <value>Stvorio</value>
+  </data>
+  <data name="Display_Name_CreatedUtc" xml:space="preserve">
+    <value>Stvoreno</value>
+  </data>
+  <data name="Display_Name_Email" xml:space="preserve">
+    <value>e-mail</value>
+  </data>
+  <data name="Display_Name_FirstName" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="Display_Name_LastName" xml:space="preserve">
+    <value>Prezime</value>
+  </data>
+  <data name="Display_Name_ModifiedBy" xml:space="preserve">
+    <value>Zadnje izmijenio</value>
+  </data>
+  <data name="Display_Name_ModifiedUtc" xml:space="preserve">
+    <value>Zadnja izmjena</value>
+  </data>
+  <data name="Display_Name_TelephoneNumber" xml:space="preserve">
+    <value>Telefon</value>
   </data>
   <data name="EditContact_Back_Button" xml:space="preserve">
     <value>NAZAD</value>
@@ -184,7 +244,7 @@
     <value>OBRIŠI</value>
   </data>
   <data name="EditContact_Edit_Button" xml:space="preserve">
-    <value>UREDI</value>
+    <value>SPREMI IZMJENE</value>
   </data>
   <data name="EditContact_Tagline" xml:space="preserve">
     <value />
@@ -196,7 +256,7 @@
     <value>Vaši kontakti, efikasno organizirani</value>
   </data>
   <data name="LandingPage_Tagline" xml:space="preserve">
-    <value>Ultimativno rješenje za upravljanje Vašom listom kontakata</value>
+    <value>Rješenje za upravljanje Vašom listom kontakata</value>
   </data>
   <data name="Layout_Contact_Navbar" xml:space="preserve">
     <value>KONTAKTI</value>
@@ -213,10 +273,28 @@
   <data name="Model_Error_Unable_To_Perform_Action" xml:space="preserve">
     <value />
   </data>
+  <data name="Toast_Failure" xml:space="preserve">
+    <value>Pozor</value>
+  </data>
+  <data name="Toast_Success" xml:space="preserve">
+    <value>Uspjeh</value>
+  </data>
   <data name="UpdateContact_Toast_Failure" xml:space="preserve">
-    <value>Kontakt nije izmijenjen</value>
+    <value>Kontakt nije izmijenjen.</value>
   </data>
   <data name="UpdateContact_Toast_Success" xml:space="preserve">
-    <value>Kontakt izmijenjen</value>
+    <value>Kontakt uspješno izmijenjen.</value>
+  </data>
+  <data name="Validation_Email_Invalid" xml:space="preserve">
+    <value>Unešena e-mail adresa nije ispravna.</value>
+  </data>
+  <data name="Validation_FirstName_Required" xml:space="preserve">
+    <value>Obvezatan unos. Minimalna duljina unosa je jedan znak. Maksimalna duljina unosa je 255 znaka.</value>
+  </data>
+  <data name="Validation_LastName_Required" xml:space="preserve">
+    <value>Obvezatan unos. Minimalna duljina unosa je jedan znak. Maksimalna duljina unosa je 255 znaka.</value>
+  </data>
+  <data name="Validation_PhoneNumber_Required" xml:space="preserve">
+    <value>Obvezatan unos. Minimalna duljina unosa je jedan znak. Maksimalna duljina unosa je 14 znaka.</value>
   </data>
 </root>

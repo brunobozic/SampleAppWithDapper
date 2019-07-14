@@ -28,13 +28,13 @@ $(document).ready(function () {
         colReorder: true,
         "columnDefs": [
             { "width": "5%", "visible": true, "targets": [0] }, // Id
-            { "width": "10%", "searchable": true, "orderable": true, "targets": [2] }, // FirstName
-            { "width": "10%", "searchable": true, "orderable": true, "targets": [3] }, // LastName
-            { "width": "10%", "searchable": true, "orderable": true, "targets": [4] }, // TelephoneNumber_Entry
-            { "width": "20%", "searchable": true, "orderable": true, "targets": [5] }, // EMail
-            { "width": "20%", "searchable": false, "orderable": true, "targets": [6] }, // CreatedUtc
-            { "width": "20%", "searchable": false, "orderable": true, "targets": [7] }, // ModifiedUtc
-            { "className": "text-center custom-middle-align", "targets": [4, 6, 7] }
+            { "width": "10%", "searchable": true, "orderable": true, "targets": [1] }, // FirstName
+            { "width": "10%", "searchable": true, "orderable": true, "targets": [2] }, // LastName
+            { "width": "10%", "searchable": true, "orderable": true, "targets": [3] }, // TelephoneNumber_Entry
+            { "width": "20%", "searchable": true, "orderable": true, "targets": [4] }, // EMail
+            { "width": "20%", "searchable": false, "orderable": true, "targets": [5] }, // CreatedUtc
+            { "width": "20%", "searchable": false, "orderable": true, "targets": [6] }, // ModifiedUtc
+            { "className": "text-center custom-middle-align", "targets": [4] }
         ],
         select: {
             style: 'multi'
@@ -114,15 +114,23 @@ $(document).ready(function () {
             { "data": "TelephoneNumber_Entry", "TelephoneNumber_Entry": "Active", "autoWidth": false },
             { "data": "EMail", "name": "EMail", "autoWidth": true },
             {
-                "data": "CreatedUtc", "name": "CreatedUtc", "autoWidth": false, type: "datetime",
+                "data": "CreatedUtc", "name": "CreatedUtc", "autoWidth": false, type: "datetimeoffset",
                 render: function (data, type, row) {
-                    return moment(data).format(dateFormat);
+                    //console.log(data);
+                    var stillUtc = moment.utc(data).toDate();
+                    var local = moment(stillUtc).local().format('DD.MM.YYYY HH:mm:ss');
+                    return moment(data).isValid() ? local : "-";
                 }
             },
             {
-                "data": "ModifiedUtc", "name": "ModifiedUtc", "autoWidth": false, type: "datetime",
+                "data": "ModifiedUtc", "name": "ModifiedUtc", "autoWidth": false, type: "datetimeoffset",
                 render: function (data, type, row) {
-                    return moment(data).format(dateFormat);
+                   // console.log(data);
+                    var stillUtc = moment.utc(data).toDate();
+                    var local = moment(stillUtc).local().format('DD.MM.YYYY HH:mm:ss');
+
+                    console.log(local); // 2015-09-13 09:39:27
+                    return moment(data).isValid() ? local : "-";
                 }
             },
             { "data": "Action" }

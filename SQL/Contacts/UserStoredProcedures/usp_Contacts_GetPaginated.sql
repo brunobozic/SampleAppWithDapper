@@ -70,9 +70,9 @@ BEGIN
            [TelephoneNumber_Entry],
            [Email],
            [ModifiedUTC],
-           [ModifiedBy],
+           --[ModifiedBy],
            [CreatedUTC],
-           [CreatedBy],
+           --[CreatedBy],
            [IsDeleted]
     FROM CTEResult
     WHERE RowNumber > @StartRow

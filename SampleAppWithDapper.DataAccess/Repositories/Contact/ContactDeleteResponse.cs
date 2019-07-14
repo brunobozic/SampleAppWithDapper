@@ -1,10 +1,10 @@
 ﻿namespace SampleAppWithDapper.DataAccess.Repositories.Contact
 {
-    public class ContactCreateResponse
+    public class ContactDeleteResponse
     {
         public bool Success { get; set; } = false;
         public string Message { get; set; } = "";
-        public int InsertedId { get; set; } = -1;
-        public Domain.DomainModels.Contact.Contact Contact { get; set; }
+        public bool ContactDeleted { get; set; }
+        public int DeletedId { get; set; }
     }
 }

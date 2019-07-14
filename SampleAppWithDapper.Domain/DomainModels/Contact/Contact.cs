@@ -50,6 +50,6 @@ namespace SampleAppWithDapper.Domain.DomainModels.Contact
         public string LastName { get; }
         public string TelephoneNumber_Entry { get; }
         public string EMail { get; }
-
+        public string Action { get; set; }
     }
 }

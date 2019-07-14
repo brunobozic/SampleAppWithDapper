@@ -79,6 +79,24 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contact created..
+        /// </summary>
+        public static string ContactCreation_Created_Success {
+            get {
+                return ResourceManager.GetString("ContactCreation_Created_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact deleted..
+        /// </summary>
+        public static string ContactDeleted_Success {
+            get {
+                return ResourceManager.GetString("ContactDeleted_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Created.
         /// </summary>
         public static string Contacts_Grid_Created {
@@ -241,6 +259,168 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this contact?.
+        /// </summary>
+        public static string DeleteContact_Are_You_Sure_Prompt {
+            get {
+                return ResourceManager.GetString("DeleteContact_Are_You_Sure_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BACK.
+        /// </summary>
+        public static string DeleteContact_Back_Button {
+            get {
+                return ResourceManager.GetString("DeleteContact_Back_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANCEL.
+        /// </summary>
+        public static string DeleteContact_Cancel_Delete_Button {
+            get {
+                return ResourceManager.GetString("DeleteContact_Cancel_Delete_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CONFIRM.
+        /// </summary>
+        public static string DeleteContact_Confirm_Delete_Button {
+            get {
+                return ResourceManager.GetString("DeleteContact_Confirm_Delete_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE.
+        /// </summary>
+        public static string DeleteContact_Delete_Button {
+            get {
+                return ResourceManager.GetString("DeleteContact_Delete_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EDIT.
+        /// </summary>
+        public static string DeleteContact_Edit_Button {
+            get {
+                return ResourceManager.GetString("DeleteContact_Edit_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete this contact.
+        /// </summary>
+        public static string DeleteContact_Tagline {
+            get {
+                return ResourceManager.GetString("DeleteContact_Tagline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact not deleted..
+        /// </summary>
+        public static string DeleteContact_Toast_Failure {
+            get {
+                return ResourceManager.GetString("DeleteContact_Toast_Failure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact deleted..
+        /// </summary>
+        public static string DeleteContact_Toast_Success {
+            get {
+                return ResourceManager.GetString("DeleteContact_Toast_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Action.
+        /// </summary>
+        public static string Display_Name_Action {
+            get {
+                return ResourceManager.GetString("Display_Name_Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created by.
+        /// </summary>
+        public static string Display_Name_CreatedBy {
+            get {
+                return ResourceManager.GetString("Display_Name_CreatedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created.
+        /// </summary>
+        public static string Display_Name_CreatedUtc {
+            get {
+                return ResourceManager.GetString("Display_Name_CreatedUtc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail.
+        /// </summary>
+        public static string Display_Name_Email {
+            get {
+                return ResourceManager.GetString("Display_Name_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Display_Name_FirstName {
+            get {
+                return ResourceManager.GetString("Display_Name_FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Surname.
+        /// </summary>
+        public static string Display_Name_LastName {
+            get {
+                return ResourceManager.GetString("Display_Name_LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modified by.
+        /// </summary>
+        public static string Display_Name_ModifiedBy {
+            get {
+                return ResourceManager.GetString("Display_Name_ModifiedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modified.
+        /// </summary>
+        public static string Display_Name_ModifiedUtc {
+            get {
+                return ResourceManager.GetString("Display_Name_ModifiedUtc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Telephone num..
+        /// </summary>
+        public static string Display_Name_TelephoneNumber {
+            get {
+                return ResourceManager.GetString("Display_Name_TelephoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BACK.
         /// </summary>
         public static string EditContact_Back_Button {
@@ -259,7 +439,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EDIT.
+        ///   Looks up a localized string similar to SAVE CHANGES.
         /// </summary>
         public static string EditContact_Edit_Button {
             get {
@@ -349,6 +529,24 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failure.
+        /// </summary>
+        public static string Toast_Failure {
+            get {
+                return ResourceManager.GetString("Toast_Failure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        public static string Toast_Success {
+            get {
+                return ResourceManager.GetString("Toast_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact not updated.
         /// </summary>
         public static string UpdateContact_Toast_Failure {
@@ -363,6 +561,42 @@ namespace Resource {
         public static string UpdateContact_Toast_Success {
             get {
                 return ResourceManager.GetString("UpdateContact_Toast_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The e-mail is invalid..
+        /// </summary>
+        public static string Validation_Email_Invalid {
+            get {
+                return ResourceManager.GetString("Validation_Email_Invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimal length for first name is 1 character, the maximal length is 255 characters..
+        /// </summary>
+        public static string Validation_FirstName_Required {
+            get {
+                return ResourceManager.GetString("Validation_FirstName_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimal length for last name is 1 character, the maximal length is 255 characters..
+        /// </summary>
+        public static string Validation_LastName_Required {
+            get {
+                return ResourceManager.GetString("Validation_LastName_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimal length for phone number is 1 character, the maximal length is 14 characters..
+        /// </summary>
+        public static string Validation_PhoneNumber_Required {
+            get {
+                return ResourceManager.GetString("Validation_PhoneNumber_Required", resourceCulture);
             }
         }
     }

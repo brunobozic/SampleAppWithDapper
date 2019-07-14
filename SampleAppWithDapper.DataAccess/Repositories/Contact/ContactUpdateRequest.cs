@@ -1,4 +1,6 @@
-﻿namespace SampleAppWithDapper.DataAccess.Repositories.Contact
+﻿using System;
+
+namespace SampleAppWithDapper.DataAccess.Repositories.Contact
 {
     public class ContactUpdateRequest
     {
@@ -8,5 +10,7 @@
         public string EMail { get; set; }
         public string Updater { get; set; }
         public int Id { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

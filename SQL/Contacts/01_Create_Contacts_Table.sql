@@ -25,18 +25,19 @@ ALTER TABLE [dbo].[Contacts]
 ALTER TABLE [dbo].[Contacts]
     ADD CONSTRAINT chk_area_code2 CHECK (AreaCode <= 99);
 ALTER TABLE [dbo].[Contacts]
-    ADD CONSTRAINT chk_acceess_code CHECK (AccessCode > 0);
+    ADD CONSTRAINT chk_access_code CHECK (AccessCode > 0);
 ALTER TABLE [dbo].[Contacts]
-    ADD CONSTRAINT chk_acceess_code2 CHECK (AccessCode < 999);
+    ADD CONSTRAINT chk_access_code2 CHECK (AccessCode < 999);
 ALTER TABLE [dbo].[Contacts]
     ADD CONSTRAINT chk_UserRegistrationUserEmail CHECK (EMail LIKE '[a-z,0-9,_,-]%@[a-z,0-9,_,-]%.[a-z][a-z]%');
 ALTER TABLE [dbo].[Contacts]
-    ADD CONSTRAINT chk_name_len_min CHECK (DATALENGTH(FirstName) > 1)
+    ADD CONSTRAINT chk_name_len_min CHECK (DATALENGTH(FirstName) > 1) -- CHECK (FirstName NOT LIKE '%[^A-Z]%') 
 ALTER TABLE [dbo].[Contacts]
-    ADD CONSTRAINT chk_lastname_len_min CHECK (DATALENGTH(LastName) > 1)
+    ADD CONSTRAINT chk_lastname_len_min CHECK (DATALENGTH(LastName) > 1) -- CHECK (LastName NOT LIKE '%[^A-Z]%') 
+
 --ALTER TABLE [dbo].[Contacts] ADD CONSTRAINT chk_telephone CHECK (TelephoneNumber_Entry NOT LIKE '%[^0-9]%')
---ALTER TABLE [dbo].[Contacts] ADD CONSTRAINT chk_name_no_numeric CHECK (FirstName NOT LIKE '%[^A-Z]%') 
---ALTER TABLE [dbo].[Contacts] ADD CONSTRAINT chk_lastname_no_numeric CHECK (LastName NOT LIKE '%[^A-Z]%') 
+ALTER TABLE [dbo].[Contacts] ADD CONSTRAINT chk_name_no_numeric CHECK (FirstName NOT LIKE '%[^A-Z]%') 
+ALTER TABLE [dbo].[Contacts] ADD CONSTRAINT chk_lastname_no_numeric CHECK (LastName NOT LIKE '%[^A-Z]%') 
 
 
 GO
@@ -47,7 +48,7 @@ GO
 -- filtered index, provided we are expecting lots of nulls in email, so the searches for "is not null" would be a bit faster
 CREATE NONCLUSTERED INDEX [C_NonDeleted_Contacts_I]
     ON [dbo].[Contacts]
-        ([FirstName] ASC, [LastName] ASC, [EMail])
+        ([FirstName] ASC, [LastName] ASC, [EMail], [TelephoneNumber_Entry], [CreatedUtc], [ModifiedUtc])
     WHERE ([EMail] IS NOT NULL);
 GO
 
@@ -56,5 +57,5 @@ GO
 CREATE NONCLUSTERED INDEX [C_Name_Contacts_I]
     ON [dbo].[Contacts]
         ([FirstName] ASC, [LastName] ASC, [IsDeleted]) -- where part (key)
-    INCLUDE ([EMail], [TelephoneNumber_Entry], [CreatedUtc], [ModifiedUtc]); -- non key  varchar(max), nvarchar(max), varbinary(max)
+    INCLUDE ([EMail], [TelephoneNumber_Entry], [CreatedUtc], [ModifiedUtc]); -- non key  / varchar(max), nvarchar(max), varbinary(max)
 GO  

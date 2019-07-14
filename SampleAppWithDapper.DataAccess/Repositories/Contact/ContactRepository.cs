@@ -3,7 +3,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
-using SampleAppWithDapper.DataAccess.Repositories.Contact.Extensions;
+
 
 namespace SampleAppWithDapper.DataAccess.Repositories.Contact
 {
@@ -22,9 +22,9 @@ namespace SampleAppWithDapper.DataAccess.Repositories.Contact
             // _databaseConnectionManager = databaseConnectionManager;
         }
 
-        public async Task<PaginatedContacts> GetPaginatedResultsAsync(ContactsGetAllPaginatedRequest request)
+        public async Task<PaginatedContactsResponse> GetPaginatedResultsAsync(ContactsGetAllPaginatedRequest request)
         {
-            var retVal = new PaginatedContacts();
+            var retVal = new PaginatedContactsResponse();
 
             var resultAsync = await _connection.QueryMultipleAsync("usp_Contacts_GetPaginated"
                 ,
@@ -42,8 +42,9 @@ namespace SampleAppWithDapper.DataAccess.Repositories.Contact
             var contacts = await resultAsync.ReadAsync<Domain.DomainModels.Contact.Contact>();
             var filtertedCount = await resultAsync.ReadAsync<int>();
             retVal.TotalCount = contacts.Count();
-            retVal.Contacts = contacts.ConvertToViewModel().ToList();
+            retVal.Contacts = contacts.ToList();
             retVal.FilteredCount = filtertedCount.FirstOrDefault();
+            retVal.Success = true;
 
             return retVal;
         }
@@ -64,7 +65,7 @@ namespace SampleAppWithDapper.DataAccess.Repositories.Contact
                 }
                 , commandType: CommandType.StoredProcedure);
 
-            var contact = resultAsync.ReadSingleOrDefault<Domain.DomainModels.Contact.Contact>().ConvertToDto();
+            var contact = resultAsync.ReadSingleOrDefault<Domain.DomainModels.Contact.Contact>();
 
             response.Contact = contact;
 
@@ -91,7 +92,7 @@ namespace SampleAppWithDapper.DataAccess.Repositories.Contact
                     }
                     , commandType: CommandType.StoredProcedure);
 
-                var result = resultAsync.ReadSingleOrDefault<Domain.DomainModels.Contact.Contact>().ConvertToDto();
+                var result = resultAsync.ReadSingleOrDefault<Domain.DomainModels.Contact.Contact>();
 
                 retVal.Success = true;
                 retVal.Contact = result;
@@ -128,6 +129,35 @@ namespace SampleAppWithDapper.DataAccess.Repositories.Contact
 
                 retVal.Success = true;
                 retVal.Contact = result;
+            }
+            catch (Exception ex)
+            {
+                retVal.Success = false;
+                retVal.Message = ex.Message;
+            }
+
+            return retVal;
+        }
+
+        public async Task<ContactDeleteResponse> DeleteContactAsync(ContactDeleteRequest deleteRequest)
+        {
+            var retVal = new ContactDeleteResponse();
+
+            try
+            {
+                // using a stored procedure here is not normally needed, but is also not harmful.
+                var resultAsync = await _connection.QueryMultipleAsync("usp_Contact_Delete",
+                    new
+                    {
+                        deleteRequest.Id,
+                        deleteRequest.Deleter
+                    }
+                    , commandType: CommandType.StoredProcedure);
+
+                var result = resultAsync.ReadSingleOrDefault<int>();
+
+                retVal.Success = true;
+                retVal.ContactDeleted = result==0;
             }
             catch (Exception ex)
             {

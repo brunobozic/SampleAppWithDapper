@@ -123,6 +123,12 @@
   <data name="APP_NAME" xml:space="preserve">
     <value>Contacts</value>
   </data>
+  <data name="ContactCreation_Created_Success" xml:space="preserve">
+    <value>Contact created.</value>
+  </data>
+  <data name="ContactDeleted_Success" xml:space="preserve">
+    <value>Contact deleted.</value>
+  </data>
   <data name="Contacts_Grid_Created" xml:space="preserve">
     <value>Created</value>
   </data>
@@ -177,6 +183,60 @@
   <data name="CreateContact_Toast_Success" xml:space="preserve">
     <value>New contact created</value>
   </data>
+  <data name="DeleteContact_Are_You_Sure_Prompt" xml:space="preserve">
+    <value>Are you sure you want to delete this contact?</value>
+  </data>
+  <data name="DeleteContact_Back_Button" xml:space="preserve">
+    <value>BACK</value>
+  </data>
+  <data name="DeleteContact_Cancel_Delete_Button" xml:space="preserve">
+    <value>CANCEL</value>
+  </data>
+  <data name="DeleteContact_Confirm_Delete_Button" xml:space="preserve">
+    <value>CONFIRM</value>
+  </data>
+  <data name="DeleteContact_Delete_Button" xml:space="preserve">
+    <value>DELETE</value>
+  </data>
+  <data name="DeleteContact_Edit_Button" xml:space="preserve">
+    <value>EDIT</value>
+  </data>
+  <data name="DeleteContact_Tagline" xml:space="preserve">
+    <value>Delete this contact</value>
+  </data>
+  <data name="DeleteContact_Toast_Failure" xml:space="preserve">
+    <value>Contact not deleted.</value>
+  </data>
+  <data name="DeleteContact_Toast_Success" xml:space="preserve">
+    <value>Contact deleted.</value>
+  </data>
+  <data name="Display_Name_Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Display_Name_CreatedBy" xml:space="preserve">
+    <value>Created by</value>
+  </data>
+  <data name="Display_Name_CreatedUtc" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="Display_Name_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Display_Name_FirstName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Display_Name_LastName" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="Display_Name_ModifiedBy" xml:space="preserve">
+    <value>Modified by</value>
+  </data>
+  <data name="Display_Name_ModifiedUtc" xml:space="preserve">
+    <value>Modified</value>
+  </data>
+  <data name="Display_Name_TelephoneNumber" xml:space="preserve">
+    <value>Telephone num.</value>
+  </data>
   <data name="EditContact_Back_Button" xml:space="preserve">
     <value>BACK</value>
   </data>
@@ -184,7 +244,7 @@
     <value>DELETE</value>
   </data>
   <data name="EditContact_Edit_Button" xml:space="preserve">
-    <value>EDIT</value>
+    <value>SAVE CHANGES</value>
   </data>
   <data name="EditContact_Tagline" xml:space="preserve">
     <value>Edit the contact.</value>
@@ -213,10 +273,28 @@
   <data name="Model_Error_Unable_To_Perform_Action" xml:space="preserve">
     <value>Unable to perform action. Please contact us.</value>
   </data>
+  <data name="Toast_Failure" xml:space="preserve">
+    <value>Failure</value>
+  </data>
+  <data name="Toast_Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
   <data name="UpdateContact_Toast_Failure" xml:space="preserve">
     <value>Contact not updated</value>
   </data>
   <data name="UpdateContact_Toast_Success" xml:space="preserve">
     <value>Contact updated</value>
+  </data>
+  <data name="Validation_Email_Invalid" xml:space="preserve">
+    <value>The e-mail is invalid.</value>
+  </data>
+  <data name="Validation_FirstName_Required" xml:space="preserve">
+    <value>Minimal length for first name is 1 character, the maximal length is 255 characters.</value>
+  </data>
+  <data name="Validation_LastName_Required" xml:space="preserve">
+    <value>Minimal length for last name is 1 character, the maximal length is 255 characters.</value>
+  </data>
+  <data name="Validation_PhoneNumber_Required" xml:space="preserve">
+    <value>Minimal length for phone number is 1 character, the maximal length is 14 characters.</value>
   </data>
 </root>

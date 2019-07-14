@@ -3,7 +3,7 @@
 )
 As
 BEGIN
-    SELECT con.FirstName, con.LastName, con.EMail, con.TelephoneNumber_Entry
+    SELECT con.Id, con.FirstName, con.LastName, con.EMail, con.TelephoneNumber_Entry, con.CreatedUtc, con.CreatedBy, con.ModifiedUtc, con.ModifiedBy
     FROM dbo.Contacts con
     WHERE con.Id = @Id
       AND IsDeleted = 0

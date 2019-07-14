@@ -1,4 +1,6 @@
-﻿namespace SampleAppWithDapper.DataAccess.Repositories.Contact
+﻿using System;
+
+namespace SampleAppWithDapper.DataAccess.Repositories.Contact
 {
     public class ContactDto
     {
@@ -7,5 +9,9 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Id { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
+        public string ModifiedBy { get; set; }
     }
 }

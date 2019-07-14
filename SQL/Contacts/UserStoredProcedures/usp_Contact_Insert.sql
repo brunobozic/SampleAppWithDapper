@@ -22,7 +22,6 @@ BEGIN
             BEGIN
                 RAISERROR
                     ('Invalid parameter: Last name cannot be NULL or empty', 18, 0)
-
             END
 
 
@@ -35,7 +34,6 @@ BEGIN
                     BEGIN
                         RAISERROR
                             ('Invalid parameter: the provided e-mail address %s is not a valid e-mail address', 18, 0, @EMail)
-
                     END
             END
 
@@ -45,7 +43,6 @@ BEGIN
             BEGIN
                 RAISERROR
                     ('Invalid parameter: Telephone Number cannot be NULL or empty', 18, 0)
-
             END
 
         DECLARE

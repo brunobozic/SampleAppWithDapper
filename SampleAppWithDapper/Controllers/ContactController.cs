@@ -11,7 +11,6 @@ using SampleAppWithDapper.Models.Contacts;
 using SampleAppWithDapper.Models.Contacts.Extensions;
 using SampleAppWithDapper.ToastrAlertHelpers;
 using SampleAppWithDapper.UserHelpers;
-using ContactViewModel = SampleAppWithDapper.DataAccess.Repositories.Contact.ContactViewModel;
 
 namespace SampleAppWithDapper.Controllers
 {
@@ -58,19 +57,9 @@ namespace SampleAppWithDapper.Controllers
 
                     var result = await _contactRepository.ContactCreateAsync(req);
 
-                    this.AddToastMessage(@Resource.Resource.CreateContact_Toast_Success, "Success", ToastType.Success);
+                    this.AddToastMessage(@Resource.Resource.Toast_Success, @Resource.Resource.CreateContact_Toast_Success, ToastType.Success);
 
-                    // return View("ContactCreationConfirmed", result);
-                    var ecvm = new EditContactViewModel
-                    {
-                        Id = result.Contact.Id,
-                        EMail = result.Contact.EMail,
-                        FirstName = result.Contact.FirstName,
-                        LastName = result.Contact.LastName,
-                        TelephoneNumber_Entry = result.Contact.TelephoneNumber_Entry
-                    };
-
-                    return View("Edit", ecvm);
+                    return RedirectToAction("Edit", new { id = result.Contact.Id });
                 }
             }
             catch (Exception ex)
@@ -124,27 +113,56 @@ namespace SampleAppWithDapper.Controllers
 
             if (result.Success)
             {
-                this.AddToastMessage(@Resource.Resource.UpdateContact_Toast_Success, "Success", ToastType.Success);
+                this.AddToastMessage(@Resource.Resource.Toast_Success, @Resource.Resource.UpdateContact_Toast_Success, ToastType.Success);
 
-                return View(editModel);
+                return View(result.Contact.ConvertToViewModel());
+            }
+
+            var vm = new GenericErrorVM { ErrorMessage = result.Message };
+
+            this.AddToastMessage(result.Message, @Resource.Resource.UpdateContact_Toast_Failure, ToastType.Error);
+
+            return View("../GenericError/GenericError", vm);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var result = await _contactRepository.GetContactByIdAsync(id);
+
+            if (result.Success)
+            {
+                var vm = result.Contact.ConvertToDeleteViewModel();
+
+                return View(vm);
             }
             else
             {
                 var vm = new GenericErrorVM { ErrorMessage = result.Message };
 
-                this.AddToastMessage(@Resource.Resource.UpdateContact_Toast_Failure, result.Message, ToastType.Error);
-
                 return View("../GenericError/GenericError", vm);
             }
-
         }
 
-
-        public ActionResult Delete()
+        [HttpPost]
+        public async Task<ActionResult> Delete(int? id, [Bind(Include = "Id")]ContactDeleteViewModel deleteModel)
         {
-            var vm = new ContactDeleteViewModel();
+            var req = new ContactDeleteRequest { Id = id ?? deleteModel.Id, Deleter = "FakeUserForDeletionTest" };
 
-            return View(vm);
+            var result = await _contactRepository.DeleteContactAsync(req);
+
+            if (result.Success)
+            {
+                result.DeletedId = id.GetValueOrDefault();
+                this.AddToastMessage(@Resource.Resource.Toast_Success, @Resource.Resource.DeleteContact_Toast_Success, ToastType.Success);
+
+                return RedirectToAction("Deleted", result);
+            }
+
+            var vm = new GenericErrorVM { ErrorMessage = result.Message };
+            this.AddToastMessage(@Resource.Resource.DeleteContact_Toast_Failure, result.Message, ToastType.Success);
+
+            return View("../GenericError/GenericError", vm);
         }
 
         public async Task<JsonResult> CustomServerSideSearchActionAsync(DataTableDTOs.DataTableAjaxPostModel datatableAjaxPostModel)
@@ -163,7 +181,7 @@ namespace SampleAppWithDapper.Controllers
             });
         }
 
-        private async Task<PaginatedContacts> ContactDatatableQuery(DataTableDTOs.DataTableAjaxPostModel model)
+        private async Task<PaginatedContactsViewModel> ContactDatatableQuery(DataTableDTOs.DataTableAjaxPostModel model)
         {
             var searchBy = model.search_extra ?? model.search?.value ?? "";
             // searchBy = model.search?.value ?? "";
@@ -202,14 +220,22 @@ namespace SampleAppWithDapper.Controllers
                 SortOrder = sortDir
             };
 
-            var paginatedResults = await _contactRepository.GetPaginatedResultsAsync(requestForPaginatedContacts);
+            var response = await _contactRepository.GetPaginatedResultsAsync(requestForPaginatedContacts);
 
-            foreach (var item in paginatedResults.Contacts)
+            if (response.Success)
             {
-                item.Action = "<a type='button' class='btn btn-outline-dark btn-xs btnGridEdit' style='float:right; padding:6px' href='" + this.Url.Action("Edit", "Contact", new { Id = item.Id }) + "'><i class= 'fa fa-edit fa-lg'></i> EDIT</a>";
+                foreach (var item in response.Contacts)
+                {
+                    item.Action =
+                        "<a type='button' class='btn btn-outline-dark btn-xs btnGridEdit' style='float:right; padding:6px' href='" +
+                        this.Url.Action("Edit", "Contact", new { Id = item.Id }) +
+                        "'><i class= 'fa fa-edit fa-lg'></i> EDIT</a>";
+                }
+
+                return response.Contacts.ConvertToPaginatedViewModel();
             }
 
-            return paginatedResults;
+            return null;
         }
 
         public ActionResult ContactCreationConfirmed(ContactCreateResponse contactCreateResponse)
@@ -220,6 +246,11 @@ namespace SampleAppWithDapper.Controllers
         public ActionResult ContactCreationFailed(ContactCreateExceptionMessage em)
         {
             return View(em);
+        }
+
+        public ActionResult Deleted(ContactDeleteResponse cdr)
+        {
+            return View("../Contact/ContactDeleted", cdr);
         }
     }
 

@@ -242,6 +242,8 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\GenericErrorVM.cs" />
     <Compile Include="ErrorHandler\AiHandleErrorAttribute.cs" />
+    <Compile Include="Models\Contacts\ContactDeleteViewModel .cs" />
+    <Compile Include="Models\Contacts\ContactViewModel.cs" />
     <Compile Include="Models\Contacts\CreateContactViewModel.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DataTablesHelpers\DataTableDTOs.cs" />
@@ -253,10 +255,10 @@
     <Compile Include="LoggingHelper\ILoggingHelper.cs" />
     <Compile Include="LoggingHelper\LoggingHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Contacts\ContactDeleteViewModel.cs" />
     <Compile Include="Models\Contacts\EditContactViewModel.cs" />
     <Compile Include="Models\Contacts\Extensions\ContactExtensions.cs" />
     <Compile Include="Models\ContactCreateExceptionMessage.cs" />
+    <Compile Include="Models\Contacts\PaginatedContactsViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.Designer.cs">
@@ -274,7 +276,6 @@
     <Compile Include="ServicePattern\IService.cs" />
     <Compile Include="ServicePattern\IServiceAsync.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Models\Contacts\ContactsPaginatedViewModel.cs" />
     <Compile Include="ToastrAlertHelpers\ToastMessage.cs" />
     <Compile Include="ToastrAlertHelpers\ToastrDecoratorResult.cs" />
     <Compile Include="ToastrAlertHelpers\ToastrExtensions.cs" />
@@ -747,6 +748,7 @@
     <Content Include="Views\Contact\ContactCreationFailed.cshtml" />
     <Content Include="Views\ToastrAlerts\_Toastr.cshtml" />
     <Content Include="Views\GenericError\GenericError.cshtml" />
+    <Content Include="Views\Contact\ContactDeleted.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -809,6 +811,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Resource</CustomToolNamespace>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
