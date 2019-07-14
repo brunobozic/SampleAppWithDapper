@@ -116,21 +116,26 @@ $(document).ready(function () {
             {
                 "data": "CreatedUtc", "name": "CreatedUtc", "autoWidth": false, type: "datetimeoffset",
                 render: function (data, type, row) {
-                    //console.log(data);
+             
                     var stillUtc = moment.utc(data).toDate();
                     var local = moment(stillUtc).local().format('DD.MM.YYYY HH:mm:ss');
-                    return moment(data).isValid() ? local : "-";
+                    var minDate = moment.utc("0001-01-01"); // minimum value as per UTC
+
+                    return moment(data).isAfter(minDate) ? local : "N/A";
                 }
             },
             {
                 "data": "ModifiedUtc", "name": "ModifiedUtc", "autoWidth": false, type: "datetimeoffset",
                 render: function (data, type, row) {
-                   // console.log(data);
+                   
                     var stillUtc = moment.utc(data).toDate();
                     var local = moment(stillUtc).local().format('DD.MM.YYYY HH:mm:ss');
 
-                    console.log(local); // 2015-09-13 09:39:27
-                    return moment(data).isValid() ? local : "-";
+                    var minDate = moment.utc("0001-01-01"); // minimum value as per UTC
+                    // console.log(local); // 2015-09-13 09:39:27
+
+
+                    return moment(data).isAfter(minDate) ? local : "N/A";
                 }
             },
             { "data": "Action" }
@@ -220,7 +225,7 @@ $(document).ready(function () {
         alert(id);
 
     });
- 
+
 
     $('#submitSearchContactsMainGrid').on('click', function (e) {
 

@@ -54,7 +54,7 @@ namespace SampleAppWithDapper.ServicePattern
 
         public virtual async Task<IEnumerable<Tv>> Get(Func<Te, bool> predicate)
         {
-            var items = await _unitOfWork.GetRepositoryAsync<Te>().Get(predicate);
+            var items = await _unitOfWork.GetRepositoryAsync<Te>().Get(predicate as Func<object, bool>);
             return Mapper.Map<IEnumerable<Tv>>(source: items);
         }
     }

@@ -232,7 +232,10 @@ namespace SampleAppWithDapper.Controllers
                         "'><i class= 'fa fa-edit fa-lg'></i> EDIT</a>";
                 }
 
-                return response.Contacts.ConvertToPaginatedViewModel();
+                var converted = response.Contacts.ConvertToPaginatedViewModel();
+                converted.FilteredCount = response.FilteredCount;
+
+                return converted;
             }
 
             return null;

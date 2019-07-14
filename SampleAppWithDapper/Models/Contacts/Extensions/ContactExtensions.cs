@@ -68,8 +68,6 @@ namespace SampleAppWithDapper.Models.Contacts.Extensions
 
         }
 
-
-        // TODO: from [Contact] to [PaginatedContactsViewModel]
         public static PaginatedContactsViewModel ConvertToPaginatedViewModel(this IEnumerable<Domain.DomainModels.Contact.Contact> contacts)
         {
             var returnViewModel = new PaginatedContactsViewModel
