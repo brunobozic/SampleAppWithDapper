@@ -24,6 +24,7 @@ namespace SampleAppWithDapper.Models.Contacts
         [Required(ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "Validation_PhoneNumber_Required")]
         [StringLength(14, ErrorMessage = "PhoneNumberLong", MinimumLength = 1)]
         [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "Validation_Invalid_Phone_number")]
         [Display(Name = "Display_Name_TelephoneNumber", ResourceType = typeof(Resource.Resource))]
         public string TelephoneNumber_Entry { get; set; }
     }

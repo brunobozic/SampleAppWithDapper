@@ -583,6 +583,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Phone number entered is not a valid phone number..
+        /// </summary>
+        public static string Validation_Invalid_Phone_number {
+            get {
+                return ResourceManager.GetString("Validation_Invalid_Phone_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Minimal length for last name is 1 character, the maximal length is 255 characters..
         /// </summary>
         public static string Validation_LastName_Required {

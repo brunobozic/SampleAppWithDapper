@@ -291,6 +291,9 @@
   <data name="Validation_FirstName_Required" xml:space="preserve">
     <value>Obvezatan unos. Minimalna duljina unosa je jedan znak. Maksimalna duljina unosa je 255 znaka.</value>
   </data>
+  <data name="Validation_Invalid_Phone_number" xml:space="preserve">
+    <value>Unešeni broj telefona nije ispravan telefonski broj.</value>
+  </data>
   <data name="Validation_LastName_Required" xml:space="preserve">
     <value>Obvezatan unos. Minimalna duljina unosa je jedan znak. Maksimalna duljina unosa je 255 znaka.</value>
   </data>

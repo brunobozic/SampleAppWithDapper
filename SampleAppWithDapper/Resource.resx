@@ -291,6 +291,9 @@
   <data name="Validation_FirstName_Required" xml:space="preserve">
     <value>Minimal length for first name is 1 character, the maximal length is 255 characters.</value>
   </data>
+  <data name="Validation_Invalid_Phone_number" xml:space="preserve">
+    <value>Phone number entered is not a valid phone number.</value>
+  </data>
   <data name="Validation_LastName_Required" xml:space="preserve">
     <value>Minimal length for last name is 1 character, the maximal length is 255 characters.</value>
   </data>
