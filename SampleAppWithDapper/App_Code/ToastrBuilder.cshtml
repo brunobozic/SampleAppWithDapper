@@ -2,9 +2,11 @@
 
 @helper ShowToastMessages(Toastr toastr)
 {
-    if (toastr != null)
-    {
-        <script>
+                    /**/
+
+                    if (toastr != null)
+                    {
+                        <script>
                 $(document).ready(function() {
 
                     toastr.options.closeButton = '@toastr.ShowCloseButton';
@@ -78,6 +80,6 @@
                         toastr.clear();
                     });
                 });
-        </script>
-    }
+                        </script>
+                    }
 }

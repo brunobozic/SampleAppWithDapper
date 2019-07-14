@@ -157,7 +157,7 @@ namespace SampleAppWithDapper.DataAccess.Repositories.Contact
                 var result = resultAsync.ReadSingleOrDefault<int>();
 
                 retVal.Success = true;
-                retVal.ContactDeleted = result==0;
+                retVal.ContactDeleted = result == 0;
             }
             catch (Exception ex)
             {

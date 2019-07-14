@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using AutoMapper;
-using SampleAppWithDapper.Domain.DomainModels;
 using SampleAppWithDapper.Domain.DomainModels.Identity;
 using SampleAppWithDapper.Domain.Models;
 

@@ -10,6 +10,4 @@ namespace SampleAppWithDapper.DataAccess.Repositories.Contact
         Task<ContactUpdateResult> UpdateContactAsync(int id, ContactUpdateRequest updateRequest);
         Task<ContactDeleteResponse> DeleteContactAsync(ContactDeleteRequest deleteRequest);
     }
-
-  
 }

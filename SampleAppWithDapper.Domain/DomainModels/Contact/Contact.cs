@@ -2,8 +2,6 @@
 
 namespace SampleAppWithDapper.Domain.DomainModels.Contact
 {
-    //SELECT RowNumber, TotalCount, [Id], [FirstName], [LastName], [TelephoneNumberAsEntered], [Email], [ModifiedUTC], [ModifiedBy], [CreatedUTC], [ModifiedBy], [IsDeleted]
-    //FROM CTEResult
     public class Contact : BaseEntity
     {
         public Contact()
@@ -42,7 +40,6 @@ namespace SampleAppWithDapper.Domain.DomainModels.Contact
         }
 
         public int FilteredCount { get; set; }
-
 
         public int RowNumber { get; }
         public int TotalCount { get; }

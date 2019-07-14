@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Web;
+﻿using System.Configuration;
 using System.Web.Mvc;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
@@ -11,7 +7,6 @@ using Microsoft.AspNet.Identity;
 using SampleAppWithDapper.DataAccess;
 using SampleAppWithDapper.DataAccess.Repositories;
 using SampleAppWithDapper.DataAccess.Repositories.Contact;
-using SampleAppWithDapper.Domain.DomainModels;
 using SampleAppWithDapper.Domain.DomainModels.Identity;
 using SampleAppWithDapper.LoggingHelper;
 using SampleAppWithDapper.ServicePattern;

@@ -4,7 +4,6 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
-using SampleAppWithDapper.Domain.DomainModels;
 using SampleAppWithDapper.Domain.DomainModels.Identity;
 using SampleAppWithDapper.LoggingHelper;
 using SampleAppWithDapper.Models;

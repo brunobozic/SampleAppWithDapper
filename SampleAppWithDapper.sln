@@ -15,32 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleAppWithDapper.DataAcc
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{0BCD77C8-B8C0-4F55-B44F-C3A197350656}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aircraft", "Aircraft", "{FA6A18A7-5EEF-4C50-B662-FE6DB7A6A101}"
-	ProjectSection(SolutionItems) = preProject
-		SQL\Aircraft\01_Create_Aircraft_Table.sql = SQL\Aircraft\01_Create_Aircraft_Table.sql
-		SQL\Aircraft\02_Create_Airport_Table.sql = SQL\Aircraft\02_Create_Airport_Table.sql
-		SQL\Aircraft\03_Create_Scheduled_Flight_Table.sql = SQL\Aircraft\03_Create_Scheduled_Flight_Table.sql
-		SQL\Aircraft\04_Create_Flight_Table.sql = SQL\Aircraft\04_Create_Flight_Table.sql
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestData", "TestData", "{7EBCA179-DD65-4C00-8E85-79AC855D7752}"
-	ProjectSection(SolutionItems) = preProject
-		SQL\Aircraft\TestData\Insert_Basic_Test_Data.sql = SQL\Aircraft\TestData\Insert_Basic_Test_Data.sql
-		SQL\Aircraft\TestData\Insert_Extended_Test_Data.sql = SQL\Aircraft\TestData\Insert_Extended_Test_Data.sql
-		SQL\Aircraft\TestData\Products.sql = SQL\Aircraft\TestData\Products.sql
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contacts", "Contacts", "{6AA2AE39-A52D-405B-803C-E91F27B9F874}"
 	ProjectSection(SolutionItems) = preProject
 		SQL\Contacts\01_Create_Contacts_Table.sql = SQL\Contacts\01_Create_Contacts_Table.sql
-		02_Create_Address_Table.sql = 02_Create_Address_Table.sql
-		03_Create_AddressType_Table.sql = 03_Create_AddressType_Table.sql
-		04_Create_ContactType_Table.sql = 04_Create_ContactType_Table.sql
-		05_Create_Email_Table.sql = 05_Create_Email_Table.sql
-		06_Create_Phone_Table.sql = 06_Create_Phone_Table.sql
-		07_Create_PhoneType_Table.sql = 07_Create_PhoneType_Table.sql
-		SQL\Contacts\08_Create_CountryRegion_Table.sql = SQL\Contacts\08_Create_CountryRegion_Table.sql
-		SQL\Contacts\09_Create_StateProvince_Table.sql = SQL\Contacts\09_Create_StateProvince_Table.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uSERsTOREDpROCEDURES", "uSERsTOREDpROCEDURES", "{B72511B2-CFB9-4389-A7A0-5D4F22D0E128}"
@@ -106,8 +83,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{FA6A18A7-5EEF-4C50-B662-FE6DB7A6A101} = {0BCD77C8-B8C0-4F55-B44F-C3A197350656}
-		{7EBCA179-DD65-4C00-8E85-79AC855D7752} = {FA6A18A7-5EEF-4C50-B662-FE6DB7A6A101}
 		{6AA2AE39-A52D-405B-803C-E91F27B9F874} = {0BCD77C8-B8C0-4F55-B44F-C3A197350656}
 		{B72511B2-CFB9-4389-A7A0-5D4F22D0E128} = {6AA2AE39-A52D-405B-803C-E91F27B9F874}
 		{CC09D837-8CF4-4D64-A4BC-88B6C6A87C15} = {6AA2AE39-A52D-405B-803C-E91F27B9F874}

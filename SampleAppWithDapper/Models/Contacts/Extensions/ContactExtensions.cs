@@ -1,6 +1,4 @@
-﻿
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using SampleAppWithDapper.DataAccess.Repositories.Contact;
 
@@ -85,7 +83,6 @@ namespace SampleAppWithDapper.Models.Contacts.Extensions
 
         }
 
-
         public static IEnumerable<ContactViewModel> ConvertToViewModel(this IEnumerable<Domain.DomainModels.Contact.Contact> contacts)
         {
             return contacts.Select(contact => contact.ConvertToViewModel()).ToList();
@@ -103,7 +100,6 @@ namespace SampleAppWithDapper.Models.Contacts.Extensions
                 CreatedBy = contact.CreatedBy ?? "N/A",
                 ModifiedUtc = contact.ModifiedUtc,
                 ModifiedBy = contact.ModifiedBy ?? "N/A"
-
             };
 
             return returnVM;
