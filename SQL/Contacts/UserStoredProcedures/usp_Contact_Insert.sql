@@ -1,4 +1,11 @@
-﻿CREATE
+﻿USE [Dapper]
+GO
+
+IF OBJECT_ID('usp_Contact_Insert', 'P') IS NOT NULL
+    DROP PROCEDURE [dbo].[usp_Contact_Insert];
+GO
+
+CREATE
     OR
     ALTER PROCEDURE [dbo].[usp_Contact_Insert](@FirstName varchar(50), -- start with 50, then expand if needed
                                                @LastName varchar(50), -- start with 50, then expand if needed

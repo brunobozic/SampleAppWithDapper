@@ -1,4 +1,11 @@
-﻿CREATE OR ALTER PROCEDURE [dbo].[usp_Contacts_GetPaginated] @SearchTerm VARCHAR(50) = NULL,
+﻿USE [Dapper]
+GO
+
+IF OBJECT_ID('usp_Contacts_GetPaginated', 'P') IS NOT NULL
+    DROP PROCEDURE [dbo].[usp_Contacts_GetPaginated];
+GO
+
+CREATE OR ALTER PROCEDURE [dbo].[usp_Contacts_GetPaginated] @SearchTerm VARCHAR(50) = NULL,
                                                             @SortColumn VARCHAR(50) = NULL,
                                                             @SortOrder VARCHAR(50) = NULL,
                                                             @PageNumber INT = 1,
