@@ -1,4 +1,11 @@
-﻿CREATE OR ALTER PROCEDURE [dbo].[usp_Contact_GetById](
+﻿USE [Dapper]
+GO
+
+IF OBJECT_ID('usp_Contact_GetById', 'P') IS NOT NULL
+    DROP PROCEDURE [dbo].[usp_Contact_GetById];
+GO
+
+CREATE OR ALTER PROCEDURE [dbo].[usp_Contact_GetById](
     @Id int
 )
 As

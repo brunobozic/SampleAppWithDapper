@@ -1,4 +1,11 @@
-﻿CREATE TABLE [dbo].[Contacts]
+﻿USE [Dapper]
+GO
+
+IF OBJECT_ID('dbo.Contacts', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Contacts];
+GO
+
+CREATE TABLE [dbo].[Contacts]
 (
     Id                    int            not null IDENTITY (1,1),
     FirstName             nvarchar(255)  not null,

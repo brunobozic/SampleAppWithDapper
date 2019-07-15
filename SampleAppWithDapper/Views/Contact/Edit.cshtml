@@ -1,6 +1,8 @@
 ﻿@model SampleAppWithDapper.Models.Contacts.ContactViewModel
 
 @{
+    /**/
+
     ViewBag.Title = "Create a contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -95,7 +97,7 @@
                                 <i class="fa fa-edit fa-lg"></i> @Resource.EditContact_Edit_Button
                             </button>
 
-                        <button type="button" class="btn btn-outline-danger btn-sm btnDelete" aria-label="Right Align" style="" data-value="@Model.Id" onclick='window.location = "@Url.Action("Delete", "Contact")" + "/@Model.Id";'>
+                            <button type="button" class="btn btn-outline-danger btn-sm btnDelete" aria-label="Right Align" style="" data-value="@Model.Id" onclick='window.location = "@Url.Action("Delete", "Contact")" + "/@Model.Id";'>
                                 <i class="fa fa-trash-o fa-lg"></i> @Resource.EditContact_Delete_Button
                             </button>
 
@@ -109,19 +111,7 @@
             </section>
         </div>
         <script>
-            @*$(document).ready(function () {
-                $('form.deleteForm').on('click', 'button.btnDelete', function(ev) {
 
-                    var $buttonClicked = $(this);
-                    var id = $buttonClicked.attr('data-value');
-
-                    // some debugging stuff, if necessary ...
-                    // console.log(id);
-                    // in the current context "this" points to the clicked button
-                    $(this).closest('form').attr('action', '@Url.Action("Delete", "Contact")/' + id).submit();
-                    // finds the form object, changes the "action" and submits it
-                });
-            });*@
 
         </script>
     </div>
