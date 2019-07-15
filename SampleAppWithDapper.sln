@@ -20,7 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contacts", "Contacts", "{6A
 		SQL\Contacts\01_Create_Contacts_Table.sql = SQL\Contacts\01_Create_Contacts_Table.sql
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uSERsTOREDpROCEDURES", "uSERsTOREDpROCEDURES", "{B72511B2-CFB9-4389-A7A0-5D4F22D0E128}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserStoredProcedures", "UserStoredProcedures", "{B72511B2-CFB9-4389-A7A0-5D4F22D0E128}"
 	ProjectSection(SolutionItems) = preProject
 		SQL\Contacts\UserStoredProcedures\usp_Contact_Delete.sql = SQL\Contacts\UserStoredProcedures\usp_Contact_Delete.sql
 		SQL\Contacts\UserStoredProcedures\usp_Contact_GetById.sql = SQL\Contacts\UserStoredProcedures\usp_Contact_GetById.sql
@@ -29,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uSERsTOREDpROCEDURES", "uSE
 		SQL\Contacts\UserStoredProcedures\usp_Contacts_GetPaginated.sql = SQL\Contacts\UserStoredProcedures\usp_Contacts_GetPaginated.sql
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleAppWithDapper.DataAccess.Test", "..\SampleAppWithDapper.DataAccess.Test\SampleAppWithDapper.DataAccess.Test.csproj", "{E8B1F5A0-9751-4B7B-B168-0526186888F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleAppWithDapper.DataAccess.Test", "SampleAppWithDapper.DataAccess.Test\SampleAppWithDapper.DataAccess.Test.csproj", "{E8B1F5A0-9751-4B7B-B168-0526186888F0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestData", "TestData", "{CC09D837-8CF4-4D64-A4BC-88B6C6A87C15}"
 	ProjectSection(SolutionItems) = preProject
