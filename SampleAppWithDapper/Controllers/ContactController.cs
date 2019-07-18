@@ -244,7 +244,7 @@ namespace SampleAppWithDapper.Controllers
                         if (item != null)
                         {
                             item.Action =
-                                "<a type='button' class='btn btn-primary btnGridEdit' style='padding:6px' href='" +
+                                "<a type='button' class='btn btn-light btnGridEdit' style='padding:6px; font-size: 12px !important' href='" +
                                 this.Url.Action("Edit", "Contact", new {Id = item.Id}) +
                                 "'><i class= 'fa fa-edit fa-lg'></i> EDIT</a>";
                             //item.Created = item.CreatedUtc.LocalDateTime;
