@@ -62,7 +62,7 @@
                     <div class="form-group">
                         @Html.LabelFor(m => m.TelephoneNumber_Entry, new { @class = "col-md-2 control-label" })
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.TelephoneNumber_Entry, new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.TelephoneNumber_Entry, new { @id = "telephone_input_mask", @class = "form-control" })
                             @Html.ValidationMessageFor(m => m.TelephoneNumber_Entry, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -110,9 +110,10 @@
                 }
             </section>
         </div>
+        <script src="https://cdn.jsdelivr.net/gh/RobinHerbots/jquery.inputmask@5.0.0-beta.87/dist/inputmask.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/RobinHerbots/jquery.inputmask@5.0.0-beta.87/dist/jquery.inputmask.min.js"></script>
         <script>
-
-
+            $("#telephone_input_mask").inputmask("0999999999");
         </script>
     </div>
 </div>

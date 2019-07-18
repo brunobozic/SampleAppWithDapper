@@ -400,6 +400,17 @@
     <Content Include="lib\font-awesome\webfonts\fa-brands-400.svg" />
     <Content Include="lib\font-awesome\webfonts\fa-regular-400.svg" />
     <Content Include="lib\font-awesome\webfonts\fa-solid-900.svg" />
+    <Content Include="lib\inputmask\inputmask\bindings\inputmask.binding.min.js" />
+    <Content Include="lib\inputmask\inputmask\dependencyLibs\inputmask.dependencyLib.jqlite.min.js" />
+    <Content Include="lib\inputmask\inputmask\dependencyLibs\inputmask.dependencyLib.jquery.min.js" />
+    <Content Include="lib\inputmask\inputmask\dependencyLibs\inputmask.dependencyLib.min.js" />
+    <Content Include="lib\inputmask\inputmask\global\window.min.js" />
+    <Content Include="lib\inputmask\inputmask\inputmask.date.extensions.min.js" />
+    <Content Include="lib\inputmask\inputmask\inputmask.extensions.min.js" />
+    <Content Include="lib\inputmask\inputmask\inputmask.min.js" />
+    <Content Include="lib\inputmask\inputmask\inputmask.numeric.extensions.min.js" />
+    <Content Include="lib\inputmask\inputmask\jquery.inputmask.min.js" />
+    <Content Include="lib\inputmask\jquery.inputmask.bundle.min.js" />
     <Content Include="lib\jquery-validate\additional-methods.js" />
     <Content Include="lib\jquery-validate\additional-methods.min.js" />
     <Content Include="lib\jquery-validate\jquery.validate.js" />

@@ -55,6 +55,10 @@
     {
       "library": "pdfmake@0.1.57",
       "destination": "lib/pdfmake/"
+    },
+    {
+      "library": "inputmask@4.0.8",
+      "destination": "lib/inputmask/"
     }
   ]
 }
