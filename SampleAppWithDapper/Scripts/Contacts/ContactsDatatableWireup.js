@@ -34,7 +34,8 @@ $(document).ready(function () {
             { "width": "20%", "searchable": true, "orderable": true, "targets": [4] }, // EMail
             { "width": "20%", "searchable": false, "orderable": true, "targets": [5] }, // CreatedUtc
             { "width": "20%", "searchable": false, "orderable": true, "targets": [6] }, // ModifiedUtc
-            { "className": "text-center custom-middle-align", "targets": [4] }
+            { "className": "text-center custom-middle-align", "targets": [4] }, 
+            { "className": "daj_razmak", "targets": [0] }
         ],
         select: {
             style: 'multi'

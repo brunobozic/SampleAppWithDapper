@@ -285,6 +285,7 @@
   <ItemGroup>
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\owl.carousel.min.css" />
+    <Content Include="Content\css\responsive.dataTables.min.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\themify-icons.css" />
     <Content Include="Content\fonts\themify.svg" />
@@ -303,8 +304,10 @@
     <Content Include="Content\images\screen2.jpg" />
     <Content Include="Content\images\screen3.jpg" />
     <Content Include="Content\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\js\dataTables.responsive.min.js" />
     <Content Include="Content\js\jquery-3.2.1.min.js" />
     <Content Include="Content\js\owl.carousel.min.js" />
+    <Content Include="Content\js\responsive.bootstrap.min.js" />
     <Content Include="Content\js\script.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

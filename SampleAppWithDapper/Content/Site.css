@@ -1,7 +1,7 @@
-﻿body {
+﻿/*body {
     padding-top: 50px;
     padding-bottom: 20px;
-}
+}*/
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -20,5 +20,13 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 200px;
+}
+
+html {
+    font-size: 0.7rem;
+}
+
+.table td, .table th {
+    padding: 0.55rem !important;
 }
