@@ -53,7 +53,7 @@ namespace SampleAppWithDapper.DataAccess.Repositories.Contact
         {
             var response = new ContactCreateResponse();
 
-            var resultAsync = await _connection.QueryMultipleAsync("usp_Insert_Contact"
+            var resultAsync = await _connection.QueryMultipleAsync("usp_Contact_Insert"
                 ,
                 new
                 {

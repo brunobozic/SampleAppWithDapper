@@ -64,7 +64,7 @@ BEGIN
 
         SELECT *
         FROM dbo.Contacts
-        WHERE ID IN (SELECT ID FROM @ INSERTEDID)
+        WHERE ID IN (SELECT ID FROM @INSERTEDID)
 
     END TRY
     BEGIN CATCH

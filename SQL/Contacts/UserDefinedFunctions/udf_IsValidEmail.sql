@@ -1,4 +1,7 @@
-﻿CREATE OR ALTER FUNCTION [dbo].[udf_IsValidEmail](
+﻿USE [Dapper]
+GO
+
+CREATE OR ALTER FUNCTION [dbo].[udf_IsValidEmail](
     @EmailAddr varchar(360) -- Email address to check
 ) RETURNS BIT -- 1 if @EmailAddr is a valid email address
 
