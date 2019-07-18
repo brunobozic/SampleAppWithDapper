@@ -183,6 +183,9 @@
   <data name="CreateContact_Toast_Success" xml:space="preserve">
     <value>Stvoren je novi kontakt.</value>
   </data>
+  <data name="Datatables_No_Record_Found" xml:space="preserve">
+    <value>Nije pronađen niti jedan rezultat</value>
+  </data>
   <data name="DeleteContact_Are_You_Sure_Prompt" xml:space="preserve">
     <value>Ukoliko želite obrisati ovaj kontakt, molimo odaberite "OBRIŠI"</value>
   </data>

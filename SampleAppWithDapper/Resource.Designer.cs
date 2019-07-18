@@ -259,6 +259,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No record found.
+        /// </summary>
+        public static string Datatables_No_Record_Found {
+            get {
+                return ResourceManager.GetString("Datatables_No_Record_Found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to delete this contact?.
         /// </summary>
         public static string DeleteContact_Are_You_Sure_Prompt {

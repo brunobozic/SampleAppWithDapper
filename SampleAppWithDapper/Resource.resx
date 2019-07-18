@@ -183,6 +183,9 @@
   <data name="CreateContact_Toast_Success" xml:space="preserve">
     <value>New contact created</value>
   </data>
+  <data name="Datatables_No_Record_Found" xml:space="preserve">
+    <value>No record found</value>
+  </data>
   <data name="DeleteContact_Are_You_Sure_Prompt" xml:space="preserve">
     <value>Are you sure you want to delete this contact?</value>
   </data>

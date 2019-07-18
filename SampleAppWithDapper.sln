@@ -50,6 +50,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{05
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleItemWithDapper.UI.MVC6.Identity", "SampleItemWithDapper.UI.MVC6.Identity\SampleItemWithDapper.UI.MVC6.Identity.csproj", "{C8595A75-4EC8-4C1C-B75D-35E7A4609E13}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DapperDatabaseBackups", "DapperDatabaseBackups", "{59CA650D-342E-4B7C-BCD7-A7B00BCCE115}"
+	ProjectSection(SolutionItems) = preProject
+		SQL\Contacts\DapperBackup20190718.bak = SQL\Contacts\DapperBackup20190718.bak
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,6 +99,7 @@ Global
 		{CC09D837-8CF4-4D64-A4BC-88B6C6A87C15} = {6AA2AE39-A52D-405B-803C-E91F27B9F874}
 		{5C70470F-B9F2-4CF7-8856-D9B3F110A5ED} = {6AA2AE39-A52D-405B-803C-E91F27B9F874}
 		{050FD79F-67DC-4F9E-85F7-D7C2A6CA8E38} = {0BCD77C8-B8C0-4F55-B44F-C3A197350656}
+		{59CA650D-342E-4B7C-BCD7-A7B00BCCE115} = {0BCD77C8-B8C0-4F55-B44F-C3A197350656}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A316706-F8B4-424C-BE8C-337CF59D93CF}

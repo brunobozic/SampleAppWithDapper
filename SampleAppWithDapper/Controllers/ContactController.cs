@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -97,7 +98,7 @@ namespace SampleAppWithDapper.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit(int? id, [Bind(Include = "FirstName, LastName, EMail, TelephoneNumber_Entry")]EditContactViewModel editModel)
+        public async Task<ActionResult> Edit(int? id, [Bind(Include = "FirstName, LastName, EMail, TelephoneNumber_Entry")]ContactViewModel editModel)
         {
             var req = new ContactUpdateRequest
             {
@@ -109,20 +110,28 @@ namespace SampleAppWithDapper.Controllers
                 Updater = "SystemFakeUser"
             };
 
-            var result = await _contactRepository.UpdateContactAsync(req.Id, req);
-
-            if (result.Success)
+            if (ModelState.IsValid)
             {
-                this.AddToastMessage(@Resource.Resource.Toast_Success, @Resource.Resource.UpdateContact_Toast_Success, ToastType.Success);
+                var result = await _contactRepository.UpdateContactAsync(req.Id, req);
 
-                return View(result.Contact.ConvertToViewModel());
+                if (result.Success)
+                {
+                    this.AddToastMessage(@Resource.Resource.Toast_Success,
+                        @Resource.Resource.UpdateContact_Toast_Success, ToastType.Success);
+
+                    return View(result.Contact.ConvertToViewModel());
+                }
+
+                var vm = new GenericErrorVM { ErrorMessage = result.Message };
+
+                this.AddToastMessage(result.Message, @Resource.Resource.UpdateContact_Toast_Failure, ToastType.Error);
+
+                return View("../GenericError/GenericError", vm);
             }
-
-            var vm = new GenericErrorVM { ErrorMessage = result.Message };
-
-            this.AddToastMessage(result.Message, @Resource.Resource.UpdateContact_Toast_Failure, ToastType.Error);
-
-            return View("../GenericError/GenericError", vm);
+            else
+            {
+                return View(editModel);
+            }
         }
 
         [HttpGet]
@@ -191,9 +200,13 @@ namespace SampleAppWithDapper.Controllers
 
             var sortBy = "";
             var sortDir = "";
-            var pgNr = skip / take;
+            var pgNr = 0;
 
-            if (skip == 0)
+            if (skip > 0)
+            {
+                pgNr = skip / take;
+            }
+            else if (skip == 0)
             {
                 pgNr = 1;
             }
@@ -224,18 +237,43 @@ namespace SampleAppWithDapper.Controllers
 
             if (response.Success)
             {
-                foreach (var item in response.Contacts)
+                if (response.Contacts.Count > 0)
                 {
-                    item.Action =
-                        "<a type='button' class='btn btn-outline-dark btn-xs btnGridEdit' style='float:right; padding:6px' href='" +
-                        this.Url.Action("Edit", "Contact", new { Id = item.Id }) +
-                        "'><i class= 'fa fa-edit fa-lg'></i> EDIT</a>";
+                    foreach (var item in response.Contacts)
+                    {
+                        if (item != null)
+                            item.Action =
+                                "<a type='button' class='btn btn-outline-dark btn-xs btnGridEdit' style='float:right; padding:6px' href='" +
+                                this.Url.Action("Edit", "Contact", new {Id = item.Id}) +
+                                "'><i class= 'fa fa-edit fa-lg'></i> EDIT</a>";
+                    }
+
+                    var converted = response.Contacts.ConvertToPaginatedViewModel();
+                    converted.FilteredCount = response.FilteredCount;
+
+                    return converted;
                 }
+                else
+                {
+                    var nfText = Resource.Resource.Datatables_No_Record_Found;
+                    var nullContact = new ContactViewModel
+                    {
+                        TotalCount = 1,
+                        EMail = nfText,
+                        FirstName = nfText,
+                        LastName = nfText,
+                        TelephoneNumber_Entry = nfText
+                    };
 
-                var converted = response.Contacts.ConvertToPaginatedViewModel();
-                converted.FilteredCount = response.FilteredCount;
+                    var list = new List<ContactViewModel> {nullContact};
 
-                return converted;
+                    return new PaginatedContactsViewModel
+                    {
+                        Contacts = list,
+                        FilteredCount = 0,
+                        TotalCount = 0
+                    };
+                }
             }
 
             return null;
