@@ -34,5 +34,7 @@ namespace SampleAppWithDapper.Models.Contacts
         public string CreatedBy { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
         public string ModifiedBy { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime? Modified { get; set; }
     }
 }

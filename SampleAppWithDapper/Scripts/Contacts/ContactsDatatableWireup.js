@@ -132,8 +132,6 @@ $(document).ready(function () {
                     var local = moment(stillUtc).local().format('DD.MM.YYYY HH:mm:ss');
 
                     var minDate = moment.utc("0001-01-01"); // minimum value as per UTC
-                    // console.log(local); // 2015-09-13 09:39:27
-
 
                     return moment(data).isAfter(minDate) ? local : "N/A";
                 }

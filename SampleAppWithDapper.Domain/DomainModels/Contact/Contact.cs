@@ -48,5 +48,7 @@ namespace SampleAppWithDapper.Domain.DomainModels.Contact
         public string TelephoneNumber_Entry { get; }
         public string EMail { get; }
         public string Action { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime? Modified { get; set; }
     }
 }

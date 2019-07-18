@@ -35,8 +35,10 @@ namespace SampleAppWithDapper.Models.Contacts.Extensions
                 LastName = contact.LastName ?? "N/A",
                 TelephoneNumber_Entry = contact.TelephoneNumber_Entry ?? "N/A",
                 TotalCount = contact.TotalCount,
-                CreatedUtc = contact.CreatedUtc.LocalDateTime,
-                ModifiedUtc = contact.ModifiedUtc.GetValueOrDefault().LocalDateTime,
+                CreatedUtc = contact.CreatedUtc,
+                ModifiedUtc = contact.ModifiedUtc,
+                Created = contact.CreatedUtc.LocalDateTime,
+                Modified = contact.ModifiedUtc.GetValueOrDefault().LocalDateTime,
                 CreatedBy = contact.CreatedBy ?? "N/A",
                 ModifiedBy = contact.ModifiedBy ?? "N/A",
                 Action = contact.Action
@@ -57,8 +59,10 @@ namespace SampleAppWithDapper.Models.Contacts.Extensions
                 LastName = contact.LastName ?? "N/A",
                 TelephoneNumber_Entry = contact.TelephoneNumber_Entry ?? "N/A",
                 TotalCount = contact.TotalCount,
-                CreatedUtc = contact.CreatedUtc.LocalDateTime,
-                ModifiedUtc = contact.ModifiedUtc.GetValueOrDefault().LocalDateTime,
+                CreatedUtc = contact.CreatedUtc,
+                ModifiedUtc = contact.ModifiedUtc,
+                Created = contact.CreatedUtc.LocalDateTime,
+                Modified = contact.ModifiedUtc.GetValueOrDefault().LocalDateTime,
                 CreatedBy = contact.CreatedBy ?? "N/A",
                 ModifiedBy = contact.ModifiedBy ?? "N/A",
                 Action = contact.Action
@@ -94,9 +98,9 @@ namespace SampleAppWithDapper.Models.Contacts.Extensions
                 FirstName = contact.FirstName ?? "N/A",
                 LastName = contact.LastName ?? "N/A",
                 TelephoneNumber_Entry = contact.TelephoneNumber_Entry ?? "N/A",
-                CreatedUtc = contact.CreatedUtc,
+                Created = contact.CreatedUtc.LocalDateTime,
                 CreatedBy = contact.CreatedBy ?? "N/A",
-                ModifiedUtc = contact.ModifiedUtc,
+                Modified = contact.ModifiedUtc?.LocalDateTime,
                 ModifiedBy = contact.ModifiedBy ?? "N/A"
             };
 

@@ -29,5 +29,8 @@ namespace SampleAppWithDapper.Models.Contacts
         public string CreatedBy { get; set; }
         [Display(Name = "Display_Name_ModifiedBy", ResourceType = typeof(Resource.Resource))]
         public string ModifiedBy { get; set; }
+
+        public DateTime Created { get; set; }
+        public DateTime? Modified { get; set; }
     }
 }

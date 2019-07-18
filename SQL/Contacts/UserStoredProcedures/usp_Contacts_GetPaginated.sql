@@ -14,14 +14,10 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    DECLARE
-        @StartRow INT
-    DECLARE
-        @EndRow INT
-    DECLARE
-        @SearchValue VARCHAR(50)
-    DECLARE
-        @FilteredCount INT
+    DECLARE @StartRow INT
+    DECLARE @EndRow INT
+    DECLARE @SearchValue VARCHAR(50)
+    DECLARE @FilteredCount INT
 
     SET @SortColumn = LOWER(ISNULL(@SortColumn, ''))
     SET @SortOrder = LOWER(ISNULL(@SortOrder, ''))
@@ -38,9 +34,14 @@ BEGIN
             CASE WHEN (@SortColumn = 'email' AND @SortOrder = 'asc') THEN Email END ASC,
             CASE WHEN (@SortColumn = 'email' AND @SortOrder = 'desc') THEN Email END DESC,
 
+            CASE WHEN (@SortColumn = 'createdutc' AND @SortOrder = 'asc') THEN CreatedUtc END ASC,
+            CASE WHEN (@SortColumn = 'createdutc' AND @SortOrder = 'desc') THEN CreatedUtc END DESC,
+
+            CASE WHEN (@SortColumn = 'modifiedutc' AND @SortOrder = 'asc') THEN ModifiedUtc END ASC,
+            CASE WHEN (@SortColumn = 'modifiedutc' AND @SortOrder = 'desc') THEN ModifiedUtc END DESC,
+
             CASE WHEN (@SortColumn = 'telephoneNumber_entry' AND @SortOrder = 'asc') THEN TelephoneNumber_Entry END ASC,
-            CASE
-                WHEN (@SortColumn = 'telephoneNumber_entry' AND @SortOrder = 'desc') THEN TelephoneNumber_Entry END DESC,
+            CASE WHEN (@SortColumn = 'telephoneNumber_entry' AND @SortOrder = 'desc') THEN TelephoneNumber_Entry END DESC,
 
             CASE WHEN (@SortColumn = 'id' AND @SortOrder = 'asc') THEN Id END ASC,
             CASE WHEN (@SortColumn = 'id' AND @SortOrder = 'desc') THEN Id END DESC
