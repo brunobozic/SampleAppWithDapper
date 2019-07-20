@@ -59,6 +59,10 @@
     {
       "library": "inputmask@4.0.8",
       "destination": "lib/inputmask/"
+    },
+    {
+      "library": "jszip@3.2.2",
+      "destination": "lib/jszip/"
     }
   ]
 }

@@ -543,6 +543,8 @@
     <Content Include="lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
     <Content Include="lib\jquery\jquery.js" />
     <Content Include="lib\jquery\jquery.min.js" />
+    <Content Include="lib\jszip\jszip.js" />
+    <Content Include="lib\jszip\jszip.min.js" />
     <Content Include="lib\modernizr\modernizr.js" />
     <Content Include="lib\modernizr\modernizr.min.js" />
     <Content Include="libman.json" />
