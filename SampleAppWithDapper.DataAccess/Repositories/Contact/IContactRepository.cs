@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using SampleAppWithDapper.DataAccess.MessagePattern;
 
 namespace SampleAppWithDapper.DataAccess.Repositories.Contact
 {
@@ -7,7 +8,7 @@ namespace SampleAppWithDapper.DataAccess.Repositories.Contact
         Task<PaginatedContactsResponse> GetPaginatedResultsAsync(ContactsGetAllPaginatedRequest requestForPaginatedContacts);
         Task<ContactCreateResponse> ContactCreateAsync(ContactCreateRequest createRequest);
         Task<ContactGetByIdResponse> GetContactByIdAsync(int contactId);
-        Task<ContactUpdateResult> UpdateContactAsync(int id, ContactUpdateRequest updateRequest);
+        Task<ContactUpdateResponse> UpdateContactAsync(int id, ContactUpdateRequest updateRequest);
         Task<ContactDeleteResponse> DeleteContactAsync(ContactDeleteRequest deleteRequest);
     }
 }

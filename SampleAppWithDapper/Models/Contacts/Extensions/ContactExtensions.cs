@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SampleAppWithDapper.DataAccess.DTOs;
 using SampleAppWithDapper.DataAccess.Repositories.Contact;
 
 namespace SampleAppWithDapper.Models.Contacts.Extensions

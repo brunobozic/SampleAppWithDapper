@@ -1,5 +1,6 @@
 ﻿using System;
 using Dapper.Contrib.Extensions;
+using SampleAppWithDapper.Domain.Interfaces;
 
 namespace SampleAppWithDapper.Domain
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SampleAppWithDapper.DataAccess.Repositories.Contact
+namespace SampleAppWithDapper.DataAccess.DTOs
 {
     public class ContactDto
     {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using SampleAppWithDapper.ControllerExtensions;
+using SampleAppWithDapper.DataAccess.MessagePattern;
 using SampleAppWithDapper.DataAccess.Repositories.Contact;
 using SampleAppWithDapper.DataTablesHelpers;
 using SampleAppWithDapper.LoggingHelper;
@@ -71,6 +72,8 @@ namespace SampleAppWithDapper.Controllers
 
                 var em = new ContactCreateExceptionMessage { Message = ex.Message };
 
+                Log.Error(ex, ex.Message);
+
                 return View("ContactCreationFailed", em);
             }
 
@@ -91,7 +94,7 @@ namespace SampleAppWithDapper.Controllers
             else
             {
                 var vm = new GenericErrorVM { ErrorMessage = result.Message };
-
+                Log.Error(null, result.Message);
                 return View("../GenericError/GenericError", vm);
             }
 
@@ -126,6 +129,8 @@ namespace SampleAppWithDapper.Controllers
 
                 this.AddToastMessage(result.Message, @Resource.Resource.UpdateContact_Toast_Failure, ToastType.Error);
 
+                Log.Error(null, result.Message);
+
                 return View("../GenericError/GenericError", vm);
             }
             else
@@ -143,11 +148,15 @@ namespace SampleAppWithDapper.Controllers
             {
                 var vm = result.Contact.ConvertToDeleteViewModel();
 
+                Log.Warning(null, "Deleted contact - Name: [ " + result.Contact.FirstName + "], Surname: [ " + result.Contact.LastName + " ]");
+
                 return View(vm);
             }
             else
             {
                 var vm = new GenericErrorVM { ErrorMessage = result.Message };
+
+                Log.Error(null, result.Message);
 
                 return View("../GenericError/GenericError", vm);
             }
@@ -169,7 +178,10 @@ namespace SampleAppWithDapper.Controllers
             }
 
             var vm = new GenericErrorVM { ErrorMessage = result.Message };
+
             this.AddToastMessage(@Resource.Resource.DeleteContact_Toast_Failure, result.Message, ToastType.Success);
+
+            Log.Error(null, result.Message);
 
             return View("../GenericError/GenericError", vm);
         }
@@ -245,7 +257,7 @@ namespace SampleAppWithDapper.Controllers
                         {
                             item.Action =
                                 "<a type='button' class='btn btn-light btnGridEdit' style='padding:6px; font-size: 12px !important' href='" +
-                                this.Url.Action("Edit", "Contact", new {Id = item.Id}) +
+                                this.Url.Action("Edit", "Contact", new { Id = item.Id }) +
                                 "'><i class= 'fa fa-edit fa-lg'></i> EDIT</a>";
                         }
                     }
@@ -267,7 +279,7 @@ namespace SampleAppWithDapper.Controllers
                         TelephoneNumber_Entry = nfText
                     };
 
-                    var list = new List<ContactViewModel> {nullContact};
+                    var list = new List<ContactViewModel> { nullContact };
 
                     return new PaginatedContactsViewModel
                     {

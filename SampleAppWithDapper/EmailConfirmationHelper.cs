@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using System.Web;
 using Newtonsoft.Json;
-using SampleAppWithDapper.Domain.DomainModels;
 using SampleAppWithDapper.Domain.DomainModels.Identity;
 
 namespace SampleAppWithDapper

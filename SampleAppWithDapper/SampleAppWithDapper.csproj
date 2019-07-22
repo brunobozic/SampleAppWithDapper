@@ -240,7 +240,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
-    <Compile Include="Controllers\GenericErrorVM.cs" />
+    <Compile Include="Models\GenericErrorVM.cs" />
     <Compile Include="ErrorHandler\AiHandleErrorAttribute.cs" />
     <Compile Include="Models\Contacts\ContactDeleteViewModel .cs" />
     <Compile Include="Models\Contacts\ContactViewModel.cs" />

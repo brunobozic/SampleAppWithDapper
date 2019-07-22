@@ -6,7 +6,7 @@ using Dapper;
 using Microsoft.AspNet.Identity;
 using SampleAppWithDapper.Domain.DomainModels.Identity;
 
-namespace SampleAppWithDapper.DataAccess.Repositories
+namespace SampleAppWithDapper.DataAccess.Repositories.AppUsers
 {
     /// <summary>
     /// User repository class async

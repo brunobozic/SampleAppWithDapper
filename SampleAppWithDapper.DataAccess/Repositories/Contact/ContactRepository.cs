@@ -3,6 +3,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
+using SampleAppWithDapper.DataAccess.MessagePattern;
 
 
 namespace SampleAppWithDapper.DataAccess.Repositories.Contact
@@ -106,9 +107,9 @@ namespace SampleAppWithDapper.DataAccess.Repositories.Contact
             return retVal;
         }
 
-        public async Task<ContactUpdateResult> UpdateContactAsync(int id, ContactUpdateRequest updateRequest)
+        public async Task<ContactUpdateResponse> UpdateContactAsync(int id, ContactUpdateRequest updateRequest)
         {
-            var retVal = new ContactUpdateResult();
+            var retVal = new ContactUpdateResponse();
 
             try
             {

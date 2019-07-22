@@ -6,6 +6,7 @@ using Castle.Windsor;
 using Microsoft.AspNet.Identity;
 using SampleAppWithDapper.DataAccess;
 using SampleAppWithDapper.DataAccess.Repositories;
+using SampleAppWithDapper.DataAccess.Repositories.AppUsers;
 using SampleAppWithDapper.DataAccess.Repositories.Contact;
 using SampleAppWithDapper.Domain.DomainModels.Identity;
 using SampleAppWithDapper.LoggingHelper;
@@ -32,7 +33,7 @@ namespace SampleAppWithDapper.Container
             container.Register(Component.For(typeof(UserManager<>)).ImplementedBy(typeof(UserManager<>)).LifestyleTransient());
             container.Register(Component.For(typeof(IConnectionFactory)).ImplementedBy(typeof(SqlConnectionFactory)).DependsOn(Dependency.OnValue("connectionString", ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString)).LifestyleSingleton());
 
-            container.Register(Component.For(typeof(ILoggingHelper)).ImplementedBy(typeof(LoggingHelper.LoggingHelper)).LifestyleTransient());
+            container.Register(Component.For(typeof(ILoggingHelper)).ImplementedBy(typeof(LoggingHelper.LoggingHelper)).LifestyleSingleton());
             container.Register(Component.For(typeof(IContactRepository)).ImplementedBy(typeof(ContactRepository)).LifestyleTransient());
             container.Register(Component.For(typeof(IDbConnectionProvider)).ImplementedBy(typeof(DatabaseConnectionManager)).DependsOn(Dependency.OnValue("connection", ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString)).LifestyleSingleton());
             

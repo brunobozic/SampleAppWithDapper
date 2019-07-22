@@ -1,4 +1,4 @@
-﻿namespace SampleAppWithDapper.Domain
+﻿namespace SampleAppWithDapper.Domain.Interfaces
 {
     public interface ISoftDeletable
     {

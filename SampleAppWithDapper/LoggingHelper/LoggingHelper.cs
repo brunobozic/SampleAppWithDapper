@@ -17,12 +17,6 @@ namespace SampleAppWithDapper.LoggingHelper
 
             // 5 MB = 5242880 bytes
 
-            var logger = new LoggerConfiguration()
-                .MinimumLevel.Error()
-                .WriteTo.RollingFile(System.Web.Hosting.HostingEnvironment.MapPath("~/ErrorLog/Error/log.txt"), fileSizeLimitBytes: 5242880)
-                .CreateLogger();
-
-
             Errorlog = new LoggerConfiguration()
                 .MinimumLevel.Error()
                 .WriteTo.RollingFile(System.Web.Hosting.HostingEnvironment.MapPath("~/ErrorLog/Error/log.txt"), fileSizeLimitBytes: 5242880)

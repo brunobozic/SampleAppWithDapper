@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SampleAppWithDapper.DataAccess.Repositories.Contact
+namespace SampleAppWithDapper.DataAccess.MessagePattern
 {
     public class PaginatedContactsResponse
     {

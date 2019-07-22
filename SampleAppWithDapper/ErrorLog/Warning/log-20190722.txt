@@ -1,0 +1,1 @@
+2019-07-22 12:23:48.795 +02:00 [Warning] Deleted contact - Name: [ Coyne], Surname: [ Coyne ]
