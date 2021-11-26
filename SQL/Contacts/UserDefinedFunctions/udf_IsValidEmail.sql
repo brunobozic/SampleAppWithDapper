@@ -1,4 +1,4 @@
-﻿USE [Dapper]
+﻿USE [ContactManager]
 GO
 
 CREATE OR ALTER FUNCTION [dbo].[udf_IsValidEmail](

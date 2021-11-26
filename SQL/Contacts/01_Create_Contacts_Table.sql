@@ -1,4 +1,4 @@
-﻿USE [Dapper]
+﻿USE [ContactManager]
 GO
 
 IF OBJECT_ID('dbo.Contacts', 'U') IS NOT NULL

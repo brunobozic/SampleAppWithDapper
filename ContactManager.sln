@@ -1,0 +1,91 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManager.Domain", "ContactManager.Domain\ContactManager.Domain.csproj", "{5DE2FDE3-D96B-4018-8141-9F963DF6F59A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManager.DataAccess", "ContactManager.DataAccess\ContactManager.DataAccess.csproj", "{C94CB4F0-A58D-4A57-AB5D-0147CFDC44A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{0BCD77C8-B8C0-4F55-B44F-C3A197350656}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contacts", "Contacts", "{6AA2AE39-A52D-405B-803C-E91F27B9F874}"
+	ProjectSection(SolutionItems) = preProject
+		SQL\Contacts\01_Create_Contacts_Table.sql = SQL\Contacts\01_Create_Contacts_Table.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserStoredProcedures", "UserStoredProcedures", "{B72511B2-CFB9-4389-A7A0-5D4F22D0E128}"
+	ProjectSection(SolutionItems) = preProject
+		SQL\Contacts\UserStoredProcedures\usp_Contact_Delete.sql = SQL\Contacts\UserStoredProcedures\usp_Contact_Delete.sql
+		SQL\Contacts\UserStoredProcedures\usp_Contact_GetById.sql = SQL\Contacts\UserStoredProcedures\usp_Contact_GetById.sql
+		SQL\Contacts\UserStoredProcedures\usp_Contact_Insert.sql = SQL\Contacts\UserStoredProcedures\usp_Contact_Insert.sql
+		SQL\Contacts\UserStoredProcedures\usp_Contact_Update.sql = SQL\Contacts\UserStoredProcedures\usp_Contact_Update.sql
+		SQL\Contacts\UserStoredProcedures\usp_Contacts_GetPaginated.sql = SQL\Contacts\UserStoredProcedures\usp_Contacts_GetPaginated.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestData", "TestData", "{CC09D837-8CF4-4D64-A4BC-88B6C6A87C15}"
+	ProjectSection(SolutionItems) = preProject
+		SQL\Contacts\TestData\Insert_Contact_Test_Data.sql = SQL\Contacts\TestData\Insert_Contact_Test_Data.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{5C70470F-B9F2-4CF7-8856-D9B3F110A5ED}"
+	ProjectSection(SolutionItems) = preProject
+		SQL\Contacts\UserDefinedFunctions\udf_IsValidEmail.sql = SQL\Contacts\UserDefinedFunctions\udf_IsValidEmail.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{050FD79F-67DC-4F9E-85F7-D7C2A6CA8E38}"
+	ProjectSection(SolutionItems) = preProject
+		SQL\Identity\01_Create_Users_Table.sql = SQL\Identity\01_Create_Users_Table.sql
+		SQL\Identity\02_Create_Application_Role_Table.sql = SQL\Identity\02_Create_Application_Role_Table.sql
+		SQL\Identity\03_Create_Application_UserRole_Table.sql = SQL\Identity\03_Create_Application_UserRole_Table.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DapperDatabaseBackups", "DapperDatabaseBackups", "{59CA650D-342E-4B7C-BCD7-A7B00BCCE115}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectRequirements", "ProjectRequirements", "{C6F01C44-AE7C-4D35-866F-BA600D426639}"
+	ProjectSection(SolutionItems) = preProject
+		REQUIREMENTS.txt = REQUIREMENTS.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManager.Web.MVC", "ContactManager.Web.MVC\ContactManager.Web.MVC.csproj", "{58E1CB29-526B-46AC-AABF-80741DA27D74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reusable.Component.Notifications.Razor", "Reusable.Component.Notifications.Razor\Reusable.Component.Notifications.Razor.csproj", "{B5799406-D259-4E9C-B71B-55BB9D8A895F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DE2FDE3-D96B-4018-8141-9F963DF6F59A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE2FDE3-D96B-4018-8141-9F963DF6F59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE2FDE3-D96B-4018-8141-9F963DF6F59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE2FDE3-D96B-4018-8141-9F963DF6F59A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C94CB4F0-A58D-4A57-AB5D-0147CFDC44A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C94CB4F0-A58D-4A57-AB5D-0147CFDC44A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C94CB4F0-A58D-4A57-AB5D-0147CFDC44A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C94CB4F0-A58D-4A57-AB5D-0147CFDC44A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58E1CB29-526B-46AC-AABF-80741DA27D74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58E1CB29-526B-46AC-AABF-80741DA27D74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58E1CB29-526B-46AC-AABF-80741DA27D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58E1CB29-526B-46AC-AABF-80741DA27D74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5799406-D259-4E9C-B71B-55BB9D8A895F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5799406-D259-4E9C-B71B-55BB9D8A895F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5799406-D259-4E9C-B71B-55BB9D8A895F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5799406-D259-4E9C-B71B-55BB9D8A895F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6AA2AE39-A52D-405B-803C-E91F27B9F874} = {0BCD77C8-B8C0-4F55-B44F-C3A197350656}
+		{B72511B2-CFB9-4389-A7A0-5D4F22D0E128} = {6AA2AE39-A52D-405B-803C-E91F27B9F874}
+		{CC09D837-8CF4-4D64-A4BC-88B6C6A87C15} = {6AA2AE39-A52D-405B-803C-E91F27B9F874}
+		{5C70470F-B9F2-4CF7-8856-D9B3F110A5ED} = {6AA2AE39-A52D-405B-803C-E91F27B9F874}
+		{050FD79F-67DC-4F9E-85F7-D7C2A6CA8E38} = {0BCD77C8-B8C0-4F55-B44F-C3A197350656}
+		{59CA650D-342E-4B7C-BCD7-A7B00BCCE115} = {0BCD77C8-B8C0-4F55-B44F-C3A197350656}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A316706-F8B4-424C-BE8C-337CF59D93CF}
+	EndGlobalSection
+EndGlobal

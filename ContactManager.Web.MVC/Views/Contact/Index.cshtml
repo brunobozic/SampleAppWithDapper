@@ -1,0 +1,135 @@
+﻿
+@model SampleAppWithDapper.Models.Contacts.ContactViewModel
+
+@{
+    ViewBag.Title = Resource.APP_NAME;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    .contactsDashboard_contactsDatatable_create {
+    }
+
+    .createNewDialog {
+    }
+</style>
+
+<link href="~/datatables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/select/1.3.0/css/select.bootstrap4.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/colreorder/1.5.0/css/colReorder.bootstrap4.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/select/1.3.0/css/select.bootstrap4.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    var datatablesConStringForContacts = "@Url.Action("SearchAction", "Contact")";
+    var deleteUrl = "/Contact/Delete/";
+    var toolTipUrl = '/Contact/Detail';
+    var detailUrl = "/Contact/Detail";
+    var editUrl = "/Contact/Edit";
+    var insertUrl = "/Contact/Insert";
+</script>
+<header class="bg-gradient" id="home">
+    <div class="container mt-3">
+        <p class="tagline">@Resource.Contacts_Index_Tagline </p>
+    </div>
+</header>
+
+<div class="container" style="background-color: whitesmoke; padding: 6px">
+    <div class="row">
+        <!-- Contacts toolbar pickers -->
+        <div style="width: 90%; margin: 0 auto; padding-top:10px">
+            <table class="table table-condensed" data-classes="table" style="align-content: center; position: center; width: 100%; background-color: whitesmoke; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                <thead></thead>
+                <tbody>
+                    <tr style="padding-top: 1px">
+                        <td style="width: 30%;">
+                            <input type='button' class="btn btn-primary contactsDashboard_contactsDatatable_create createNewDialog" value='@Resource.Contacts_Index_CreateNewRecord' onclick='window.location = "@Url.Action("Create", "Contact")";' />
+                        </td>
+
+                        <td style="width: 75%" ;>
+                            <!-- Search by text -->
+                            <div class="" style="width: 70%; float: left; padding-top:1px">
+
+                                @Html.TextBox("searchStringContactsMainGrid", ViewBag.CurrentFilter as string, new { @class = "form-control", @placeholder = Resource.Contacts_Index_EnterSearchCriteria_Placeholder, @value = ViewBag.CurrentFilter, @data_toggle = "tooltip", @data_placement = "top", @title = "", @data_original_title = Resource.Contacts_Index_EnterSearchCriteria_Placeholder, @style = "float: left; " })
+                                @Html.ValidationMessage("SearchStringContactsMainGrid")
+
+                            </div>
+
+                            <button class="btn btn-primary btn-sm" id="submitSearchContactsMainGrid" style="margin: 1px; margin-bottom: 0px; margin-top: 0px" type="submit" name="submitSearchContactsMainGrid" data-toggle="tooltip" data-placement="right" title="" data-original-title="Begin search">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- #END# Contacts pickers -->
+    </div>
+
+    <div style="width: 90%; margin: 0 auto;">
+
+        <table id="ContactsDashboard_ContactsDatatable" style="width: 100%" class="display table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>@Resource.Contacts_Grid_Id</th>
+                    <th>@Resource.Contacts_Grid_FirstName</th>
+                    <th>@Resource.Contacts_Grid_SecondName</th>
+                    <th>@Resource.Contacts_Grid_Telephone</th>
+                    <th>@Resource.Contacts_Grid_Email</th>
+                    <th>@Resource.Contacts_Grid_Created</th>
+                    @*<th>CreatedBy</th>*@
+                    <th>@Resource.Contacts_Grid_Modified</th>
+                    @*<th>ModifiedBy</th>*@
+                </tr>
+            </thead>
+
+            <tfoot>
+                @*<tr>
+                         <th>Id</th>
+                         <th>FirstName</th>
+                         <th>LastName</th>
+                         <th>TelephoneNumber_Entry</th>
+                         <th>EMail</th>
+                         <th>CreatedUtc</th>
+                         <th>CreatedBy</th>
+                         <th>ModifiedUtc</th>
+                         <th>ModifiedBy</th>
+                    </tr>*@
+            </tfoot>
+
+        </table>
+    </div>
+
+    <div>
+        <hr />
+    </div>
+
+    <!-- ============================== -->
+    <!-- #END# Contacts Datatable card -->
+    <!-- ============================== -->
+</div>
+
+<script src="~/datatables/js/jquery.dataTables.js"></script>
+<script src="~/datatables/js/dataTables.bootstrap4.js"></script>
+
+<script src="~/datatables-responsive/dataTables.responsive.js"></script>
+<script src="~/bootstrap/dist/js/bootstrap.js"></script>
+
+<script src="~/Scripts/Contacts/ContactsDatatableWireup.js"></script>
+
+<script src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+
+<script src="https://cdn.datatables.net/colreorder/1.5.0/js/dataTables.colReorder.min.js"></script>
+
+<script src="~/pdfmake/pdfmake.js"></script>
+<script src="~/pdfmake/vfs_fonts.js"></script>
+
+<script src="~/jszip/jszip.js"></script>
+<script>
+
+    // remove active class from all navlinks
+    // add active class to contacts navlink
+</script>

@@ -1,0 +1,191 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <title>@Resource.APP_Main_Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Contacts Deluxe">
+    <meta name="keywords" content="HTML5, bootstrap, mobile, app, landing, ios, android, responsive">
+
+    <!-- Favicon-->
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+
+    <!-- Font -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="~/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Themify Icons -->
+    <link href="~/css/themify-icons.css" rel="stylesheet" />
+
+    <!-- Owl carousel -->
+    <link href="~/owl-carousel/owl.carousel.css" rel="stylesheet" />
+
+    <!-- Main css -->
+    <link href="~/style.css" rel="stylesheet" />
+
+    <!-- jQuery and Bootstrap -->
+    <script src="~/jquery/jquery.js"></script>
+    <script src="~/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- font-awesome -->
+    <link href="~/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="~/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+
+    <!-- toastr -->
+    <script src="~/toastr.js/toastr.min.js"></script>
+    <link href="~/toastr.js/toastr.css" rel="stylesheet" />
+
+    <style>
+        .dataTables_processing {
+            z-index: 11000 !important;
+            padding-top: 1px !important;
+        }
+
+        .dataTables_loadingRecords {
+            z-index: 11000 !important;
+            padding-top: 1px !important;
+        }
+
+        .select2-results__option {
+            text-align: left !important;
+        }
+
+        table.dataTable thead th {
+            position: relative;
+            background-image: none !important;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+            background-color: #E91E63 !important;
+            color: white !important;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+            color: white !important;
+        }
+
+        .dataTables_length {
+            padding: 2px;
+            margin-left: 6px;
+            margin-right: 6px;
+            float: left !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            box-sizing: border-box;
+            display: inline-block;
+            min-width: 0.5em;
+            /*padding: 0.2em 0.2em;*/
+            margin-left: 0.5px;
+            text-align: center;
+            text-decoration: none !important;
+            cursor: pointer;
+            *cursor: grab;
+            color: lightblue !important;
+            border: 1px solid transparent;
+            border-radius: 2px;
+        }
+
+        .dataTables_filter {
+            float: right !important;
+        }
+    </style>
+    <script type='text/javascript'>
+        var appInsights = window.appInsights || function (config) {
+            function r(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } }
+            var t = { config: config }, u = document, e = window, o = 'script', s = u.createElement(o), i, f; for (s.src = config.url || '//az416426.vo.msecnd.net/scripts/a/ai.0.js', u.getElementsByTagName(o)[0].parentNode.appendChild(s), t.cookie = u.cookie, t.queue = [], i = ['Event', 'Exception', 'Metric', 'PageView', 'Trace', 'Ajax']; i.length;)r('track' + i.pop()); return r('setAuthenticatedUserContext'), r('clearAuthenticatedUserContext'), config.disableExceptionTracking || (i = 'onerror', r('_' + i), f = e[i], e[i] = function (config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t['_' + i](config, r, u, e, o), s }), t
+        }({
+            instrumentationKey: 'f501e8de-6d80-48b8-9950-8643297129de'
+        });
+
+        window.appInsights = appInsights;
+        appInsights.trackPageView();
+    </script>
+</head>
+<body data-spy="scroll" data-target="#navbar" data-offset="30">
+
+    <!-- Nav Menu -->
+    <div class="nav-menu fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-dark navbar-expand-lg">
+                        <a class="navbar-brand" href="@Url.Action("Index", "Home")">@Resource.APP_NAME</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbar">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item"> <a class="nav-link active" href="@Url.Action("Index", "Home")">@Resource.Layout_Home_Navbar <span class="sr-only">(current)</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="@Url.Action("Index", "Contact")">@Resource.Layout_Contact_Navbar <span class="sr-only"></span></a> </li>
+                                @Html.Partial("_LoginPartial")
+
+                            </ul>
+                        </div>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <!-- Content -->
+    <!-- The logo / image / banner and stuff -->
+    <div class="section light-bg" id="features">
+
+        <footer class="my-5 text-center">
+
+
+            <p class="mb-2"><small>COPYRIGHT © 2021. ALL RIGHTS RESERVED</small></p>
+
+            <small>
+                <a href="#" class="m-2">PRESS</a>
+                <a href="#" class="m-2">TERMS</a>
+                <a href="#" class="m-2">PRIVACY</a>
+            </small>
+        </footer>
+
+    </div>
+
+    @await Component.InvokeAsync("Notyf2")
+
+    <!-- Plugins JS -->
+    <script src="~/owl-carousel/owl.carousel.js"></script>
+    <!-- Custom JS -->
+    <script src="~/script.js"></script>
+
+
+    @*<link href="~/lib/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" />*@
+
+    @*<script src="~/lib/moment.js/moment.min.js"></script>*@
+    <script src="~/moment.js/moment.js"></script>
+    <script src="~/moment.js/moment-with-locales.js"></script>
+    @*<script src="~/lib/moment.js/locale/hr.js"></script>
+        <script src="~/lib/moment.js/locale/es-us.js"></script>*@
+
+    @*<script src="~/lib/modernizr/modernizr.js"></script>*@
+
+    @*<script src="~/lib/bootstrap-sweetalert/sweetalert.js"></script>*@
+
+    <script src="~/jquery-validate/jquery.validate.js"></script>
+    <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+    @*<link href="~/lib/font-awesome/css/svg-with-js.min.css" rel="stylesheet" />
+        <link href="~/lib/font-awesome/css/v4-shims.min.css" rel="stylesheet" />*@
+
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+    @*<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>*@
+
+    <!-- Custom Js -->
+    <!-- Application specific stuff -->
+
+
+</body>
+</html>

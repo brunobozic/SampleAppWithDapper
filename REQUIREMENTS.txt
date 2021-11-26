@@ -1,0 +1,53 @@
+# The requirements:
+
+## Contact manager
+- Create an app that will serve its customers as a handy list of all their contacts (people with their telephone numbers, email addresses and living addresses)
+- The landing page will display a list of contacts sorted alphabetically by contacts surname
+- The list will be re-orderable by specified columns ()
+- The entries shown will be exportable to csv
+- This landing page will contain a "Create new contact" button
+- Each entry on the list of contacts will have its own "Edit" button that will allow the user to edit that specific contact
+
+### Create a new contact
+- Creation of new contacts will be enabled by allowing the user to click on the "Create new" button placed above the list of contacts
+- A new form will then be shown that will allow the user to create a new contact, validation errors will be shown immediately (client side) and after server postback
+- Validation must be made on email property and on phone number property, first name and last name will allow only the entry of characters (no numbers or special characters)
+  - The validation messages will be made available in at least two languages
+- When a new contact entry form has been filled by required data and the contact saved, the application will automatically display an edit form to the user, the edit form will contain a "Save changes" button, a "Delete" button and the "Back" button
+  The user will be able to make final changes to the data he had entered and had saved
+  - Confirmation form will be shown ("Your data has been saved"), each form will contain a "back" button that will return the user to the landing page
+
+### Edit an existing contact
+- Editing an existing contact will be made available to the user by clicking on the "Edit contact" button that will be placed alongside each contact on the displayed list of contacts
+- A new form will be shown, editable fields will be visually represented in such a way that it is made obvious that they are editable, non-editable properties will be made visually greyed out to make it obvious they
+  are "read only"
+- Client side and server side validation will work as expected (as before, validate email, phone number and first name / last name)
+  - Server side validation will be made on the database itself, take special care to validate email at the database!
+  - The validation messages will be made available in at least two languages
+- Created/CreatedBy and LastModified/LastModifiedBy timestamps will be shown (read only)
+
+### Delete a contact
+- Deletion of an existing contact will be made available to the user only via the edit existing contact form (the one described above)
+- Undeletion will be made possible but only on the database itself, the application does not need to offer this functionality via its UX
+- When the user clicks the "Delete" button that has been made available on the "Edit form", a new form will be displayed to the user
+  - the newly displayed form will by its design make it obvious that the user is deleting an item, and a prompt (Are you sure?) will be shown
+  - if the user decides to confirm the deletion of selected contact a new form will be shown that will notify the user of the status of the delete operation (success "Contact deleted", fail + reason why it failed)
+
+### Errors
+- Upon every exception, the user will be shown a user-friendly form that will describe what had hapenned, this form will contain a "Back" button as well
+
+ - ASP.net MVC (do not use Razor Pages, nor SPA), each form/action needs to have its own url (crawler indexing)
+ - Simple three tier (try to avoid unnecessary abstractions like UOW and/or Repository, do not use third party addons that bring about such functionality, if you want you may introduce your own implementation, but be prepared to explain the details of your implementation)
+ - Each line of code should be written by you, and not copied from someone elses repository (we will ask you to explain the code you send us)
+ - ORM usage is not allowed (EF, nHibernate), rudimentary use of Dapper might be taken as a valid approach to data layer, if you avoid unnecessary complexities and abstractions
+ - SQLServer tables need to be created via simple CREATE scripts, include all the scripts needed to create the database (dont use .sqlproject)
+ - Demonstrate usage of stored procedures and user defined functions, all database access needs to be done via views and procedures
+ - Take special care to properly address sql table indexes
+ - Refrain from using complex frameworks, avoid IoC containers unless they are integrated with your chosen stack (Core), avoid ORMs, avoid mappers (do your own mapping)
+ - Unit tests are not required but will be counted as an advantage towards grading your performance
+ - Use logging, use localization (English and Croatian)
+ - Use only the simplest user log on and authorization features as log on and authorization capabilities are not a part of this evaluation
+ - Make UI visually pleasing, dont use too much time designing it, use a commercial theme if possible
+ - Show us some of the best UI/UX practices (notifications, modal windows, pagination, loading/progress/spinner animations, tooltips etc.)
+ - Load your contacts table with test data (at least 8000 entries), measure performance, optimize sql, be ready to explain how you optimized
+ - The final solution must demonstrate the complete and functional CRUD funcionality of a small contact manager type of application

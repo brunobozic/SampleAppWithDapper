@@ -1,0 +1,130 @@
+﻿@model SampleAppWithDapper.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>@Resource.APP_Main_Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Contacts Deluxe">
+    <meta name="keywords" content="HTML5, bootstrap, mobile, app, landing, ios, android, responsive">
+
+    <!-- Favicon-->
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+
+    <!-- Font -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="~/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Themify Icons -->
+    <link href="~/css/themify-icons.css" rel="stylesheet" />
+
+    <!-- Owl carousel -->
+    <link href="~/owl-carousel/owl.carousel.css" rel="stylesheet" />
+
+    <!-- Main css -->
+    <link href="~/style.css" rel="stylesheet" />
+
+    <!-- jQuery and Bootstrap -->
+    <script src="~/jquery/jquery.js"></script>
+    <script src="~/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- font-awesome -->
+    <link href="~/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="~/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+
+    <!-- toastr -->
+    <script src="~/toastr.js/toastr.min.js"></script>
+    <link href="~/toastr.js/toastr.css" rel="stylesheet" />
+
+    <script type='text/javascript'>
+        var appInsights = window.appInsights || function (config) {
+            function r(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } }
+            var t = { config: config }, u = document, e = window, o = 'script', s = u.createElement(o), i, f; for (s.src = config.url || '//az416426.vo.msecnd.net/scripts/a/ai.0.js', u.getElementsByTagName(o)[0].parentNode.appendChild(s), t.cookie = u.cookie, t.queue = [], i = ['Event', 'Exception', 'Metric', 'PageView', 'Trace', 'Ajax']; i.length;)r('track' + i.pop()); return r('setAuthenticatedUserContext'), r('clearAuthenticatedUserContext'), config.disableExceptionTracking || (i = 'onerror', r('_' + i), f = e[i], e[i] = function (config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t['_' + i](config, r, u, e, o), s }), t
+        }({
+            instrumentationKey: 'f501e8de-6d80-48b8-9950-8643297129de'
+        });
+
+        window.appInsights = appInsights;
+        appInsights.trackPageView();
+    </script>
+</head>
+<body>
+    <header class="bg-gradient" id="home" style="text-align: left !important">
+        <!-- Content -->
+        <div id="container" class="container">
+            <div class="row">
+                <div class="col-sm-6 offset-sm-3">
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <p class="tagline">Create a new account.</p>
+                        <hr />
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Nickname, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Nickname, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" class="btn btn-default" value="Register" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- The logo / image / banner and stuff -->
+    <div class="section light-bg" id="features">
+        <footer class="my-5 text-center">
+            <p class="mb-2"><small>COPYRIGHT © 2021. ALL RIGHTS RESERVED</small></p>
+
+            <small>
+                <a href="#" class="m-2">PRESS</a>
+                <a href="#" class="m-2">TERMS</a>
+                <a href="#" class="m-2">PRIVACY</a>
+            </small>
+        </footer>
+    </div>
+    <script src="~/jquery-validate/jquery.validate.js"></script>
+    <!-- Plugins JS -->
+    <script src="~/owl-carousel/owl.carousel.js"></script>
+    <script src="~/moment.js/moment.js"></script>
+    <script src="~/moment.js/moment-with-locales.js"></script>
+    <script src="~/jquery-validate/jquery.validate.js"></script>
+    <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <!-- Custom JS -->
+    <script src="~/script.js"></script>
+    <!-- Application specific stuff -->
+</body>
+</html>

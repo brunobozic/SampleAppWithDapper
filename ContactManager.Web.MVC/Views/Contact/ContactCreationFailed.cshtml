@@ -1,0 +1,43 @@
+﻿@model SampleAppWithDapper.Models.ContactCreateExceptionMessage
+
+@{
+    ViewBag.Title = "Contact creation Fail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header class="bg-gradient" id="home">
+    <div class="container mt-3">
+       
+    </div>
+</header>
+<div class="container" style="background-color: whitesmoke; padding: 6px">
+    <div class="row">
+        <div class="col-md-6 align-self-center" style="width: 90%; margin: 0 auto;">
+            <table>
+                <tr>
+                    <td style="width: 40%">
+                        <div class="col-md-12">
+                            <img class="img-fluid" src="~/images/exception.jpg" alt="exception">
+                        </div>
+                    </td>
+                    <td style="width: 60%">
+                        <hr />
+                        <span><b>A problem has occured. </b></span>
+                        <hr />
+                        <span>Exception: @Model.Message </span>
+                        <hr />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <hr />
+            <input type='button' class="btn btn-primary " style="float: right" value='BACK' onclick='window.location = "@Url.Action("Index", "Contact")";' />
+        </div>
+
+    </div>
+</div>
+
+

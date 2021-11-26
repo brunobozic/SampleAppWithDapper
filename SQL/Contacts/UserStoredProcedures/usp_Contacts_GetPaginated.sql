@@ -1,4 +1,4 @@
-﻿USE [Dapper]
+﻿USE [ContactManager]
 GO
 
 IF OBJECT_ID('usp_Contacts_GetPaginated', 'P') IS NOT NULL

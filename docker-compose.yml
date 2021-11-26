@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  sampleappwithdapper:
-    image: ${DOCKER_REGISTRY-}sampleappwithdapper
-    build:
-      context: .\SampleAppWithDapper
-      dockerfile: Dockerfile

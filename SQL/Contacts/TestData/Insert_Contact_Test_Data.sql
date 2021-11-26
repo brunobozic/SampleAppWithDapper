@@ -6,7 +6,7 @@ SET NUMERIC_ROUNDABORT, IMPLICIT_TRANSACTIONS, XACT_ABORT OFF
 GO
 
 --
--- Backing up database Dapper
+-- Backing up database ContactManager
 --
 --
 -- Create backup folder
@@ -17,7 +17,7 @@ IF OBJECT_ID('xp_create_subdir') IS NOT NULL
 -- Backup database to the file with the name: <database_name>_<yyyy>_<mm>_<dd>_<hh>_<mi>.bak
 --
 DECLARE @db_name SYSNAME
-SET @db_name = N'Dapper'
+SET @db_name = N'ContactManager'
 
 DECLARE @filepath NVARCHAR(4000)
 SET @filepath =
@@ -40,10 +40,10 @@ SET @SQL =
 EXEC sys.sp_executesql @SQL, N'@filepath NVARCHAR(4000)', @filepath = @filepath
 GO
 
-USE Dapper
+USE ContactManager
 GO
 
-IF DB_NAME() <> N'Dapper' SET NOEXEC ON
+IF DB_NAME() <> N'ContactManager' SET NOEXEC ON
 GO
 --
 -- Delete data from the table 'dbo.Contacts'
