@@ -1,20 +1,20 @@
-﻿@using Microsoft.AspNet.Identity
-@if (false)
-{
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+﻿@using Microsoft.AspNetCore.Identity
+@*@object signin = SignInManager<ApplicationUser>();*@
+
+    @if (false)
     {
-        @Html.AntiForgeryToken()
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.Name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
 
-
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.Name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-
+        }
     }
-}
-else
-{
-    <li class="nav-item"> <a id="registerLink" class="nav-link" href="@Url.Action("Register", "Account")">@Resource.Layout_Register_Navbar <span class="sr-only"></span></a> </li>
-    <li class="nav-item"> <a id="registerLink" class="nav-link" href="@Url.Action("Login", "Account")">@Resource.Layout_Login_Navbar <span class="sr-only"></span></a> </li>
-}
+    else
+    {
+        <li class="nav-item"> <a id="registerLink" class="nav-link" href="@Url.Action("Register", "Account")">@Resource.Layout_Register_Navbar <span class="sr-only"></span></a> </li>
+        <li class="nav-item"> <a id="registerLink" class="nav-link" href="@Url.Action("Login", "Account")">@Resource.Layout_Login_Navbar <span class="sr-only"></span></a> </li>
+    }

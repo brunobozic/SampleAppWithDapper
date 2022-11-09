@@ -17,7 +17,7 @@ As
     SET NOCOUNT ON
 
 BEGIN
-    BEGIN TRY
+     BEGIN TRY
 
         IF (ISNULL(@FirstName, '') = '')
             BEGIN

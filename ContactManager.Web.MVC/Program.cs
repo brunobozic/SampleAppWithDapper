@@ -83,12 +83,13 @@ namespace ContactManager.Web.MVC
                 .CaptureStartupErrors(false)
                 .UseStartup<Startup>()
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIIS() // <===== For use in "in process" IIS scenarios: 
+                .UseIIS() // <===== For use in "in process" IIS scenarios:
                 .UseUrls("http://*:5000")
                 .UseSerilog();
         }
 
 #pragma warning disable 1591
+
         public static IWebHost BuildWebHost(IConfiguration configuration, string[] args)
 #pragma warning restore 1591
         {
@@ -97,7 +98,7 @@ namespace ContactManager.Web.MVC
                 .UseStartup<Startup>()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseConfiguration(configuration)
-                .UseIIS() // <===== For use in "in process" IIS scenarios: 
+                .UseIIS() // <===== For use in "in process" IIS scenarios:
                 .UseUrls("http://*:5000")
                 .UseSerilog()
                 .Build();

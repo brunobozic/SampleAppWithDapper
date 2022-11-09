@@ -12,7 +12,7 @@ CREATE OR ALTER PROCEDURE [dbo].[usp_Contacts_GetPaginated] @SearchTerm VARCHAR(
                                                             @PageSize INT = 10
 AS
 BEGIN
-    SET NOCOUNT ON;
+     SET NOCOUNT ON;
 
     DECLARE @StartRow INT
     DECLARE @EndRow INT

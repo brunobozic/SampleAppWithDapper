@@ -8,4 +8,3 @@
         public Icon icon { get; set; }
     }
 }
-

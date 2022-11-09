@@ -1,15 +1,19 @@
-﻿create table Person.ContactType
+﻿IF OBJECT_ID('dbo.Email', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Email];
+GO
+
+create table Person.Email
 (
-    ContactTypeID int identity
-        constraint PK_ContactType_ContactTypeID
+    EmailID int identity
+        constraint PK_Email_EmailID
             primary key,
     Name          Name                                           not null,
     ModifiedDate  datetime
-        constraint DF_ContactType_ModifiedDate default getdate() not null
+        constraint DF_Email_ModifiedDate default getdate() not null
 )
 go
 
-create unique index AK_ContactType_Name
-    on Person.ContactType (Name)
+create unique index AK_Email_Name
+    on Person.Email (Name)
 go
 

@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -428,7 +427,6 @@ namespace SampleAppWithDapper.Controllers
             return View();
         }
 
-
         [HttpGet]
         public IActionResult AccessDenied()
         {
@@ -457,8 +455,6 @@ namespace SampleAppWithDapper.Controllers
             }
         }
 
-
-
-        #endregion
+        #endregion Helpers
     }
 }

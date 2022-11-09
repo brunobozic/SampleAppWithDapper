@@ -17,12 +17,14 @@ namespace AspNetCoreHero.ToastNotification.Middlewares
         private readonly INotyfService _toastNotification;
         private readonly ILogger<NotyfMiddleware> _logger;
         private const string AccessControlExposeHeadersKey = "Access-Control-Expose-Headers";
+
         public NotyfMiddleware(INotyfService toastNotification, ILogger<NotyfMiddleware> logger, NotyfEntity options)
         {
             _toastNotification = toastNotification;
             _logger = logger;
             _options = options;
         }
+
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
             context.Response.OnStarting(Callback, context);
@@ -46,7 +48,6 @@ namespace AspNetCoreHero.ToastNotification.Middlewares
 
                     var notificationsJson = messages.Notifications.ToJson();
                     httpContext.Response.Headers.Add(Constants.NotyfResponseHeaderKey, WebUtility.UrlEncode(notificationsJson));
-
                 }
             }
             return Task.FromResult(0);

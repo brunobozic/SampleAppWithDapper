@@ -25,7 +25,7 @@ namespace SampleAppWithDapper.DataAccess
             if (!_repositories.ContainsKey(type))
                 switch (type.ToString())
                 {
-                    //case "ApiNCoreDapper.Entity.Account":
+                    //case "Dapper.Entity.Account":
                     //    _repositories[type] = new AccountRepository(Context);
                     //    break;
                     //case "ApiNCoreDapper.Entity.User":
@@ -42,7 +42,7 @@ namespace SampleAppWithDapper.DataAccess
             if (!_repositoriesAsync.ContainsKey(type))
                 switch (type.ToString())
                 {
-                    //case "ApiNCoreDapper.Entity.Account":
+                    //case "Dapper.Entity.Account":
                     //    _repositoriesAsync[type] = new AccountRepositoryAsync(Context);
                     //    break;
                     //case "ApiNCoreDapper.Entity.User":
@@ -57,6 +57,7 @@ namespace SampleAppWithDapper.DataAccess
             Context.Transaction?.Commit();
             return true;
         }
+
         public async Task<bool> SaveAsync()
         {
             await Task.Run(() =>
@@ -71,6 +72,7 @@ namespace SampleAppWithDapper.DataAccess
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
         public void Dispose(bool isDisposing)
         {
             if (!_disposed)

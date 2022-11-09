@@ -11,15 +11,12 @@ namespace SampleAppWithDapper.Domain.MappingConfigurationFiles
         /// </summary>
         public MappingProfile()
         {
-
             CreateMap<UserViewModel, ApplicationUser>()
                 .ForMember(dest => dest.Roles, opts => opts.MapFrom(src => string.Join(";", src.Roles)));
             //CreateMap<ApplicationUser, UserViewModel>()
             //    .ForMember(dest => dest.Roles, opts => opts.MapFrom(src => src.Roles.Split(Convert.ToChar(";"))));
 
-
             // CreateMissingTypeMaps = true;
         }
-
     }
 }

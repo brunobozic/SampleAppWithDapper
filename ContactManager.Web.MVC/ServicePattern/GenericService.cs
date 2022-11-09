@@ -9,7 +9,6 @@ namespace SampleAppWithDapper.ServicePattern
     public class GenericService<Tv, Te> : IService<Tv, Te> where Tv : BaseDomain
         where Te : BaseRepository
     {
-
         protected IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
@@ -28,6 +27,7 @@ namespace SampleAppWithDapper.ServicePattern
             var entities = _unitOfWork.GetRepository<Te>().GetAll();
             return _mapper.Map<IEnumerable<Tv>>(source: entities);
         }
+
         public virtual Tv GetOne(int id)
         {
             var entity = _unitOfWork.GetRepository<Te>().GetOne(id);

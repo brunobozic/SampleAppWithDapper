@@ -7,7 +7,7 @@ CREATE OR ALTER FUNCTION [dbo].[udf_IsValidEmail](
 
 AS
 BEGIN
-    DECLARE
+   DECLARE
         @AlphabetPlus VARCHAR(255)
         , @Max        INT -- Length of the address
         , @Pos        INT -- Position in @EmailAddr

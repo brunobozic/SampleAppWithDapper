@@ -1,33 +1,77 @@
-create table Person.Address
+USE [ContactManager]
+GO
+
+IF OBJECT_ID('dbo.Addresses', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Addresses];
+GO
+
+CREATE TABLE [dbo].[Addresses](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Description] [nvarchar](50) NULL,
+	[AddressTypeId] [int] NULL,
+	[AddressLine1] [nvarchar](60) NOT NULL,
+	[AddressLine2] [nvarchar](60) NULL,
+	[HouseNr] [int] NOT NULL,
+	[Dodatak] [varchar](1) NULL,
+	[MjestoRHId] [int] NULL,
+	[CountryId] [int] NULL,
+	[StateProvinceId] [int] NULL,
+	[PostalCode] [varchar](6) NULL,
+	[IsDeleted] [bit] NULL,
+	[CreatedUtc] [datetimeoffset](7) NOT NULL,
+	[ModifiedUtc] [datetimeoffset](7) NULL,
+	[DeletedUtc] [datetimeoffset](7) NULL,
+	[CreatedBy] [int] NULL,
+	[ModifiedBy] [int] NULL,
+	[DeletedBy] [int] NULL,
+ CONSTRAINT [C_PK_address_id] PRIMARY KEY CLUSTERED 
 (
-    AddressID       int identity
-        constraint PK_Address_AddressID
-            primary key,
-    AddressLine1    nvarchar(60)                             not null,
-    AddressLine2    nvarchar(60),
-    City            nvarchar(30)                             not null,
-    StateProvinceID int                                      not null
-        constraint FK_Address_StateProvince_StateProvinceID
-            references Person.StateProvince,
-    PostalCode      nvarchar(15)                             not null,
-    SpatialLocation geography,
-    rowguid         uniqueidentifier
-        constraint DF_Address_rowguid default newid()        not null,
-    ModifiedDate    datetime
-        constraint DF_Address_ModifiedDate default getdate() not null
-)
-go
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
 
-create unique index AK_Address_rowguid
-    on Person.Address (rowguid)
-go
+ALTER TABLE [dbo].[Addresses] ADD  DEFAULT ((0)) FOR [IsDeleted]
+GO
 
-create unique index IX_Address_AddressLine1_AddressLine2_City_StateProvinceID_PostalCode
-    on Person.Address (AddressLine1, AddressLine2, City, StateProvinceID, PostalCode)
-go
+ALTER TABLE [dbo].[Addresses] ADD  DEFAULT (sysdatetimeoffset()) FOR [CreatedUtc]
+GO
 
-create index IX_Address_StateProvinceID
-    on Person.Address (StateProvinceID)
-go
+ALTER TABLE [dbo].[Addresses]  WITH CHECK ADD  CONSTRAINT [FK_Addresses_to_address_types] FOREIGN KEY([AddressTypeId])
+REFERENCES [dbo].[AddressTypes] ([Id])
+GO
 
+ALTER TABLE [dbo].[Addresses] CHECK CONSTRAINT [FK_Addresses_to_address_types]
+GO
 
+ALTER TABLE [dbo].[Addresses]  WITH CHECK ADD  CONSTRAINT [FK_addresses_to_countries] FOREIGN KEY([CountryId])
+REFERENCES [dbo].[Countries] ([Id])
+GO
+
+ALTER TABLE [dbo].[Addresses] CHECK CONSTRAINT [FK_addresses_to_countries]
+GO
+
+ALTER TABLE [dbo].[Addresses]  WITH CHECK ADD  CONSTRAINT [FK_addresses_to_statesOrProvinces] FOREIGN KEY([StateProvinceId])
+REFERENCES [dbo].[StatesOrProvinces] ([Id])
+GO
+
+ALTER TABLE [dbo].[Addresses] CHECK CONSTRAINT [FK_addresses_to_statesOrProvinces]
+GO
+
+ALTER TABLE [dbo].[Addresses]  WITH CHECK ADD  CONSTRAINT [CHK_no_numeric_addr_line1] CHECK  ((NOT [AddressLine1] like '%[^A-Z]%'))
+GO
+
+ALTER TABLE [dbo].[Addresses] CHECK CONSTRAINT [CHK_no_numeric_addr_line1]
+GO
+
+ALTER TABLE [dbo].[Addresses]  WITH CHECK ADD  CONSTRAINT [CHK_no_numeric_addr_line2] CHECK  ((NOT [AddressLine2] like '%[^A-Z]%'))
+GO
+
+ALTER TABLE [dbo].[Addresses] CHECK CONSTRAINT [CHK_no_numeric_addr_line2]
+GO
+
+ALTER TABLE [dbo].[Addresses]  WITH CHECK ADD  CONSTRAINT [CHK_no_numeric_housenr] CHECK  (([HouseNr] like '%[^A-Z]%'))
+GO
+
+ALTER TABLE [dbo].[Addresses] CHECK CONSTRAINT [CHK_no_numeric_housenr]
+GO

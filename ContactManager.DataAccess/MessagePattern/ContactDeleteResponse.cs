@@ -6,5 +6,6 @@
         public string Message { get; set; } = "";
         public bool ContactDeleted { get; set; }
         public int DeletedId { get; set; }
+        public string CurrentFilter { get; set; }
     }
 }

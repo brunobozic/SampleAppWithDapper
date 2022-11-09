@@ -6,6 +6,7 @@ namespace AspNetCoreHero.ToastNotification
     {
         [Description("top")]
         Top,
+
         [Description("bottom")]
         Bottom
     }

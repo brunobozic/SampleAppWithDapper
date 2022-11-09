@@ -1,8 +1,6 @@
-﻿
-using AspNetCoreHero.ToastNotification.Abstractions;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
 
 namespace SampleAppWithDapper.Controllers
 {
@@ -15,6 +13,7 @@ namespace SampleAppWithDapper.Controllers
         {
             this._toasts = toasts;
         }
+
         public ActionResult Index()
         {
             _toasts.Custom("Custom Notification - closes in 5 seconds.", 5, "whitesmoke", "fa fa-gear");

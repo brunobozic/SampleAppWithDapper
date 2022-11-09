@@ -14,7 +14,6 @@ using SampleAppWithDapper.DataAccess;
 using SampleAppWithDapper.DataAccess.Repositories.Contact;
 using SampleAppWithDapper.Domain.DomainModels.Identity;
 using SampleAppWithDapper.EmailSending;
-using SampleAppWithDapper.ServicePattern;
 using Serilog;
 using Serilog.Sinks.SystemConsole.Themes;
 using System;
@@ -73,9 +72,9 @@ namespace ContactManager.Web.MVC
 
                 return new DatabaseConnectionManager(conn);
             });
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped(typeof(IService<,>), typeof(GenericService<,>));
-            services.AddScoped(typeof(IServiceAsync<,>), typeof(GenericServiceAsync<,>));
+            //services.AddScoped<IUnitOfWork, UnitOfWork>();
+            //services.AddScoped(typeof(IService<,>), typeof(GenericService<,>));
+            //services.AddScoped(typeof(IServiceAsync<,>), typeof(GenericServiceAsync<,>));
 
             services.AddSingleton<DatabaseConnectionManager, DatabaseConnectionManager>(sp =>
             {
@@ -148,7 +147,6 @@ namespace ContactManager.Web.MVC
                 var policy = new AuthorizationPolicyBuilder()
                     .RequireAuthenticatedUser()
                     .Build();
-
             });
             services.AddAuthorization(options =>
             {

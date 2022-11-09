@@ -1,4 +1,11 @@
-﻿create table Person.ContactType
+﻿USE [ContactManager]
+GO
+
+IF OBJECT_ID('dbo.ContactType', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ContactType];
+GO
+
+create table Person.ContactType
 (
     ContactTypeID int identity
         constraint PK_ContactType_ContactTypeID

@@ -7,7 +7,6 @@
 
 <header class="bg-gradient" id="home">
     <div class="container mt-3">
-      
     </div>
 </header>
 <div class="container" style="background-color: whitesmoke; padding: 6px">
@@ -15,7 +14,7 @@
         <div class="col-md-6 align-self-center" style="width: 90%; margin: 0 auto;">
             <table>
                 <tr>
-                    <td style="width: 40%">
+                    <td style="width: 30%">
                         <div class="col-md-12">
                             <img class="img-fluid" src="~/images/ok.png" alt="ok">
                         </div>
@@ -33,7 +32,18 @@
                 </tr>
             </table>
             <hr />
-            <input type='button' class="btn btn-primary " style="float: right" value='BACK' onclick='window.location = "@Url.Action("Index", "Contact")";' />
+            @using (Html.BeginForm("Index", "Contact", FormMethod.Get))
+            {
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="hidden" name="currentFilter" value='@TempData["CurrentFilter"]' class="myCurrentFilter">
+                        <button type="submit" value="Back" class="btn btn-outline-dark btn-sm btnBack">
+                            <i class="fa fa-arrow-left fa-lg"></i> @Resource.DeleteContact_Back_Button
+                        </button>
+
+                    </div>
+                </div>
+            }
         </div>
 
     </div>

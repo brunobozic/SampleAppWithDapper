@@ -14,6 +14,5 @@ namespace SampleAppWithDapper.Domain.Models
         public bool IsActive { get; set; }
         public string Password { get; set; }
         public int AccountId { get; set; }
-
     }
 }
