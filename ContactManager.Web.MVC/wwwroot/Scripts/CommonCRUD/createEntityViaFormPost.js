@@ -1,7 +1,5 @@
 ﻿$(function () {
-
     $("#frmCreateItem").on("submit", function (event) {
-
         var $this = $(this);
 
         event.preventDefault();
@@ -16,7 +14,6 @@
             url: $this.attr('action'),
             data: dataToPost,
             success: function (response) {
-
                 if (response.Success === true) {
                     $('#mdModal').modal('toggle');
                     swal(
@@ -28,7 +25,6 @@
                     });
                 }
                 else {
-
                     if (response.OptimisticConcurrencyError === true) {
                         swal(
                             'Warning!',
