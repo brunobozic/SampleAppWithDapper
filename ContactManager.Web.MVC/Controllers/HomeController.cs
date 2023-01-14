@@ -16,8 +16,8 @@ namespace SampleAppWithDapper.Controllers
 
         public ActionResult Index()
         {
-            _toasts.Custom("Custom Notification - closes in 5 seconds.", 5, "whitesmoke", "fa fa-gear");
-            _toasts.Custom("Custom Notification - closes in 10 seconds.", 10, "#B600FF", "fa fa-home");
+            //_toasts.Custom("Custom Notification - closes in 5 seconds.", 5, "whitesmoke", "fa fa-gear");
+            //_toasts.Custom("Custom Notification - closes in 10 seconds.", 10, "#B600FF", "fa fa-home");
             return this.View();
         }
 
