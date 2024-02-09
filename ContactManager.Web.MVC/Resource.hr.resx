@@ -129,6 +129,9 @@
   <data name="ContactDeleted_Success" xml:space="preserve">
     <value>Kontakt obrisan.</value>
   </data>
+  <data name="ContactEdittedSuccesfully" xml:space="preserve">
+    <value>Kontakt uspjesno izmijenjen</value>
+  </data>
   <data name="Contacts_Grid_Created" xml:space="preserve">
     <value>Stvoreno</value>
   </data>

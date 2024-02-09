@@ -15,6 +15,7 @@ namespace AspNetCoreHero.ToastNotification.Containers
         {
             Messages = new List<TMessage>();
         }
+
         public void Add(TMessage message)
         {
             Messages.Add(message);

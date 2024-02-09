@@ -1,13 +1,13 @@
-﻿@model SampleAppWithDapper.Controllers.GenericErrorVM
+﻿@model SampleAppWithDapper.Models.Contacts.ContactViewModel
 
 @{
-    ViewBag.Title = "Contact creation Fail";
+    ViewBag.Title = "Contact edited";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <header class="bg-gradient" id="home">
     <div class="container mt-3">
-        <p class="tagline">Sometimes, errors do happen. </p>
+       
     </div>
 </header>
 <div class="container" style="background-color: whitesmoke; padding: 6px">
@@ -15,17 +15,16 @@
         <div class="col-md-6 align-self-center" style="width: 90%; margin: 0 auto;">
             <table>
                 <tr>
-                    <td style="width: 40%">
+                    <td style="width: 30%">
                         <div class="col-md-12">
-                            <img class="img-fluid" src="~/images/exception.jpg" alt="exception">
+                            <img class="img-fluid" src="~/images/ok.png" alt="ok">
                         </div>
                     </td>
                     <td style="width: 60%">
                         <hr />
-                        <span><b>A problem has hapenned. </b></span>
+                        <span>@Resource.ContactEdittedSuccesfully </span>
                         <hr />
-                        <span>Exception: @Model.ErrorMessage </span>
-                        <hr />
+
                     </td>
                 </tr>
                 <tr>
@@ -39,3 +38,5 @@
 
     </div>
 </div>
+
+

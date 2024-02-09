@@ -32,11 +32,12 @@ namespace AspNetCoreHero.ToastNotification
             //Add the ToastNotification implementation
             services.AddScoped<IToastifyService, ToastifyService>();
             services.AddSingleton(toastify);
-
         }
+
         private static void AddFrameworkServices(this IServiceCollection services)
         {
             #region Framework Services
+
             //Check if a TempDataProvider is already registered.
             var tempDataProvider = services.FirstOrDefault(d => d.ServiceType == typeof(ITempDataProvider));
             if (tempDataProvider == null)
@@ -50,7 +51,8 @@ namespace AspNetCoreHero.ToastNotification
             {
                 services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             }
-            #endregion
+
+            #endregion Framework Services
         }
 
         public static void AddNotyf(this IServiceCollection services, Action<NotyfConfig> configure)
@@ -76,7 +78,6 @@ namespace AspNetCoreHero.ToastNotification
             //Middleware
             services.AddScoped<NotyfMiddleware>();
             services.AddSingleton(options);
-
         }
     }
 }

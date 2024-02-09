@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManager.Domain", "ContactManager.Domain\ContactManager.Domain.csproj", "{5DE2FDE3-D96B-4018-8141-9F963DF6F59A}"
 EndProject
@@ -12,6 +12,15 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contacts", "Contacts", "{6AA2AE39-A52D-405B-803C-E91F27B9F874}"
 	ProjectSection(SolutionItems) = preProject
 		SQL\Contacts\01_Create_Contacts_Table.sql = SQL\Contacts\01_Create_Contacts_Table.sql
+		SQL\Contacts\02_Create_Address_Table.sql = SQL\Contacts\02_Create_Address_Table.sql
+		SQL\Contacts\03_Create_AddressType_Table.sql = SQL\Contacts\03_Create_AddressType_Table.sql
+		SQL\Contacts\04_Create_ContactType_Table.sql = SQL\Contacts\04_Create_ContactType_Table.sql
+		SQL\Contacts\05_Create_Email_Table.sql = SQL\Contacts\05_Create_Email_Table.sql
+		SQL\Contacts\06_Create_Phone_Table.sql = SQL\Contacts\06_Create_Phone_Table.sql
+		SQL\Contacts\07_Create_PhoneType_Table.sql = SQL\Contacts\07_Create_PhoneType_Table.sql
+		SQL\Contacts\08_Create_CountryRegion_Table.sql = SQL\Contacts\08_Create_CountryRegion_Table.sql
+		SQL\Contacts\09_Create_StateProvince_Table.sql = SQL\Contacts\09_Create_StateProvince_Table.sql
+		SQL\Contacts\dbo.usp_Contact_Update.sql = SQL\Contacts\dbo.usp_Contact_Update.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserStoredProcedures", "UserStoredProcedures", "{B72511B2-CFB9-4389-A7A0-5D4F22D0E128}"
@@ -49,7 +58,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectRequirements", "Proj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManager.Web.MVC", "ContactManager.Web.MVC\ContactManager.Web.MVC.csproj", "{58E1CB29-526B-46AC-AABF-80741DA27D74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reusable.Component.Notifications.Razor", "Reusable.Component.Notifications.Razor\Reusable.Component.Notifications.Razor.csproj", "{B5799406-D259-4E9C-B71B-55BB9D8A895F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reusable.Component.Notifications.Razor", "Reusable.Component.Notifications.Razor\Reusable.Component.Notifications.Razor.csproj", "{B5799406-D259-4E9C-B71B-55BB9D8A895F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

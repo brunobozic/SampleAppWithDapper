@@ -1,4 +1,7 @@
-﻿@using Microsoft.AspNet.Identity
+﻿@using Microsoft.AspNetCore.Identity
+
+@var signin = SignInManager<ApplicationUser>()
+
 @if (false)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))

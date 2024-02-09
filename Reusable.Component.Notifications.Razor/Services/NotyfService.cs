@@ -13,6 +13,7 @@ namespace AspNetCoreHero.ToastNotification.Notyf
         {
             MessageContainer = messageContainerFactory.Create<Models.NotyfNotification>();
         }
+
         public void Custom(string message, int? durationInSeconds = null, string backgroundColor = "black", string iconClassName = "home")
         {
             var toastMessage = new Models.NotyfNotification(ToastNotificationType.Custom, message, durationInSeconds);

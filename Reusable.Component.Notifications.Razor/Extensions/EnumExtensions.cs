@@ -6,7 +6,6 @@ namespace AspNetCoreHero.ToastNotification.Extensions
 {
     public static class EnumExtensions
     {
-
         public static string ToDescriptionString<T>(this T source) where T : Enum
         {
             FieldInfo fi = source.GetType().GetField(source.ToString());

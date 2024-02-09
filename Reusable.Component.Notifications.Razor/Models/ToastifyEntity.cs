@@ -11,6 +11,7 @@ namespace AspNetCoreHero.ToastNotification.Toastify.Models
             this.gravity = gravity.ToDescriptionString();
             this.position = position.ToDescriptionString();
         }
+
         public string text { get; set; }
         public int? duration { get; set; }
         public Uri destination { get; set; }
@@ -22,6 +23,5 @@ namespace AspNetCoreHero.ToastNotification.Toastify.Models
         public string position { get; set; } = "right";
         public Uri avatar { get; set; }
         public string className { get; set; }
-
     }
 }

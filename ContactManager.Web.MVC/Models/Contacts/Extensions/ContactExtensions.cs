@@ -22,7 +22,6 @@ namespace SampleAppWithDapper.Models.Contacts.Extensions
             };
 
             return returnDto;
-
         }
 
         public static ContactDeleteViewModel ConvertToDeleteViewModel(this Domain.DomainModels.Contact.Contact contact)
@@ -45,9 +44,7 @@ namespace SampleAppWithDapper.Models.Contacts.Extensions
             };
 
             return returnViewModel;
-
         }
-
 
         public static ContactViewModel ConvertToViewModel(this Domain.DomainModels.Contact.Contact contact)
         {
@@ -69,7 +66,6 @@ namespace SampleAppWithDapper.Models.Contacts.Extensions
             };
 
             return returnViewModel;
-
         }
 
         public static PaginatedContactsViewModel ConvertToPaginatedViewModel(this IEnumerable<Domain.DomainModels.Contact.Contact> contacts)
@@ -82,7 +78,6 @@ namespace SampleAppWithDapper.Models.Contacts.Extensions
             };
 
             return returnViewModel;
-
         }
 
         public static IEnumerable<ContactViewModel> ConvertToViewModel(this IEnumerable<Domain.DomainModels.Contact.Contact> contacts)
@@ -90,9 +85,9 @@ namespace SampleAppWithDapper.Models.Contacts.Extensions
             return contacts.Select(contact => contact.ConvertToViewModel()).ToList();
         }
 
-        public static EditContactViewModel ConvertToViewModel(this ContactDto contact)
+        public static ContactViewModel ConvertToViewModel(this ContactDto contact)
         {
-            var returnVM = new EditContactViewModel
+            var returnVM = new ContactViewModel
             {
                 EMail = contact.EMail ?? "N/A",
                 FirstName = contact.FirstName ?? "N/A",
@@ -105,7 +100,23 @@ namespace SampleAppWithDapper.Models.Contacts.Extensions
             };
 
             return returnVM;
+        }
 
+        public static ContactDeleteViewModel ConvertToDeleteViewModel(this ContactDto contact)
+        {
+            var returnVM = new ContactDeleteViewModel
+            {
+                EMail = contact.EMail ?? "N/A",
+                FirstName = contact.FirstName ?? "N/A",
+                LastName = contact.LastName ?? "N/A",
+                TelephoneNumber_Entry = contact.TelephoneNumber_Entry ?? "N/A",
+                Created = contact.CreatedUtc.LocalDateTime,
+                CreatedBy = contact.CreatedBy ?? "N/A",
+                Modified = contact.ModifiedUtc?.LocalDateTime,
+                ModifiedBy = contact.ModifiedBy ?? "N/A"
+            };
+
+            return returnVM;
         }
     }
 }
