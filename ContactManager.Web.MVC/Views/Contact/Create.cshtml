@@ -21,6 +21,8 @@
             @using (Html.BeginForm("Create", "Contact", new { ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
+                @Html.Hidden("returnUrl", ViewBag.ReturnUrl as string)
+                <input type="hidden" name="currentFilter" value='@TempData["CurrentFilter"]' class="myCurrentFilter">
 
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -55,21 +57,24 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-
                         <button type="submit" class="btn btn-outline-primary btn-sm btnSubmit" aria-label="Left Align">
                             <i class="fa fa-save fa-lg"></i> @Resource.CreateContact_Save_Button
                         </button>
-
-                        <button type="button" class="btn btn-outline-danger btn-sm btnBack" aria-label="Right Align" onclick='window.location = "@Url.Action("Index", "Contact")";'>
-                            <i class="fa fa-arrow-left fa-lg"></i> @Resource.CreateContact_Back_Button
-                        </button>
-
                     </div>
                 </div>
             }
-            </section>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @using (Html.BeginForm("Index", "Contact", FormMethod.Get))
+                    {
+                        <input type="hidden" name="currentFilter" value='@TempData["CurrentFilter"]' class="myCurrentFilter">
+                        <button type="submit" value="Back" class="btn btn-outline-dark btn-sm btnBack">
+                            <i class="fa fa-arrow-left fa-lg"></i> @Resource.CreateContact_Back_Button
+                        </button>
+                    }
+                </div>
+            </div>
         </div>
-
     </div>
 </div>
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManager.Domain", "ContactManager.Domain\ContactManager.Domain.csproj", "{5DE2FDE3-D96B-4018-8141-9F963DF6F59A}"
 EndProject
@@ -12,6 +12,19 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contacts", "Contacts", "{6AA2AE39-A52D-405B-803C-E91F27B9F874}"
 	ProjectSection(SolutionItems) = preProject
 		SQL\Contacts\01_Create_Contacts_Table.sql = SQL\Contacts\01_Create_Contacts_Table.sql
+		SQL\Contacts\02_Create_Address_Table.sql = SQL\Contacts\02_Create_Address_Table.sql
+		SQL\Contacts\03_Create_AddressType_Table.sql = SQL\Contacts\03_Create_AddressType_Table.sql
+		SQL\Contacts\04_Create_ContactType_Table.sql = SQL\Contacts\04_Create_ContactType_Table.sql
+		SQL\Contacts\05_Create_Email_Table.sql = SQL\Contacts\05_Create_Email_Table.sql
+		SQL\Contacts\05_Create_EmailType_Table.sql = SQL\Contacts\05_Create_EmailType_Table.sql
+		SQL\Contacts\06_Create_Phone_Table.sql = SQL\Contacts\06_Create_Phone_Table.sql
+		SQL\Contacts\07_Create_PhoneType_Table.sql = SQL\Contacts\07_Create_PhoneType_Table.sql
+		SQL\Contacts\08_Create_CountryRegion_Table.sql = SQL\Contacts\08_Create_CountryRegion_Table.sql
+		SQL\Contacts\09_Create_StateProvince_Table.sql = SQL\Contacts\09_Create_StateProvince_Table.sql
+		SQL\Contacts\10_Create_ZupanijeRH_Table.sql = SQL\Contacts\10_Create_ZupanijeRH_Table.sql
+		SQL\Contacts\11_Create_MjestaRH_Table.sql = SQL\Contacts\11_Create_MjestaRH_Table.sql
+		SQL\Contacts\Create_SifrarnikZupanija_Table.sql = SQL\Contacts\Create_SifrarnikZupanija_Table.sql
+		SQL\Contacts\dbo.usp_Contact_Update.sql = SQL\Contacts\dbo.usp_Contact_Update.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserStoredProcedures", "UserStoredProcedures", "{B72511B2-CFB9-4389-A7A0-5D4F22D0E128}"
@@ -26,6 +39,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestData", "TestData", "{CC09D837-8CF4-4D64-A4BC-88B6C6A87C15}"
 	ProjectSection(SolutionItems) = preProject
 		SQL\Contacts\TestData\Insert_Contact_Test_Data.sql = SQL\Contacts\TestData\Insert_Contact_Test_Data.sql
+		SQL\Contacts\TestData\Insert_Countries_Test_Data.sql = SQL\Contacts\TestData\Insert_Countries_Test_Data.sql
+		SQL\Contacts\TestData\Insert_SifrarnikZupanija_Test_Data.sql = SQL\Contacts\TestData\Insert_SifrarnikZupanija_Test_Data.sql
+		SQL\Contacts\TestData\Insert_ZupanijeRH_Test_Data.sql = SQL\Contacts\TestData\Insert_ZupanijeRH_Test_Data.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{5C70470F-B9F2-4CF7-8856-D9B3F110A5ED}"
@@ -49,7 +65,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectRequirements", "Proj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManager.Web.MVC", "ContactManager.Web.MVC\ContactManager.Web.MVC.csproj", "{58E1CB29-526B-46AC-AABF-80741DA27D74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reusable.Component.Notifications.Razor", "Reusable.Component.Notifications.Razor\Reusable.Component.Notifications.Razor.csproj", "{B5799406-D259-4E9C-B71B-55BB9D8A895F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reusable.Component.Notifications.Razor", "Reusable.Component.Notifications.Razor\Reusable.Component.Notifications.Razor.csproj", "{B5799406-D259-4E9C-B71B-55BB9D8A895F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{F5A61CF7-C718-48F2-ADE7-03E4B1EB84DB}"
+	ProjectSection(SolutionItems) = preProject
+		usp_CreateCodebooks.sql = usp_CreateCodebooks.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,6 +105,7 @@ Global
 		{5C70470F-B9F2-4CF7-8856-D9B3F110A5ED} = {6AA2AE39-A52D-405B-803C-E91F27B9F874}
 		{050FD79F-67DC-4F9E-85F7-D7C2A6CA8E38} = {0BCD77C8-B8C0-4F55-B44F-C3A197350656}
 		{59CA650D-342E-4B7C-BCD7-A7B00BCCE115} = {0BCD77C8-B8C0-4F55-B44F-C3A197350656}
+		{F5A61CF7-C718-48F2-ADE7-03E4B1EB84DB} = {6AA2AE39-A52D-405B-803C-E91F27B9F874}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A316706-F8B4-424C-BE8C-337CF59D93CF}

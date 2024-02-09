@@ -6,11 +6,8 @@ namespace SampleAppWithDapper.Controllers
 {
     public class BaseController : Controller
     {
-
-
         public BaseController()
         {
-
         }
 
         /// <summary>

@@ -10,7 +10,7 @@ CREATE PROCEDURE [dbo].[usp_Contact_Delete](@Id BIGINT,
 )
 As
 BEGIN
-    SET NOCOUNT ON;
+     SET NOCOUNT ON;
     BEGIN TRY
         IF (ISNULL(@Id, -1) = -1)
             BEGIN

@@ -8,10 +8,12 @@ namespace AspNetCoreHero.ToastNotification.Toastify
     public class ToastifyService : IToastifyService
     {
         private readonly IToastNotificationContainer<ToastifyNotification> _container;
+
         public ToastifyService(IToastNotificationContainer<ToastifyNotification> container)
         {
             _container = container;
         }
+
         public void Custom(string message, int? durationInSeconds = null, string backgroundColor = "linear-gradient(to right, #00b09b, #96c93d)")
         {
             var toastMessage = new ToastifyNotification(ToastNotificationType.Custom, message, durationInSeconds);
@@ -24,7 +26,6 @@ namespace AspNetCoreHero.ToastNotification.Toastify
             var toastMessage = new ToastifyNotification(ToastNotificationType.Error, message, durationInSeconds);
             _container.Add(toastMessage);
         }
-
 
         public IEnumerable<ToastifyNotification> GetNotifications()
         {

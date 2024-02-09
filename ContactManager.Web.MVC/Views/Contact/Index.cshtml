@@ -1,5 +1,4 @@
-﻿
-@model SampleAppWithDapper.Models.Contacts.ContactViewModel
+﻿@model SampleAppWithDapper.Models.Contacts.ContactViewModel
 
 @{
     ViewBag.Title = Resource.APP_NAME;
@@ -20,7 +19,7 @@
 <link href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.bootstrap4.min.css" rel="stylesheet" />
 
 <script>
-    var datatablesConStringForContacts = "@Url.Action("SearchAction", "Contact")";
+    var datatablesConStringForContacts = "@Url.Action("SearchAction", "Contact", new { returnUrl = ViewBag.ReturnUrl})"
     var deleteUrl = "/Contact/Delete/";
     var toolTipUrl = '/Contact/Detail';
     var detailUrl = "/Contact/Detail";
@@ -39,27 +38,33 @@
         <div style="width: 90%; margin: 0 auto; padding-top:10px">
             <table class="table table-condensed" data-classes="table" style="align-content: center; position: center; width: 100%; background-color: whitesmoke; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
                 <thead></thead>
-                <tbody>
-                    <tr style="padding-top: 1px">
-                        <td style="width: 30%;">
-                            <input type='button' class="btn btn-primary contactsDashboard_contactsDatatable_create createNewDialog" value='@Resource.Contacts_Index_CreateNewRecord' onclick='window.location = "@Url.Action("Create", "Contact")";' />
-                        </td>
+                <tbody> 
+              
+                        <tr style="padding-top: 1px">
+                           @using (Html.BeginForm("Create", "Contact", FormMethod.Get, new { }))
+                           {
+                                <td style="width: 30%;">
+                                        <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+                                        <input type="hidden" name="currentFilter" value='@TempData["CurrentFilter"]' class="myCurrentFilter"/>
+                                        <div class="form-actions no-color">
+                                            <input type="submit" value="Create" class="btn btn-primary contactsDashboard_contactsDatatable_create createNewDialog" />
+                                        </div>
+                                </td>
+                           }
+                            <td style="width: 75%">
+                                <!-- Search by text -->
+                                <div class="" style="width: 70%; float: left; padding-top:1px">
+                                    @Html.TextBox("searchStringContactsMainGrid", @TempData["CurrentFilter"] as string, new { @class = "form-control", @placeholder = Resource.Contacts_Index_EnterSearchCriteria_Placeholder, @value = @TempData["CurrentFilter"], @data_toggle = "tooltip", @data_placement = "top", @title = "", @data_original_title = Resource.Contacts_Index_EnterSearchCriteria_Placeholder, @style = "float: left; " })
+                                    @Html.ValidationMessage("SearchStringContactsMainGrid")
+                                </div>
 
-                        <td style="width: 75%" ;>
-                            <!-- Search by text -->
-                            <div class="" style="width: 70%; float: left; padding-top:1px">
+                                <button class="btn btn-primary btn-sm" id="submitSearchContactsMainGrid" style="margin: 1px; margin-bottom: 0px; margin-top: 0px" type="submit" name="submitSearchContactsMainGrid" data-toggle="tooltip" data-placement="right" title="" data-original-title="Begin search">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
 
-                                @Html.TextBox("searchStringContactsMainGrid", ViewBag.CurrentFilter as string, new { @class = "form-control", @placeholder = Resource.Contacts_Index_EnterSearchCriteria_Placeholder, @value = ViewBag.CurrentFilter, @data_toggle = "tooltip", @data_placement = "top", @title = "", @data_original_title = Resource.Contacts_Index_EnterSearchCriteria_Placeholder, @style = "float: left; " })
-                                @Html.ValidationMessage("SearchStringContactsMainGrid")
-
-                            </div>
-
-                            <button class="btn btn-primary btn-sm" id="submitSearchContactsMainGrid" style="margin: 1px; margin-bottom: 0px; margin-top: 0px" type="submit" name="submitSearchContactsMainGrid" data-toggle="tooltip" data-placement="right" title="" data-original-title="Begin search">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
+                 
                 </tbody>
             </table>
         </div>
@@ -85,15 +90,15 @@
 
             <tfoot>
                 @*<tr>
-                         <th>Id</th>
-                         <th>FirstName</th>
-                         <th>LastName</th>
-                         <th>TelephoneNumber_Entry</th>
-                         <th>EMail</th>
-                         <th>CreatedUtc</th>
-                         <th>CreatedBy</th>
-                         <th>ModifiedUtc</th>
-                         <th>ModifiedBy</th>
+                    <th>Id</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>TelephoneNumber_Entry</th>
+                    <th>EMail</th>
+                    <th>CreatedUtc</th>
+                    <th>CreatedBy</th>
+                    <th>ModifiedUtc</th>
+                    <th>ModifiedBy</th>
                     </tr>*@
             </tfoot>
 
@@ -129,7 +134,13 @@
 
 <script src="~/jszip/jszip.js"></script>
 <script>
+   var currentFilter  = $("#searchStringContactsMainGrid").val();
 
+   jQuery('#searchStringContactsMainGrid').on('input propertychange paste', function() {
+   console.log($("#searchStringContactsMainGrid").val());
+
+   $(".myCurrentFilter").val($("#searchStringContactsMainGrid").val());
+});
     // remove active class from all navlinks
     // add active class to contacts navlink
 </script>

@@ -1,5 +1,4 @@
-﻿
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 
 namespace SampleAppWithDapper.DataAccess
@@ -9,6 +8,7 @@ namespace SampleAppWithDapper.DataAccess
         IDbConnection Connection { get; }
         IDbTransaction Transaction { get; set; }
     }
+
     public class DatabaseConnectionManager : IDbConnectionProvider
     {
         public DatabaseConnectionManager(string connection)

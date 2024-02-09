@@ -5,64 +5,90 @@ IF OBJECT_ID('dbo.Contacts', 'U') IS NOT NULL
     DROP TABLE [dbo].[Contacts];
 GO
 
-CREATE TABLE [dbo].[Contacts]
+CREATE TABLE [dbo].[Contacts](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ContactTypeId] [int] NULL,
+	[FirstName] [nvarchar](255) NOT NULL,
+	[LastName] [nvarchar](255) NOT NULL,
+	[TelephoneNumber] [nvarchar](14) NULL,
+	[AccessCode] [int] NULL,
+	[AreaCode] [int] NULL,
+	[TelephoneNumber_Entry] [nvarchar](14) NOT NULL,
+	[EMail] [nvarchar](50) NULL,
+	[IsDeleted] [bit] NULL,
+	[CreatedUtc] [datetimeoffset](7) NOT NULL,
+	[CreatedBy] [nvarchar](40) NOT NULL,
+	[ModifiedUtc] [datetimeoffset](7) NULL,
+	[ModifiedBy] [nvarchar](40) NULL,
+	[DeletedUtc] [datetimeoffset](7) NULL,
+	[DeletedBy] [nvarchar](40) NULL,
+	[RowVer] [timestamp] NOT NULL,
+	[ContactAddressId] [int] NULL,
+ CONSTRAINT [C_PK_Contacts_I] PRIMARY KEY CLUSTERED 
 (
-    Id                    int            not null IDENTITY (1,1),
-    FirstName             nvarchar(255)  not null,
-    LastName              nvarchar(255)  not null,
-    TelephoneNumber       nvarchar(14),
-    AccessCode            INTEGER,
-    AreaCode              INTEGER,
-    TelephoneNumber_Entry nvarchar(14)   not null,
-    EMail                 nvarchar(50)   null,
-    IsDeleted             bit                     DEFAULT 0,
-    CreatedUtc            DATETIMEOFFSET not null DEFAULT SYSDATETIMEOFFSET(),
-    CreatedBy             nvarchar(40)   not null,
-    ModifiedUtc           DATETIMEOFFSET null,
-    ModifiedBy            nvarchar(40)   null,
-    DeletedUtc            DATETIMEOFFSET,
-    DeletedBy             nvarchar(40),
-    RowVer                ROWVERSION,
-    CONSTRAINT [C_PK_Contacts_I] PRIMARY KEY CLUSTERED ([Id] ASC)
-)
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[Contacts]
-    ADD CONSTRAINT chk_area_code CHECK (AreaCode > 0);
-ALTER TABLE [dbo].[Contacts]
-    ADD CONSTRAINT chk_area_code2 CHECK (AreaCode <= 99);
-ALTER TABLE [dbo].[Contacts]
-    ADD CONSTRAINT chk_access_code CHECK (AccessCode > 0);
-ALTER TABLE [dbo].[Contacts]
-    ADD CONSTRAINT chk_access_code2 CHECK (AccessCode < 999);
-ALTER TABLE [dbo].[Contacts]
-    ADD CONSTRAINT chk_UserRegistrationUserEmail CHECK (EMail LIKE '[a-z,0-9,_,-]%@[a-z,0-9,_,-]%.[a-z][a-z]%');
-ALTER TABLE [dbo].[Contacts]
-    ADD CONSTRAINT chk_name_len_min CHECK (DATALENGTH(FirstName) > 1) -- CHECK (FirstName NOT LIKE '%[^A-Z]%') 
-ALTER TABLE [dbo].[Contacts]
-    ADD CONSTRAINT chk_lastname_len_min CHECK (DATALENGTH(LastName) > 1) -- CHECK (LastName NOT LIKE '%[^A-Z]%') 
-
---ALTER TABLE [dbo].[Contacts] ADD CONSTRAINT chk_telephone CHECK (TelephoneNumber_Entry NOT LIKE '%[^0-9]%')
-ALTER TABLE [dbo].[Contacts] ADD CONSTRAINT chk_name_no_numeric CHECK (FirstName NOT LIKE '%[^A-Z]%') 
-ALTER TABLE [dbo].[Contacts] ADD CONSTRAINT chk_lastname_no_numeric CHECK (LastName NOT LIKE '%[^A-Z]%') 
-
-
+ALTER TABLE [dbo].[Contacts] ADD  DEFAULT ((0)) FOR [IsDeleted]
 GO
 
--- ALTER TABLE [dbo].[Contacts] ADD CONSTRAINT chk_email 
--- CHECK ( PATINDEX('%[^A-z0-9._-]%@%.%',[EMail]) > 0)
+ALTER TABLE [dbo].[Contacts] ADD  DEFAULT (sysdatetimeoffset()) FOR [CreatedUtc]
+GO
 
--- filtered index, provided we are expecting lots of nulls in email, so the searches for "is not null" would be a bit faster
-CREATE NONCLUSTERED INDEX [C_NonDeleted_Contacts_I]
-    ON [dbo].[Contacts]
-        ([FirstName] ASC, [LastName] ASC, [EMail], [TelephoneNumber_Entry], [CreatedUtc], [ModifiedUtc])
-    WHERE ([EMail] IS NOT NULL);
+ALTER TABLE [dbo].[Contacts]  WITH CHECK ADD  CONSTRAINT [chk_access_code] CHECK  (([AccessCode]>(0)))
+GO
+
+ALTER TABLE [dbo].[Contacts] CHECK CONSTRAINT [chk_access_code]
+GO
+
+ALTER TABLE [dbo].[Contacts]  WITH CHECK ADD  CONSTRAINT [chk_access_code2] CHECK  (([AccessCode]<(999)))
+GO
+
+ALTER TABLE [dbo].[Contacts] CHECK CONSTRAINT [chk_access_code2]
+GO
+
+ALTER TABLE [dbo].[Contacts]  WITH CHECK ADD  CONSTRAINT [chk_area_code] CHECK  (([AreaCode]>(0)))
+GO
+
+ALTER TABLE [dbo].[Contacts] CHECK CONSTRAINT [chk_area_code]
+GO
+
+ALTER TABLE [dbo].[Contacts]  WITH CHECK ADD  CONSTRAINT [chk_area_code2] CHECK  (([AreaCode]<=(99)))
+GO
+
+ALTER TABLE [dbo].[Contacts] CHECK CONSTRAINT [chk_area_code2]
+GO
+
+ALTER TABLE [dbo].[Contacts]  WITH CHECK ADD  CONSTRAINT [chk_lastname_len_min] CHECK  ((datalength([LastName])>(1)))
+GO
+
+ALTER TABLE [dbo].[Contacts] CHECK CONSTRAINT [chk_lastname_len_min]
+GO
+
+ALTER TABLE [dbo].[Contacts]  WITH CHECK ADD  CONSTRAINT [chk_lastname_no_numeric] CHECK  ((NOT [LastName] like '%[^A-Z]%'))
+GO
+
+ALTER TABLE [dbo].[Contacts] CHECK CONSTRAINT [chk_lastname_no_numeric]
+GO
+
+ALTER TABLE [dbo].[Contacts]  WITH CHECK ADD  CONSTRAINT [chk_name_len_min] CHECK  ((datalength([FirstName])>(1)))
+GO
+
+ALTER TABLE [dbo].[Contacts] CHECK CONSTRAINT [chk_name_len_min]
+GO
+
+ALTER TABLE [dbo].[Contacts]  WITH CHECK ADD  CONSTRAINT [chk_name_no_numeric] CHECK  ((NOT [FirstName] like '%[^A-Z]%'))
+GO
+
+ALTER TABLE [dbo].[Contacts] CHECK CONSTRAINT [chk_name_no_numeric]
+GO
+
+ALTER TABLE [dbo].[Contacts]  WITH CHECK ADD  CONSTRAINT [chk_UserRegistrationUserEmail] CHECK  (([EMail] like '[a-z,0-9,_,-]%@[a-z,0-9,_,-]%.[a-z][a-z]%'))
+GO
+
+ALTER TABLE [dbo].[Contacts] CHECK CONSTRAINT [chk_UserRegistrationUserEmail]
 GO
 
 
--- covering index, columns (key - where part) nvarchars do
-CREATE NONCLUSTERED INDEX [C_Name_Contacts_I]
-    ON [dbo].[Contacts]
-        ([FirstName] ASC, [LastName] ASC, [IsDeleted]) -- where part (key)
-    INCLUDE ([EMail], [TelephoneNumber_Entry], [CreatedUtc], [ModifiedUtc]); -- non key  / varchar(max), nvarchar(max), varbinary(max)
-GO  

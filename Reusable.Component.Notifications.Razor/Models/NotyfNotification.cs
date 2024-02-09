@@ -7,8 +7,8 @@ namespace AspNetCoreHero.ToastNotification.Notyf.Models
     {
         public NotyfNotification(ToastNotificationType type, string message, int? durationInSeconds) : base(type, message, durationInSeconds)
         {
-
         }
+
         public string Icon { get; set; }
     }
 }

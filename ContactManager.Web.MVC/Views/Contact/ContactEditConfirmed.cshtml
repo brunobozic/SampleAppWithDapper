@@ -1,0 +1,55 @@
+﻿@model SampleAppWithDapper.Models.Contacts.ContactViewModel
+
+@{
+    ViewBag.Title = "Contact edited";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header class="bg-gradient" id="home">
+    <div class="container mt-3">
+    </div>
+</header>
+<div class="container" style="background-color: whitesmoke; padding: 6px">
+    <div class="row">
+        <div class="col-md-6 align-self-center" style="width: 90%; margin: 0 auto;">
+            <table>
+                <tr>
+                    <td style="width: 30%">
+                        <div class="col-md-12">
+                            <img class="img-fluid" src="~/images/ok.png" alt="ok">
+                        </div>
+                    </td>
+                    <td style="width: 60%">
+                        <hr />
+                        <span>@Resource.ContactEdittedSuccesfully </span>
+                        <hr />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <hr />
+            @using (Html.BeginForm("Index", "Contact", FormMethod.Get))
+            {
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="hidden" name="currentFilter" value='@TempData["CurrentFilter"]' class="myCurrentFilter">
+                       
+                        
+                        <input type="hidden" name="addedUserId" value=@Model.Id class="myAddedUserId">
+                        <button type="submit" value="Back" class="btn btn-outline-dark btn-sm btnBack">
+                            <i class="fa fa-arrow-left fa-lg"></i> @Resource.EditContact_Back_Button
+                        </button>
+
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+
+

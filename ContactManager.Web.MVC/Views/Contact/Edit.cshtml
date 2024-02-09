@@ -45,6 +45,8 @@
                 @Html.HiddenFor(m => m.Id)
 
                 @Html.AntiForgeryToken()
+                @Html.Hidden("returnUrl", ViewBag.ReturnUrl as string)
+                <input type="hidden" name="currentFilter" value='@TempData["CurrentFilter"]' class="myCurrentFilter">
 
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -102,21 +104,40 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-
                         <button type="submit" class="btn btn-outline-warning btn-sm btnEdit" aria-label="Left Align">
                             <i class="fa fa-edit fa-lg"></i> @Resource.EditContact_Edit_Button
                         </button>
+                    </div>
+                </div>
+            }
 
-                        <button type="button" class="btn btn-outline-danger btn-sm btnDelete" aria-label="Right Align" style="" data-value="@Model.Id" onclick='window.location = "@Url.Action("Delete", "Contact")" + "/@Model.Id";'>
+            @using (Html.BeginForm("Delete", "Contact", FormMethod.Get))
+            {
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+                        <input type="hidden" name="currentFilter" value='@TempData["CurrentFilter"]' class="myCurrentFilter">
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        <button type="submit" style="" value="Back" class="btn btn-outline-danger btn-sm btnDelete">
                             <i class="fa fa-trash-o fa-lg"></i> @Resource.EditContact_Delete_Button
                         </button>
 
-                        <button type="button" class="btn btn-outline-dark btn-sm btnBack" aria-label="Right Align" style="float:right" onclick='window.location = "@Url.Action("Index", "Contact")";'>
+                    </div>
+                </div>
+            }
+
+            @using (Html.BeginForm("Index", "Contact", FormMethod.Get))
+            {
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="hidden" name="currentFilter" value='@TempData["CurrentFilter"]' class="myCurrentFilter">
+                        <button type="submit" value="Back" class="btn btn-outline-dark btn-sm btnBack">
                             <i class="fa fa-arrow-left fa-lg"></i> @Resource.EditContact_Back_Button
                         </button>
 
                     </div>
                 </div>
+
             }
 
         </div>

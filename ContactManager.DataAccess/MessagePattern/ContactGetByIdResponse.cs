@@ -1,4 +1,4 @@
-﻿using SampleAppWithDapper.Domain.DomainModels.Contact;
+﻿using SampleAppWithDapper.DataAccess.DTOs;
 
 namespace SampleAppWithDapper.DataAccess.MessagePattern
 {
@@ -6,6 +6,6 @@ namespace SampleAppWithDapper.DataAccess.MessagePattern
     {
         public bool Success { get; set; } = false;
         public string Message { get; set; } = "";
-        public Contact Contact { get; set; }
+        public ContactDto Contact { get; set; }
     }
 }

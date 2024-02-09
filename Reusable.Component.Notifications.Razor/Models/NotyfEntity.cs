@@ -68,13 +68,14 @@ namespace AspNetCoreHero.ToastNotification.Notyf.Models
                     background = "black"
                 }
             };
-
         }
+
         public int duration { get; set; }
         public Position position { get; set; }
         public bool dismissible { get; set; } = true;
         public bool ripple { get; set; } = true;
         public List<Config> types { get; set; }
+
         private static string ToDescriptionString(NotyfPosition val)
         {
             var attributes = (DescriptionAttribute[])val.GetType().GetField(val.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false);

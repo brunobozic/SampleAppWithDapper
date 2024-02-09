@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using SampleAppWithDapper.Domain.DomainModels.Contact;
+using System.Collections.Generic;
 
 namespace SampleAppWithDapper.DataAccess.MessagePattern
 {
     public class PaginatedContactsResponse
     {
-        public int TotalCount { get; set; }
-        public List<Domain.DomainModels.Contact.Contact> Contacts { get; set; }
-        public int FilteredCount { get; set; }
+        public string Message { get; set; } = string.Empty;
+        public int TotalCount { get; set; } = 0;
+        public List<Contact> Contacts { get; set; }
+        public int FilteredCount { get; set; } = 0;
         public bool Success { get; set; } = false;
     }
 }

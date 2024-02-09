@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using Microsoft.AspNet.Identity;
 using SampleAppWithDapper.Domain.DomainModels.Identity;
 using System;
 using System.Collections.Generic;
@@ -15,7 +14,7 @@ namespace SampleAppWithDapper.DataAccess.Repositories.AppUsers
     public class UserRepositoryAsync : BaseRepository, IUserRepositoryAsync
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="connectionFactory"></param>
         public UserRepositoryAsync(IConnectionFactory connectionFactory) : base(connectionFactory)
