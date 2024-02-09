@@ -10,7 +10,6 @@ namespace AspNetCoreHero.ToastNotification.Abstractions
             Type = type;
             Duration = (durationInSeconds == null || durationInSeconds == 0) ? null : durationInSeconds * 1000;
         }
-
         public string Message { get; set; }
         public string BackgroundColor { get; set; }
         public ToastNotificationType Type { get; set; }

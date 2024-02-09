@@ -27,6 +27,7 @@ function itemDelete(id) {
                 error: errorFunc
             });
             function successFunc(data, status) {
+
                 swal(
                     'Deleted!',
                     'Your item has been deleted.',
@@ -34,8 +35,10 @@ function itemDelete(id) {
                 ).then(function () {
                     location.reload();
                 });;
+
             }
             function errorFunc() {
+
                 swal(
                     'Nothing changed!',
                     'Your item has not been deleted.',

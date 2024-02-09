@@ -8,7 +8,6 @@ namespace SampleAppWithDapper.DataAccess
     public class BaseRepository
     {
         private readonly IConnectionFactory _connectionFactory;
-
         protected BaseRepository(IConnectionFactory connectionFactory)
         {
             _connectionFactory = connectionFactory;

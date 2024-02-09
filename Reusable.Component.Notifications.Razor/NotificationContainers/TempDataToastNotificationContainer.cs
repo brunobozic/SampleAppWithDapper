@@ -13,7 +13,6 @@ namespace AspNetCoreHero.ToastNotification.Containers
         {
             _tempDataWrapper = tempDataWrapper;
         }
-
         public void Add(TMessage message)
         {
             var messages = _tempDataWrapper.Get<IEnumerable<TMessage>>(Key) ?? new List<TMessage>();

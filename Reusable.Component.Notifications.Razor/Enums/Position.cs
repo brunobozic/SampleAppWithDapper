@@ -6,7 +6,6 @@ namespace AspNetCoreHero.ToastNotification
     {
         [Description("left")]
         Left,
-
         [Description("right")]
         Right
     }

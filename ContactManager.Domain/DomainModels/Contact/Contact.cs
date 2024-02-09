@@ -4,7 +4,7 @@ namespace SampleAppWithDapper.Domain.DomainModels.Contact
 {
     public class Contact : BaseEntity
     {
-        private Contact()
+        public Contact()
         {
         }
 
@@ -40,6 +40,7 @@ namespace SampleAppWithDapper.Domain.DomainModels.Contact
         }
 
         public int FilteredCount { get; set; }
+
         public int RowNumber { get; }
         public int TotalCount { get; }
         public string FirstName { get; }

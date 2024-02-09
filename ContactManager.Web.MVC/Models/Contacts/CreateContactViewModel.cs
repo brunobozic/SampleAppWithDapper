@@ -6,6 +6,7 @@ namespace SampleAppWithDapper.Models.Contacts
     {
         [Display(Name = "Display_Name_Email", ResourceType = typeof(Resource.Resource))]
         [RegularExpression(".+@.+\\..+", ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "Validation_Email_Invalid")]
+        // [EmailAddress]
         public string EMail { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "Validation_FirstName_Required")]

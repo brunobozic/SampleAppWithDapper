@@ -1,4 +1,6 @@
-﻿namespace SampleAppWithDapper.UserHelpers
+﻿
+
+namespace SampleAppWithDapper.UserHelpers
 {
     public class LoggedInUserFacade
     {

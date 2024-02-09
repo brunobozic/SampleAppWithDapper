@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace SampleAppWithDapper.Models.Contacts
@@ -7,6 +8,7 @@ namespace SampleAppWithDapper.Models.Contacts
     {
         [Display(Name = "Display_Name_Email", ResourceType = typeof(Resource.Resource))]
         [RegularExpression(".+@.+\\..+", ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "Validation_Email_Invalid")]
+        // [EmailAddress]
         public string EMail { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "Validation_FirstName_Required")]
@@ -34,6 +36,5 @@ namespace SampleAppWithDapper.Models.Contacts
         public string ModifiedBy { get; set; }
         public DateTime Created { get; set; }
         public DateTime? Modified { get; set; }
-        public string PurposeMessage { get; set; }
     }
 }

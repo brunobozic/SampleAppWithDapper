@@ -1,4 +1,6 @@
-﻿namespace SampleAppWithDapper.DataAccess.MessagePattern
+﻿
+
+namespace SampleAppWithDapper.DataAccess.MessagePattern
 {
     public class ContactsGetAllPaginatedRequest
     {

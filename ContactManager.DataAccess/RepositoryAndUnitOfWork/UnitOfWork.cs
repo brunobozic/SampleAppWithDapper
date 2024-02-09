@@ -57,7 +57,6 @@ namespace SampleAppWithDapper.DataAccess
             Context.Transaction?.Commit();
             return true;
         }
-
         public async Task<bool> SaveAsync()
         {
             await Task.Run(() =>
@@ -72,7 +71,6 @@ namespace SampleAppWithDapper.DataAccess
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
         public void Dispose(bool isDisposing)
         {
             if (!_disposed)

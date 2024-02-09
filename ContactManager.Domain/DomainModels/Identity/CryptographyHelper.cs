@@ -7,7 +7,8 @@ namespace SampleAppWithDapper.Domain.DomainModels.Identity
 {
     public static class CryptographyHelper
     {
-        private static readonly String _EncryptionKey = "eid729";
+
+        static readonly String _EncryptionKey = "eid729";
 
         public static string Encrypt(string clearText)
         {
@@ -29,7 +30,6 @@ namespace SampleAppWithDapper.Domain.DomainModels.Identity
             }
             return clearText;
         }
-
         public static string Decrypt(string cipherText)
         {
             cipherText = cipherText.Replace(" ", "+");

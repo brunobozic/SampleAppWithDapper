@@ -129,9 +129,6 @@
   <data name="ContactDeleted_Success" xml:space="preserve">
     <value>Contact deleted.</value>
   </data>
-  <data name="ContactEdittedSuccesfully" xml:space="preserve">
-    <value>Contact was successfully editted</value>
-  </data>
   <data name="Contacts_Grid_Created" xml:space="preserve">
     <value>Created</value>
   </data>

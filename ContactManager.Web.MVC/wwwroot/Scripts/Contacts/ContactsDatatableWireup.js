@@ -1,5 +1,6 @@
 ﻿// ======== Datatables wireup ========
 $(document).ready(function () {
+  
     //// Setup - add a text input to each footer cell
     //$('#SearchResultTable tfoot th').each( function () {
     //    var title = $(this).text();
@@ -15,6 +16,7 @@ $(document).ready(function () {
     // @* CreatedBy *@
     // ModifiedUtc
     // @* ModifiedBy *@
+
 
     try {
         var datatableName = '#ContactsDashboard_ContactsDatatable';
@@ -108,6 +110,7 @@ $(document).ready(function () {
                 {
                     "data": "createdUtc", "name": "createdUtc", "autoWidth": false, type: "datetimeoffset",
                     render: function (data, type, row) {
+
                         var stillUtc = moment.utc(data).toDate();
                         var local = moment(stillUtc).local().format('DD.MM.YYYY HH:mm:ss');
                         var minDate = moment.utc("0001-01-01"); // minimum value as per UTC
@@ -118,6 +121,7 @@ $(document).ready(function () {
                 {
                     "data": "modifiedUtc", "name": "modifiedUtc", "autoWidth": false, type: "datetimeoffset",
                     render: function (data, type, row) {
+
                         var stillUtc = moment.utc(data).toDate();
                         var local = moment(stillUtc).local().format('DD.MM.YYYY HH:mm:ss');
 
@@ -129,13 +133,16 @@ $(document).ready(function () {
                 { "data": "action" }
             ],
             "drawCallback": function (settings) {
+
             },
             "initComplete": function (settings, json) {
+
             }
         });
     } catch (e) {
         console.log(e);
     }
+   
 
     $('#submitSearchContactsMainGrid').on('click', function (e) {
         operationsDatatable.draw();
@@ -143,6 +150,7 @@ $(document).ready(function () {
 
     $(document).ready(function () {
         $('#SearchResultTable_length').change(function () {
+
         });
     });
 
@@ -172,7 +180,9 @@ $(document).ready(function () {
                 $('#mdModal').find('.modal-body').html("Problem loading your data...");
 
                 $('#mdModal').on('shown.bs.modal', function () {
+
                 });
+
             },
             error: function (response) {
                 $('#mdModal').modal(options);
@@ -182,6 +192,7 @@ $(document).ready(function () {
                 $('#mdModal').find('.modal-body').html("Problem loading your data...");
 
                 $('#mdModal').on('shown.bs.modal', function () {
+
                 });
             }
         });
@@ -196,6 +207,7 @@ $(document).ready(function () {
         var editUrl = '';
 
         alert(id);
+
     });
 
     // Delete a record
@@ -207,14 +219,22 @@ $(document).ready(function () {
         var editUrl = '';
 
         alert(id);
+
     });
 
+
     $('#submitSearchContactsMainGrid').on('click', function (e) {
+
     });
+
+
 
     // Extend dataTables search
     $.fn.dataTable.ext.search.push(
         function (settings, data, dataIndex) {
+       
         }
     );
+
 });
+
