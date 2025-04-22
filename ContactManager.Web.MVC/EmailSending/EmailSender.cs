@@ -3,6 +3,7 @@ using MimeKit;
 using MimeKit.Text;
 using SampleAppWithDapper.Controllers;
 using MailKit.Net.Smtp;
+using System.Threading.Tasks;
 
 
 namespace SampleAppWithDapper.EmailSending
@@ -42,5 +43,14 @@ namespace SampleAppWithDapper.EmailSending
             return "OK";
         }
 
+        public Task SendEmailAsync(string email, string v1, string v2)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task SendMailAsync(string email, string v1, string v2)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
